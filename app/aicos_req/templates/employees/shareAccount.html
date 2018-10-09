@@ -1,0 +1,664 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "fin_base.html" %}
+{% block title %}Members{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+        <!--
+                {% if applications  %}
+                <br>
+                  {% for app in applications %}
+                    <h1> {{ app.email }} </h1>
+                  {% endfor %}
+                    {% if apps.applications %}
+                      <h1> {{ apps.applications.count() }} </h1>
+                    {% endif %}
+
+                {% endif %}
+                <br><br>
+        -->
+        <h1><i class="fa fa-users" style="color: #aec251;"> </i> Show All Share  </h1>
+        {% if employees %}
+          <!-- <hr class="intro-divider">
+          <div class="container-fluid">
+
+          <div class="row">
+          <div class="col-md-4 text-left">
+          <a href="{{ url_for('admin.AddNewMember') }}" class="btn btn-info btn-lg">
+          <i class="fa fa-users"> </i>
+            {% if employee.employees %}
+             All Members {{ employee.members.count() }} </h1>
+            {% endif %}
+          </a>
+          </div>
+          <div class="col-md-4 text-center">
+          <a href="{{ url_for('admin.list_applications') }}" class="btn btn-info btn-lg">
+          <i class="fa fa-pencil"> </i>
+          {% if applications  %}
+            {% if apps.applications %}
+              Applications {{ apps.applications.count() }} </h1>
+            {% endif %}
+          {% endif %}
+          </a>
+          </div> 
+          <div class="col-md-4 text-right">
+          <a href="{{ url_for('admin.AddNewMember') }}" class="btn btn-info btn-lg">
+          <i class="fa fa-book"> </i>
+          {% if applications  %}
+            {% if apps.applications %}
+              Total members {{ apps.applications.count() + employee.members.count() }} </h1>
+            {% endif %}
+          {% endif %}
+          </a><br><br>
+          </div>
+          </div>
+          </div>
+           -->
+          <hr>
+        {% endif %}
+        <div id="chartx"></div><br>
+    
+<div class="container-fluid">
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>##</th>
+                <th>Share Account Id</th>
+                <th>MemberID</th>
+                <th>TotalAmount</th>
+                <th>OpenDate</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>##</th>
+                <th>Share Account Id</th>
+                <th>MemberID</th>
+                <th>TotalAmount</th>
+                <th>OpenDate</th>
+            </tr>
+        </tfoot>
+        <tbody>
+              {% for employee in employees %}
+                {% if employee.is_coop_admin %}
+                    <tr style="background-color: #aec251; color: white;">
+                      <td> <i class="fa fa-key"></i> Admin </td>
+                      <td> {{ employee.username }} </td>
+                      <td> {{ employee.email }} </td>
+                      <td> {{ employee.first_name }} </td>
+                      <td>
+                        {% if employee.department_id %}
+                          {{ employee.department.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if employee.role %}
+                          {{ employee.role.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td> <a href="{{ url_for('admin.member_details', id=employee.id) }}">
+                      <i class="fa fa-eye"> View 
+                      </a></td>
+                      <td> <a href="{{ url_for('admin.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"> Remove
+                      </a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                      <td> {{ employee.id }} </td>
+                      <td> {{ employee.name }} </td>
+                      
+                      <td> {{ employee.id }} </td>
+
+                      <td> {{ employee.id }} </td>
+                      <td> 12/12/2017 </td>
+                    </tr>
+                {% endif %}
+              {% endfor %}
+        </tbody>
+    </table><br><br><br>
+    <!--
+            <div style="text-align:center;">
+            <a href="{{ url_for('admin.AddNewMember') }}" class="btn btn-success btn-lg">
+            <i class="fa fa-plus"> </i>
+            Add Member
+            </a><br><br>
+
+            <a href="{{ url_for('admin.invite_members') }}" class="btn btn-success btn-lg">
+            <i class="fa fa-envelope"> </i>
+            Invite People
+            </a><br>
+
+
+            <p> Or </p>
+            <a href="{{ url_for('admin.doimportmbs') }}" class="btn btn-success btn-lg">
+            <i class="fa fa-upload"> </i>
+            Upload File
+            </a>
+            </div>
+            -->
+
+
+
+<!--
+<div class="col-md-6" style="background-color: #ffffff;">
+    <h2>Recent Given Loans</h2>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Loan</th>
+        <th>Complited</th>
+        <th>Date</th>
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Kwishura ishuri</td>
+        <td><span class="label label-danger">Incomplited</span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+      <tr>
+        <td>Kugura itungo</td>
+        <td><span class="label label-success">Complited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+      <tr>
+        <td>Kugura imbuto</td>
+        <td><span class="label label-danger">Incomplited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+
+      <tr>
+        <td>Kugura mudasobwa</td>
+        <td><span class="label label-danger">Incomplited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+
+
+      <tr>
+        <td>Gusaruza imyaka</td>
+        <td><span class="label label-danger">Incomplited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+
+
+      <tr>
+        <td>Urugendo Shuri</td>
+        <td><span class="label label-danger">Incomplited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+    </tbody>
+  </table>
+    <p class="btn btn-success btn-sm"><i class="fa fa-book"></i> View all details </p><br><br>
+  </div>
+  <div class="col-md-1">
+  </div>
+
+
+ 
+
+
+
+    <div class="col-md-5" style="background-color: #ffffff;">
+    <h2>Overdue Loans</h2>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Loan</th>
+        <th>Status</th>
+        <th>Progress</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>619</td>
+        <td>Gusaruza imyaka</td>
+        <td>Not Paid</td>
+
+        <td><span class="label label-info">30% </span></td>
+      </tr>
+      <tr>
+        <td>616</td>
+        <td>Kugura imbuto</td>
+        <td>Not finished</td>
+        <td><span class="label label-success">50% </span></td>
+      </tr>
+      <tr>
+        <td>69%</td>
+        <td>Kwishyura abakozi</td>
+        <td>Not Paid</td>
+        <td><span class="label label-success">80% </span></td>
+      </tr>
+
+
+
+      <tr>
+        <td>606</td>
+        <td>Kwishyura abakozi</td>
+        <td>Not Paid</td>
+        <td><span class="label label-info">80% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>600</td>
+        <td>Kugura itungo</td>
+        <td>Not Paid</td>
+        <td><span class="label label-success">80% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>601</td>
+        <td>Kuzitira umurima</td>
+        <td>Not Paid</td>
+        <td><span class="label label-info">80% </span></td>
+      </tr>
+
+    </tbody>
+  </table>
+    <p class="btn btn-success btn-sm"><i class="fa fa-book"></i> View all details </p><br><br>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="col-md-6" style="background-color: #ffffff;">
+<br><br><br>
+    <h2>Next Members To Take <br>A Loan</h2><br>         
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Loan</th>
+        <th>Due date</th>
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Muhirwa</td>
+        <td>Kubaka Ikiraro</td>
+        <td><span class="label label-success">Jan 1, 2017</span></td>
+        <td><i fa class="fa fa-trash"> &nbsp;</i> <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+      <tr>
+        <td>Twagirayezu</td>
+        <td> Kugura Itungo </td>
+        <td><span class="label label-info">Jan 1, 2017</span></td>
+        <td><i fa class="fa fa-trash"> &nbsp; </i> <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+      <tr>
+        <td>Ndimubayo</td>
+        <td>Kugura imbuto</td>
+        <td><span class="label label-success">Jan 1, 2017</span></td>
+        <td><i fa class="fa fa-trash"></i> &nbsp; <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+
+      <tr>
+        <td>Karekezi</td>
+        <td>Kwishyura Isarura</td>
+        <td><span class="label label-info">Jan 1, 2017</span></td>
+        <td><i fa class="fa fa-trash"></i> &nbsp; <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+
+
+      <tr>
+        <td>Murara</td>
+        <td>Kwishyura Isarura</td>
+        <td><span class="label label-success">Jan 1, 2017 </span></td>
+        <td><i fa class="fa fa-trash"></i> &nbsp; <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+      <tr>
+        <td>Rekeraho</td>
+        <td>Kugura Imbuto</td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> &nbsp; <span class="label label-success"> <i fa class="fa fa-check"></i></span></td>
+      </tr>
+
+    </tbody>
+  </table>
+    <p class="btn btn-success btn-sm"><i class="fa fa-book"></i> View all details </p><br><br>
+  </div>
+
+
+  <div class="col-md-1">
+  </div>
+
+    <div class="col-md-5" style="background-color: #ffffff;">
+    <br><br><br>
+    <h2>Best / Well Paying Members</h2><br>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>( % )</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>619</td>
+        <td>Gushumba</td>
+        <td>Excellent</td>
+
+        <td><span class="label label-success">85% </span></td>
+      </tr>
+      <tr>
+        <td>616</td>
+        <td>Muhiza</td>
+        <td>Very Good</td>
+        <td><span class="label label-info">78% </span></td>
+      </tr>
+      <tr>
+        <td>695</td>
+        <td>Mukamurenzi</td>
+        <td>Good</td>
+        <td><span class="label label-success">60% </span></td>
+      </tr>
+
+
+
+      <tr>
+        <td>606</td>
+        <td>Murorunkwere</td>
+        <td>Excellent</td>
+        <td><span class="label label-info">90% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>600</td>
+        <td>Kalisa</td>
+        <td>Very Good</td>
+        <td><span class="label label-success">   75%   </span></td>
+      </tr>
+
+
+      <tr>
+        <td>601</td>
+        <td>Munyakazi</td>
+        <td>Good</td>
+        <td><span class="label label-info">  65% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>501</td>
+        <td>Mukayuhi</td>
+        <td>Good</td>
+        <td><span class="label label-info">  65% </span></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+    <p class="btn btn-success btn-sm"><i class="fa fa-book"></i> View all details </p><br><br>
+  
+  </div>
+
+
+
+
+    <div class="col-md-5" style="background-color: #ffffff;">
+    <br>
+<br><br><br>
+
+    <h2>Rejected Members</h2><br>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>( % )</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>619</td>
+        <td>Gushumba</td>
+        <td>Excellent</td>
+
+        <td><span class="label label-success">85% </span></td>
+      </tr>
+      <tr>
+        <td>616</td>
+        <td>Muhiza</td>
+        <td>Very Good</td>
+        <td><span class="label label-info">78% </span></td>
+      </tr>
+      <tr>
+        <td>695</td>
+        <td>Mukamurenzi</td>
+        <td>Good</td>
+        <td><span class="label label-success">60% </span></td>
+      </tr>
+
+
+
+      <tr>
+        <td>606</td>
+        <td>Murorunkwere</td>
+        <td>Excellent</td>
+        <td><span class="label label-info">90% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>600</td>
+        <td>Kalisa</td>
+        <td>Very Good</td>
+        <td><span class="label label-success">   75%   </span></td>
+      </tr>
+
+
+      <tr>
+        <td>601</td>
+        <td>Munyakazi</td>
+        <td>Good</td>
+        <td><span class="label label-info">  65% </span></td>
+      </tr>
+
+
+      <tr>
+        <td>501</td>
+        <td>Mukayuhi</td>
+        <td>Good</td>
+        <td><span class="label label-info">  65% </span></td>
+      </tr>
+
+
+    </tbody>
+  </table>
+    <p class="btn btn-success btn-sm"><i class="fa fa-book"></i> View all details </p><br><br>
+  
+
+<br><br><br>
+<br><br><br>
+            </div>
+        <br/><br/><br/>
+  -->
+
+<!--
+Trying out how to use modal.
+=============================
+
+<a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open Modal</a>
+<div class="modal" id="my_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Modal header</h4>
+      </div>
+      <div class="modal-body">
+      {% if employeex %}
+        <p>{{ employeex.name }}</p>
+      {% else %}
+        <p> Hello </p>
+      {% endif %}
+        <input type="text" name="bookId" value=""/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('#my_modal').on('show.bs.modal', function(e) {
+    var bookId = $(e.relatedTarget).data('book-id');
+    $(e.currentTarget).find('input[name="bookId"]').val(bookId);
+});
+</script>
+-->
+<script type="text/javascript">
+
+          function getTableData(table) {
+            const dataArrays = [],
+              countryArrays = [],
+              populationArrays = [],
+              densityArrays = [];
+
+            // loop table rows
+            table.rows({ search: "applied" }).every(function() {
+              const data = this.data();
+              countryArrays.push(data[1]);
+              populationArrays.push(parseInt(data[2].replace(/\,/g, "")));
+              densityArrays.push(parseInt(data[3].replace(/\,/g, "")));
+            });
+
+            // store all data in dataArray
+            dataArrays.push(countryArrays, populationArrays, densityArrays);
+
+            return dataArrays;
+          }
+
+          function createHighcharts(data) {
+            Highcharts.setOptions({
+              lang: {
+                thousandsSep: ","
+              }
+            });
+
+            Highcharts.chart("chartx", {
+              title: {
+                text: "Activities Logs"
+              },
+              //subtitle: {
+                //text: "Data from worldometers.info"
+              //},
+              xAxis: [
+                {
+                  categories: data[0],
+                  labels: {
+                    rotation: -45
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  // first yaxis
+                  title: {
+                    text: "Members (2017)"
+                  }
+                },
+                {
+                  // secondary yaxis
+                  title: {
+                    text: "Shares (P/member)"
+                  },
+                  min: 0,
+                  opposite: true
+                }
+              ],
+              series: [
+                {
+                  name: "Members (2017)",
+                  color: "#0071A7",
+                  type: "column",
+                  data: data[1],
+                  tooltip: {
+                    valueSuffix: " Members"
+                  }
+                },
+                {
+                  name: "Shares (P/member)",
+                  color: "#FF404E",
+                  type: "spline",
+                  data: data[2],
+                  yAxis: 1
+                }
+              ],
+              tooltip: {
+                shared: true
+              },
+              legend: {
+                backgroundColor: "#ececec",
+                shadow: true
+              },
+              credits: {
+                enabled: false
+              },
+              noData: {
+                style: {
+                  fontSize: "16px"
+                }
+              }
+            });
+          }
+
+          function setTableEvents(table) {
+            // listen for page clicks
+            table.on("page", () => {
+              draw = true;
+            });
+
+            // listen for updates and adjust the chart accordingly
+            table.on("draw", () => {
+              if (draw) {
+                draw = false;
+              } else {
+                const tableData = getTableData(table);
+                createHighcharts(tableData);
+              }
+            });
+          }
+</script>
+
+
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+  </div>
+</div>
+

@@ -1,0 +1,152 @@
+{% extends "members_base.html" %}
+    {% block body %}
+      <div class="container-fluid">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h3>Uko abanyamuryango bagiye binjira muri Cooperative.</h3>
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                    <div class="col-md-12">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <h3>Uko abanyamuryango bagiye binjira muri Cooperative.</h3>
+                                    </div>
+                                </div>
+                            </div><br>
+
+
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+                <th>Umwanya</th>
+                <th>Shyiraho</th>
+                <th>Ibindi</th>
+                <th>Siba</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+
+                <th>Umwanya</th>
+                <th>Shyiraho</th>
+                <th>Ibindi</th>
+                <th>Siba</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.District }} </td>
+                      <td> {{ employee.Sector }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Umunyamuryango
+                        {% endif %}
+                      </td>
+                      <td>
+                      <span class="badge badge-success">
+                        <b>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}" style="color:white; font-size: 12px;">
+                          <i class="fa fa-user-plus"></i> Shyiraho
+                        </a>
+                        </b>
+                      </td>
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        rambura
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td>
+                      <span class="badge badge-danger">
+                      <b>
+                      <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-trash"></i> Siba
+                      </a>
+                      </b>
+                      </span>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>  
+
+
+
+
+
+    <br><br><br>
+            </div>
+            <div class="row mt-4">
+            <!--
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Radar Chart
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="radar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                    -->
+        </div>
+    </div>
+
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

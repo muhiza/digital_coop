@@ -1,0 +1,41 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Members{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+        <!--
+                {% if applications  %}
+                <br>
+                  {% for app in applications %}
+                    <h1> {{ app.email }} </h1>
+                  {% endfor %} 
+                    {% if apps.applications %}
+                      <h1> {{ apps.applications.count() }} </h1>
+                    {% endif %}
+
+                {% endif %}
+        -->
+          <div class="row">
+          {% block dashboard %}
+
+
+            <h2>Activity</h2>
+            <p><b> All updates in coop </b></p>
+            <hr>
+            <p><i class="fa fa-book"></i>Meeting notes</p>
+            <h5><a href="#">Created about 2 hours ago</a></h5>
+
+
+
+
+      </div>
+      {% endblock %}
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

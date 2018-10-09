@@ -1,0 +1,100 @@
+   {% extends "req_base.html" %}
+    {% block body %}
+        <div class="container-fluide">
+        <h3> Governance Books </h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-file"></i> Inteko Rusange </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_req.intekoRusangeList') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cyandikwamo inyandiko-mvugo z’inama y’inteko rusange.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-user"></i> Inama y'ubuyobozi </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_req.inamaUbuyoboziList') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cyandikwamo inyandiko-mvugo z’inama y’ubuyobozi.
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-tasks"></i> Inama y'ubugenzuzi </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_req.ubugenzuziList') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cyandikwamo inyandiko-mvugo  z’inama y’ubugenzuzi.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+{% endblock %}

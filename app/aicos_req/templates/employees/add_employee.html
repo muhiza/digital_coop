@@ -1,0 +1,19 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "coop_base.html" %}
+{% block title %} Add a member {% endblock %}
+
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+              {% block body %}
+                              <h1>Add A Member</h1>
+                          <br/>
+                          {{ wtf.quick_form(form) }}
+              {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "coop_base.html" %}
+{% block title %}Share a link{% endblock %}
+{% block body %}
+		  <div class="panel panel-default">
+		    <div class="panel-heading"><h3>Share a link</h3></div>
+		    <div class="panel-body">
+		    <div class="col-md-6">
+		    <br/>
+		    {{ wtf.quick_form(form) }}
+		    </div>
+
+		    <div class="col-md-6 text-center">
+		    <h3>
+		    About sharing links </h3>
+			<p>
+			Share links to anything you find on the web. To make sharing easier, drag this bookmarklet to your bookmarks bar.
+			</p>
+		    </div>
+		    </div>
+        </div>
+{% endblock %}

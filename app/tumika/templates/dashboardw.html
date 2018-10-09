@@ -1,0 +1,276 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "tumika_base.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}
+      <div class="container-fluid">
+        {{ utils.flashed_messages() }}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card p-4">
+                    <a href="#">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 d-block font-weight-normal mb-2">
+                                    258
+                                </span>
+                                <span class="font-weight-light">Workflow Automation</span>
+                            </div>
+
+                            <div class="h2 text-muted">
+                                <i class="icon icon-user"></i>
+                            </div>
+                        </div>
+                      </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card p-4">
+                    <a href="#">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 d-block font-weight-normal mb-2">
+                                    50
+                                </span>
+                                <span class="font-weight-light">SMS/MMS Marketing</span>
+                            </div>
+
+                            <div class="h2 text-muted">
+                                <i class="icon icon-people"></i>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card p-4">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 d-block font-weight-normal mb-2">90</span>
+                                <span class="font-weight-light">ETA Notifications</span>
+                            </div>
+
+                            <div class="h2 text-muted">
+                                <i class="icon icon-cloud-download"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card p-4">
+                        <div class="card-body d-flex justify-content-between align-items-center">
+                            <div>
+                                <span class="h4 d-block font-weight-normal mb-2">32</span>
+                                <span class="font-weight-light">Instant Lead Alerts</span>
+                            </div>
+
+                            <div class="h2 text-muted">
+                                <i class="icon icon-clock"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">32</span>
+                                <span class="font-weight-light">Automated Survey</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">565</span>
+                                <span class="font-weight-light">Total Daily reports</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">232</span>
+                                <span class="font-weight-light">Sent Messages</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">44,000</span>
+                                <span class="font-weight-light">Total Paid money</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><br><br>
+            <div class="row">
+                  <div class="col-md-4">
+                  <a href="{{ url_for('tumika.message') }}">
+                      <button type="button" class="btn btn-block btn-primary btn-lg">
+                          <i class="fa fa-envelope"></i> &nbsp; Send Messages
+                      </button>
+                  </a>
+                  </div>
+                  <div class="col-md-4">
+                    <button type="button" class="btn btn-block btn-info btn-lg">
+                            <i class="fa fa-phone"></i> &nbsp; Make Calls
+                    </button>
+                  </div>
+                  <div class="col-md-4">
+                    <button type="button" class="btn btn-block btn-secondary btn-lg">
+                            <i class="fa fa-book"></i> &nbsp; Create Surveys
+                    </button>
+                  </div>
+            </div>
+        </div>
+
+
+
+
+
+<!--
+      <h2 class="sub-header">System Logs</h2>
+      <div class="table-responsive">
+          <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From (IP)</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if notes %}
+              {% for notification in notes %}
+                    <tr>
+                      <td> {{ notification.action | truncate(8) }} </td>
+                      <td> {{ notification.done_by }} </td>
+                      <td> {{ notification.done_from }} </td>
+                      <td> {{ notification.done_date }} </td>
+                      <td> {{ notification.done_time }} </td>
+
+                      <td> 0
+
+                       </td>
+
+                      <td> 
+                          <a href="#">
+                          <i class="fa fa-eye"> </i>Details 
+                          </a>
+                      </td>
+
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+              {% endif %}
+        </tbody>
+    </table>
+    <div id="charts"></div>
+    <br><br>
+  </div>
+
+-->
+
+
+        </div>
+      </div>
+    </div>
+
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

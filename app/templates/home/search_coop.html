@@ -1,0 +1,110 @@
+{% extends "home_base.html" %}
+{% import "bootstrap/utils.html" as utils %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+<div class="content">
+  <div class="row">
+    <div class="col-md-9">
+      <h1><strong> Urutonde rw'amakoperative </strong></h1>
+      <p>Shakisha koperative yawe ushaka kwinjiza muri sisiteme ubundi ubone amakuru ayerekeyeho.</p>
+    </div>
+    <div class="col-md-3 text-right">
+      <div class="input-group">
+          <label class="" for="sort by" style="margin-right: 5px;"><h3> Shakisha na: </h3> </label>
+          <select class="form-control">
+            <option>Amazina</option>
+            <a href="#"><option>Intara</option></a>
+            <option>Akarere</option>
+            <option>Ibikorwa</option>
+            <option>Ubwinshi</option>
+            <option>Igihe (Kwinjira)</option>
+          </select> &nbsp;&nbsp;
+      </div>
+        <div class="col-md-12 text-right">
+      <button class="btn " style="background-color: #293658;">
+        <a href="{{ url_for('home.table_search') }}" style="color: #fff;">
+        <b><i class="fa fa-search"></i>&nbsp;Quick Search&nbsp; </b></a> </button>
+  </div>
+    </div>
+  </div>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    {{ utils.flashed_messages() }}
+    {% for cooperative in all_cooperatives.items %}
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header" style="background-color: #394249; border-top-right-radius: 3px; border-top-left-radius: 3px;">
+            <h4 style="color: #fff;">Koperative: <b><strong>
+            <a href="{{ url_for('home.cooperative_details', email=cooperative.email) }}" style="color: #fff;"> {{ cooperative.name|truncate(14) }} </a></strong></b></h4>
+        </div>
+        <div class="card-body" style="font-size: 15px;">
+           <b> Intara : </b> {{ cooperative.province }} </b><br>
+           <b> Akarere : </b> {{ cooperative.district }} </b><br>
+           <b> Umurenge : </b> {{ cooperative.sector }} </b><br>
+          
+          {% if cooperative.members %}
+          <b>Abanyamuryango :</b> {{ cooperative.members.count() }} <br>
+          <b>Umugabane Shingiro : </b>{{ cooperative.members.count() }}150 Rwf 
+        <br>
+        <b>Icyiciro : </b>{{ cooperative.field }}<br><br>
+        </div>
+      <div class="card-footer bg-light">
+          <button class="btn btn-md" style="border-radius: 3px; background-color: #1F656D;">
+              <a href="{{ url_for('home.coopInfo', email=cooperative.email) }}" style="color: #fff;">
+              <b><i class="fa fa-plus"></i> INJIZA MURI SISITEME </b>
+              </a>
+          </button>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+               
+
+
+<style>
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;}
+</style> 
+<div class="container-fluid text-center"><br><br>
+  <div class="pagination" style="background-color: #f2f2f2; font-size: 20px;">
+  <a href="#">&laquo;</a>
+  {% for page in all_cooperatives.iter_pages() %}
+
+  {% if page %}
+      
+      <a href="{{ url_for('home.search_coop', page_num=page) }}"> &nbsp;{{ page }}&nbsp;</a>
+
+  {% else %}
+
+  {% endif %}
+  {% endfor %}
+
+  <a href="#">&raquo;</a>
+  </div>
+
+  </div>
+</div>
+</div>
+
+<br><br>
+<br><br>
+<br><br>
+<br><br>
+{% endblock %}

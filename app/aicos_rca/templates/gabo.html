@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+</head>
+
+
+<body class="sidebar-hidden header-fixed">
+
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+
+let draw = true;
+init();
+
+/**
+ * FUNCTIONS
+ */
+
+function init() {
+  // initialize DataTables
+  const table = $("#exampleRcaMale").DataTable();
+  // get table data
+  const tableData = getTableData(table);
+  // create Highcharts
+  createHighcharts(tableData);
+  // table events
+  setTableEvents(table);
+}
+
+function getTableData(table) {
+  const dataArray = [],
+    countryArray = [],
+    populationArray = [],
+    densityArray = [];
+
+  // loop table rows
+  table.rows({ search: "applied" }).every(function() {
+    const data = this.data();
+    countryArray.push(data[0]);
+    populationArray.push(parseInt(data[6].replace(/\,/g, "")));
+    densityArray.push(parseInt(data[5].replace(/\,/g, "")));
+  });
+
+  // store all data in dataArray
+  dataArray.push(countryArray, populationArray, densityArray);
+
+  return dataArray;
+}
+
+function createHighcharts(data) {
+  Highcharts.setOptions({
+    lang: {
+      thousandsSep: ","
+    }
+  });
+
+  Highcharts.chart("chartRcaMale", {
+    title: {
+      text: "List Of Cooperatives and their Members"
+    },
+    subtitle: {
+      text: "Insight to cooperative's members and their growth"
+    },
+    xAxis: [
+      {
+        categories: data[0],
+        labels: {
+          rotation: -45
+        }
+      }
+    ],
+    yAxis: [
+      {
+        // first yaxis
+        title: {
+          text: "Number of Members"
+        }
+      },
+    ],
+    series: [
+      {
+        name: "Number of Members",
+        color: "#0071A7",
+        type: "column",
+        data: data[1],
+        tooltip: {
+          valueSuffix: " M"
+        }
+      },
+      {
+        name: "Umugabane (Frw)",
+        color: "#FF404E",
+        type: "pie",
+        data: data[2],
+        yAxis: 1
+      }
+    ],
+    tooltip: {
+      shared: true
+    },
+    legend: {
+      backgroundColor: "#ececec",
+      shadow: true
+    },
+    credits: {
+      enabled: false
+    },
+    noData: {
+      style: {
+        fontSize: "16px"
+      }
+    }
+  });
+}
+
+function setTableEvents(table) {
+  // listen for page clicks
+  table.on("page", () => {
+    draw = true;
+  });
+
+  // listen for updates and adjust the chart accordingly
+  table.on("draw", () => {
+    if (draw) {
+      draw = false;
+    } else {
+      const tableData = getTableData(table);
+      createHighcharts(tableData);
+    }
+  });
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+

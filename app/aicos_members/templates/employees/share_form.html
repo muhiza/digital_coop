@@ -1,0 +1,26 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "fin_base.html" %}
+{% block title %} Membership Form {% endblock %}
+
+
+{% block body %}
+<div class="container">
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+                        <h1>Share Account Transaction</h1><br>
+                        <h4> Deposit Share </h4>
+                          <br/>
+                          <div class="row">
+                          <div class="col-md-6">
+                        {{ wtf.quick_form(form) }}
+                        </div>
+                        </div>   
+      </div>
+    </div>
+  </div>
+</div>
+<br/><br/><br/><br/><br/><br/>
+</div>
+{% endblock %}

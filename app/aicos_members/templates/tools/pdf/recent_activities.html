@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Report</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<div class="col-md-6">
+  <h1 class="text-left"><b>Abahuza Cooperative</b><br><br>
+  <span class="glyphicon glyphicon-home glyphicon-lg"></span></h1>
+  <p>Logo</p>
+  </div>
+  </div>
+  <hr><br>
+  <h2>Recent Activities Report</h2>
+  <p>High level overview</p> 
+  <p><b>Date</b> : {{ date }}</p>         
+  <table class="table table-striped">
+    <thead>
+      <tr>
+                <th>ID</th>
+                <th>Action </th>
+                <th>Done by</th>
+                <th>Done from</th>
+                <th>Done date</th>
+                <th>Done time</th>
+                <th>Done to</th>
+                <th>Effect</th>
+                <th>Options</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% if notifications %}
+              {% for notification in notifications %}
+                    <tr>
+                      <td> {{ notification.id }} </td>
+                      <td> {{ notification.action }} </td>
+                      <td> {{ notification.done_by }} </td>
+                      <td> {{ notification.done_from }} </td>
+                      <td> {{ notification.done_date }} </td>
+                      <td> {{ notification.done_time }} </td>
+                      <td> {{ notification.done_to }} </td>
+                      <td> {{ notification.effect }} </td>
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        {% endif %}
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

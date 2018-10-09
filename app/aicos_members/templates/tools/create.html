@@ -1,0 +1,116 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "members_base.html" %}
+{% block title %}Members{% endblock %}
+
+<style type="text/css">
+  #card{
+    background-color: #aec251;
+  }
+</style>
+
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+        <!--
+                {% if applications  %}
+                <br>
+                  {% for app in applications %}
+                    <h1> {{ app.email }} </h1>
+                  {% endfor %} 
+                    {% if apps.applications %}
+                      <h1> {{ apps.applications.count() }} </h1>
+                    {% endif %}
+
+                {% endif %}
+        -->
+<style type="text/css">
+.panel-body .btn:not(.btn-block) { width:240px; height:150px; margin-bottom:20px; }
+
+h5 {
+  color: black;
+}
+
+</style><br>
+  
+          <div class="row">
+          <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts (Tools)</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6 col-md-6">
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-list-alt"></span> <br/>Blank Page <br>
+                          <h5> Start with blank page </h5></a>
+                          <a href="{{ url_for('aicos_members.decisions_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-bookmark"></span> <br/>Decision <br>
+                          <h5> Record important project <br>decisions
+                          and communicate <br>them with your<br>
+                          members</h5></a>
+                          <a href="{{ url_for('aicos_members.how_to_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-signal"></span> <br/>How-to article<br>
+                          <h5> Provide a step-by-step guidance<br>
+                          for completing a task</h5></a>
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Meeting notes <br> 
+                          <h5><h5> Plan your meetings <br> and share notes<br>
+                          and actions with your members.<br>
+                          </h5></a>
+                          
+                          <a href="{{ url_for('admin.links_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-share"></span> <br/>Share a link<br>
+                          <h5> Share and discuss a content <br> from  
+                          the web link articles and<br>
+                           videos with your members.</h5></a>
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-comment"></span> <br/>Troubleshooting article <br> 
+
+                          <h5><h5> Provide solution for commonly<br>
+                          encountered problems<br>
+                          </h5></a>
+                        </div>
+                        <div class="col-xs-6 col-md-6">
+                          <a href="{{ url_for('admin.reports_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-user"></span> <br/>Task Report <br> 
+                          <h5><h5> Keep track of your tasks<br>
+                           for your team or project.<br>
+                          </h5></a>
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-file"></span> <br/>Blog Post <br> 
+                          <h5><h5> Share news and <br> announcements<br> with your team
+                          </h5></a>
+                          <a href="{{ url_for('admin.files_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>File List <br> 
+                          <h5><h5> Upload, view and share <br>files with your team.
+                          </h5></a>
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Host a meeting <br> 
+                          <h5><h5> Organise, invite and host <br>
+                          a meeting via sms, phone calls<br> and video calls <br>
+                          </h5></a>
+
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-picture"></span> <br/>Survey <br> 
+                          <h5><h5> Create and share docs <br>to listen from members.
+                          </h5></a>
+                          <a href="#" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Product requirements <br> 
+                          <h5><h5> Define, track and scope, <br>
+                          requirements for your product<br> or feature.</h5></a>
+
+
+
+                          <a href="{{ url_for('admin.contributions_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-save"></span> <br/>Contribution <br> 
+                          <h5><h5> Create and share docs <br>to listen from members.
+                          </h5></a>
+                          <a href="{{ url_for('admin.communications_list') }}" class="btn btn-default btn-lg" role="button"><span class="glyphicon glyphicon-envelope"></span> <br/>Communication <br> 
+                          <h5><h5> Define, track and scope, <br>
+                          requirements for your product<br> or feature.</h5></a>
+
+                        </div>
+                    </div><br><br>
+                    <a href="#" class="btn btn-default btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> View all</a>
+                </div>
+            </div>
+      </div>
+      </div>
+      </div>
+      {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

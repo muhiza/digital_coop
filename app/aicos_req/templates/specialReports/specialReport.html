@@ -1,0 +1,88 @@
+   {% extends "req_base.html" %}
+    {% block body %}
+        <div class="container-fluide">
+        <h3> SPECIAL REPORTS </h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-file"></i> Ukwezi </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.blank') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Raporo z’ukwezi (Monthly reports).
+                        </div><br>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-user"></i> Igihembwe </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.decisions_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Raporo z’igihembwe (Quarterly reports).
+                        </div><br>
+                    </div>
+                </div> 
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-tasks"></i> Umwaka </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.list_reports') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Raporo z’umwaka (Annual reports).
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-envelope"></i> Ngenzuzi </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.communications_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Raporo za comite ngenzuzi (Supervisory reports).
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+
+
+
+
+
+        </div>
+{% endblock %}

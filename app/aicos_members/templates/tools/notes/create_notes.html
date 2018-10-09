@@ -1,0 +1,42 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block body %}
+
+
+      {% block dashboard %}
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		  <div class="panel panel-default">
+		    <div class="panel-heading"><h3>Track a decision</h3></div>
+		    <div class="panel-body">
+		    <div class="col-md-6">
+		    <br/>
+		    {{ wtf.quick_form(form) }}
+		    </div>
+
+		    <div class="col-md-6 text-center">
+		    <h3>Let’s get started </h3>
+
+<p>
+
+With meeting notes you can...
+Crowd-source your agenda
+Distribute an agenda and keep meetings focused.
+Capture meeting minutes
+Take notes and make them available to everyone.
+Create and assign tasks
+Assign action items for attendees to work on afterward.
+
+
+</p>
+		    </div>
+		    </div>
+
+
+		  </div>
+        </div>
+
+
+    {% endblock %}
+{% endblock %}

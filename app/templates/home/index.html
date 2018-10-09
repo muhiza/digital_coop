@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block body %}
+<div class="intro-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="intro-message">
+
+                <h1>Welcome to Smart Coop, where cooperation matters most </h1>
+                    <h3 style="">Where great minds meet!</h3>
+                    <hr class="intro-divider">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-section">
+<div class="container">
+<div class="row">
+<div class="col-lg-6">
+<img src="https://evernote.com/img/home/benefit-3.png">
+</div>
+<style type="text/css">
+    #together {
+    padding: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10em; 
+    font-size: 16px;
+}
+</style>
+<div class="col-md-6" id="together">
+<h2> Bring it all together </h2>
+<p>Sed odio libero, iaculis et arcu ac, dignissim vestibulum enim. Etiam bibendum ornare tincidunt. Phasellus consectetur metus ac suscipit commodo. Curabitur at blandit nulla. Aenean gravida nisl sit amet ipsum rutrum, vel blandit urna porta. Donec blandit sed nunc id imperdiet. Curabitur nec ex in ante tristique scelerisque. <br><br><br>
+<a href="#"><b><i><u>Learn more about our businesses  </u></i></b></a></p>
+</div>
+</div>
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <h2> Our Products </h2>
+            <hr class="intro-divider">
+        </div>
+        <div class="col-lg-4">
+            <img src="https://evernote.com/img/content-blocks/en/deepwork.jpg" class="img-responsive">
+            <h3> Lorem Ipsum </h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lacus quam. Ut semper vitae diam quis ultricies. Etiam molestie pellentesque accumsan. </p>
+            {% if current_user.is_autenticated %}
+            <form action="{{ url_for('home.pay') }}" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key= {{ pub_key }}
+                data-amount="9900"
+                data-name="Demo Site"
+                data-description="Widget"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+            </form>
+            {% else %}
+            <div class="btn btn-default btn-lg"><a href="{{ url_for('auth.login') }}">Buy now </a></div>
+            {% endif %}
+        </div>
+        <div class="col-lg-4">
+        <img src="https://evernote.com/img/content-blocks/en/deepwork.jpg" class="img-responsive">
+            <h3> Lorem Ipsum </h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lacus quam. Ut semper vitae diam quis ultricies. Etiam molestie pellentesque accumsan. </p>
+            {% if current_user.is_autenticated %}
+            <form action="{{ url_for('home.pay') }}" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key= {{ pub_key }}
+                data-amount="9900"
+                data-name="Demo Site"
+                data-description="Widget"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+            </form>
+            {% else %}
+            <div class="btn btn-default btn-lg"><a href="{{ url_for('auth.login') }}">Buy now </a></div>
+            {% endif %}
+        </div>
+        <div class="col-lg-4">
+        <img src="https://evernote.com/img/content-blocks/en/deepwork.jpg" class="img-responsive">
+            <h3> Lorem Ipsum </h3>
+            <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at lacus quam. Ut semper vitae diam quis ultricies. Etiam molestie pellentesque accumsan. </p>
+            {% if current_user.is_autenticated %}
+            <form action="{{ url_for('home.pay') }}" method="POST">
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key= {{ pub_key }}
+                data-amount="9900"
+                data-name="Demo Site"
+                data-description="Widget"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto">
+              </script>
+            </form>
+            {% else %}
+            <div class="btn btn-default btn-lg"><a href="{{ url_for('auth.login') }}">Buy now </a></div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

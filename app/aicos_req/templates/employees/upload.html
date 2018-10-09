@@ -1,0 +1,66 @@
+{% extends "members_base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-light">
+                <div class="row">
+                <div class="col-md-6">
+                    <h3>Inyandiko zemewe (xls, xlsx & ods)</h3>
+                </div>
+                <div class="col-md-6 text-right">
+                <a href="{{ url_for('aicos_members.templateDownload') }}">
+                    <div class="btn btn-outline-primary"><i class="fa fa-download"></i> <b> Bona Urugero </b></div>
+                </a>
+                </div>
+                </div>
+            </div>
+
+    <br>
+
+    <div class="card-body">
+    <p class="lead"> Please make sure that the file you are uploading meets the standard structure of cooperative in Rwanda<br> Otherwise your file will be rejected from our database<br><br>
+
+    <b>Note: </b> Make sure that your member's <b>cooperative_id</b> is the same as your <b>email</b> id </p> <br>
+    
+    <form action="{{ url_for('aicos_members.doimportmbs') }}" method="post" enctype=multipart/form-data><p>
+    <div class="btn btn-default btn-lg"><input type=file name=file></div> <div class="btn btn-default"><button input class="btn btn-info" type=submit value=Upload>
+    <i class="fa fa-upload"></i><b> Injiza</b></button>
+    </form>
+    </div> 
+    </p>
+    </form>
+    <br>
+    </div>
+    </div>
+    </div>
+
+
+        <div class="col-md-4">
+      <div class="card">
+            <div class="card-header bg-light">
+            <h3> Ibyerekeye no kwinjiza inyandiko </h3>
+            </div>
+            <div class="card-body">
+            <p>Work with stakeholders to decide important things, such as project scope or schedule changes. Share and track your team's decisions in a central register.</p><br><br>
+            <h3> Steps </h3>
+            <ol>
+                <li>File format</li>
+                <li>Sheet name</li>
+                <li>Number of fields</li>
+                <li>Cooperative ID</li>
+            </ol>
+            </div>
+     </div>
+    </div>
+    </div>
+    </div>
+    <br><br>
+    <br><br>
+    
+    <br><br>
+{% endblock %}

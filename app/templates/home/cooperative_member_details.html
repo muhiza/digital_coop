@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+<style type="text/css">
+
+</style>
+<br><br><br>
+<div class="container">
+<div class="card">
+
+<br><br>
+<h1>Meet members from, <span style="color: #aec251;">{{ cooperative.name }} Coop </span></h1>
+<div class="intro-divider"></div>
+<h4 style="color: #aec251;"><b>{{ cooperative.members.count() }}, members </b></h4>
+<br>
+<div class="row">
+{% for employee in cooperative.members %}
+<div class="col-md-4">
+<div class="panel panel-success">
+  <div class="panel-heading"><h3><i class="fa fa-user"></i>-{{ employee.firstName }} {{ employee.secondName }}
+  {% if employee.is_coop_admin %}
+    <span style="color: #aec251;"><i class="fa fa-key">(Admin)</i></span>
+  {% endif %}
+  </h3></div>
+  <div class="panel-body"><b style="font-size: 17px; color: #aec251;">My Story : </b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. {{ cooperative.description }}
+    {% if cooperative.employees %} <br><br>
+      <b style="color: #aec251;">Full name : </b>{{ employee.firstName }}  {{ employee.secondName }}  <br>
+      <b style="color: #aec251;">Email</b> : cooperative@gmail.com{{ employee.email }} <br>
+      <b style="color: #aec251;">Phone number </b> : 0786520123{{ employee.phone_number }}
+    {% endif %}
+    <div class="panel-body"><br>
+    <div class="panel-body">
+</div>
+	<br><br><br><br> 
+  </div>
+ </div>
+</div>
+</div>
+{% endfor %} 
+</div>
+
+<br><br>
+
+
+
+{% endblock %}

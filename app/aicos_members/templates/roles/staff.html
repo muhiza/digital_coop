@@ -1,0 +1,65 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "members_base.html" %}
+{% block title %}
+    {% if add_department %}
+        Add Role
+    {% else %}
+        Edit Role
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-light">
+                <div class="row">
+                <div class="col-md-6">
+
+            {% if add_role %}
+                <div class="card-header bg-light">
+                <h3>Add New Staff</h3>
+                </div>
+            {% else %}
+                <div class="card-header bg-light">
+                <h3>Add New Staff</h3>
+                </div>
+            {% endif %}
+            </div>
+            </div>
+            </div>
+                <div class="card-body">
+                {{ wtf.quick_form(form, form_type='basic', button_map={'submit': 'info'}) }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+            <div class="card-header bg-light">
+            <h3>About Staff </h3>
+            </div>
+            <div class="card-body">
+            <p>This form allows you to record information about a new cooperative staff. Staff is any 
+                person paid by the cooperative. We strongly recommand that you provide correct information and as appear on official documents.</p>
+            <br>
+            <h3> Steps </h3>
+            <ol>
+                <li>You need to put all information which has “*”</li>
+                <li>If people don’t have email, you can put email of
+                    sector office or others</li>
+            </ol>
+            </div>
+     </div>
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

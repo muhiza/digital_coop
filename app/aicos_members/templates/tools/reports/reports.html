@@ -1,0 +1,84 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "members_base.html" %}
+{% block title %}Reports{% endblock %}
+{% block body %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+        <br/>
+        {{ utils.flashed_messages(dismissible=True) }}
+        <br/>
+
+        <div class="card-header bg-light">
+        <div class="row">
+        <div class="col-md-6">
+        <h3>List y'ama reporo</h3>
+        </div>
+        <div class="col-md-6 text-right">
+                  <a href="{{ url_for('aicos_members.add_report') }}" class="btn btn-default btn-lg">
+            <button class="btn btn-outline-info">
+            <i class="fa fa-plus"></i> Tegura Raporo </button>
+          </a>
+        </div>
+        </div>
+        </div>
+        {% if reports %}
+        
+            <div class="card">
+            <table class="table table-striped table-bordered">
+              <thead>
+                <tr>
+                  <th width="15%"> Umushinga </th>
+                  <th width="15%"> Igokorwa </th>
+                  <th width="35%"> Ubusobanuro </th>
+                  <th width="15%"> Uko bihagaze </th>
+                  <th width="15%"> Ibindi </th>
+                  <th width="20%"> Taliki </th>
+                  <th width="10%"> Sangiza </th>
+                  <th width="10%"> Hindura </th>
+                  <th width="25%"> Hanagura </th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for report in reports %}
+                <tr>
+                  <td> {{ report.project }} </td>
+                  <td> {{ report.task }} </td>
+                  <td> {{ report.description }} </td>
+                  <td> {{ report.status }} </td>
+                  <td> {{ report.notes }} </td>
+                  <td> {{ report.date }} </td>
+                  <td> <i class="fa fa-share"></i> Share </td>
+                  <td>
+                    <a href="{{ url_for('aicos_members.edit_report', id=report.id) }}">
+                      <i class="fa fa-pencil"></i> Edit
+                    </a>
+                  </td>
+                  <td>
+                    <a href="{{ url_for('aicos_members.delete_report', id=report.id) }}">
+                      <i class="fa fa-trash"></i> Delete
+                    </a>
+                  </td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+            <h3> No reports have been created yet. </h3>
+            <hr class="intro-divider">
+        {% endif %}
+
+          <a href="{{ url_for('aicos_members.add_report') }}" class="btn btn-default btn-lg">
+            <button class="btn btn-outline-info">
+            <i class="fa fa-plus"></i> Tegura Raporo </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

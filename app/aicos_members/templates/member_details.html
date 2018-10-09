@@ -1,0 +1,375 @@
+{% extends "members_base.html" %}
+    {% block body %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                            <div class="row">
+                            <div class="col-md-6">
+                                <h3>Umwirondoro w'umunyamuryango</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                            <a href="{{ url_for('aicos_members.aicos_members_home') }}">
+                                <div class="btn btn-outline-primary"><i class="fa fa-list"></i> List y'abanyamuryango </div>
+                            </a>
+                            </div>
+                            </div>
+                            </div>
+
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <img src="https://raw.githubusercontent.com/muhiza/music/master/userProfileFemale%20(1).png">
+                        </div>
+                        <div class="card-body">
+                        <h3>{{ employee.izina_ribanza }} , {{ employee.izina_rikurikira }} </h3>
+                            Uyu ni umunyamuryango wa cooperative COOPTHEVIGI.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home" role="tab" aria-controls="home">Amakuru bwite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile" role="tab" aria-controls="profile">Amakuru y'imyishyurire</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages" role="tab" aria-controls="messages">Amakuru y'umusaruro</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home" role="tabpanel">
+                        <br>
+                        <h3> Amakuru bwite y'umunyamuryango </h3>
+                              <table class="table">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                      <tr>
+                                        <td><b>Izina Ribanza</b></td>
+                                        <td>{{ employee.izina_rikurikira }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Izina Rikurikira</b></td>
+                                        <td>{{ employee.izina_rikurikira }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Ayandi</b></td>
+                                        <td>{{ employee.Ayandi }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Igitsina</b></td>
+                                        <td>{{ employee.Igitsina }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Nimero y'indangamuntu</b></td>
+                                        <td>{{ employee.Indangamuntu }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Intara</b></td>
+                                        <td>{{ employee.Intara }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Akarere</b></td>
+                                        <td>{{ employee.Akarere }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Umurenge</b></td>
+                                        <td>{{ employee.Umurenge }}</td>
+                                      </tr>
+
+
+                                      <tr>
+                                        <td><b>Akagari</b></td>
+                                        <td>{{ employee.Akagari }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Umudugudu</b></td>
+                                        <td>{{ employee.Umudugudu }}</td>
+                                      </tr>
+
+                                    <tr>
+                                        <td><b>Tariki yinjiriyemo</b></td>
+                                        <td>{{ employee.tariki_yinjiriye }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Umugabane</b></td>
+                                        <td>{{ employee.umugabane_ukwezi }}</td>
+                                      </tr>
+                                    <tr>
+                                        <td><b>Umukono</b></td>
+                                        <td> ------------- </td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Nomero ya telephone </b></td>
+                                        <td>{{ employee.nomero_telephone }}</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Amashuri</b></td>
+                                        <td>{{ employee.Amashuri }}</td>
+                                      </tr>
+                                    <tr>
+                                        <td><b>Ubumuga</b></td>
+                                        <td>{{ employee.Ubumuga }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Arubatse </b></td>
+                                        <td>{{ employee.Arubatse }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Umubare w'abana</b></td>
+                                        <td>{{ employee.umubare_abana }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Icyiciro cy'ubudehe</b></td>
+                                        <td>{{ employee.icyiciro_ubudehe }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Ubwishingizi</b></td>
+                                        <td>{{ employee.Ubwishingizi }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Akazi akora muri coop</b></td>
+                                        <td>{{ employee.akazi_akora_muri_koperative }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Akandi kazi akora</b></td>
+                                        <td>{{ employee.akazi_akora_ahandi }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Ubuso ahingaho</b></td>
+                                        <td>{{ employee.ubuso_ahingaho }}</td>
+                                      </tr>
+
+                                      <tr>
+                                        <td><b>Ubwoko bw'igihingwa</b></td>
+                                        <td>{{ employee.ubwoko_igihingwa }}</td>
+                                      </tr>
+
+
+
+                                      <tr>
+                                        <td><b>Umwanya</b></td>
+                                        <td>Member</td>
+                                      </tr>
+
+                                    </tbody>
+                                </table>
+
+                        </div>
+
+                        <div class="tab-pane" id="profile" role="tabpanel">
+                            <br><h3>Amakuru y'imyishyurire </h3>
+                        <div class="card-body">
+                            <canvas id="bar-chart-payment" width="100%" height="50"></canvas>
+                        </div><br>
+                         <br><h3> Uko imyishyurire yagiye ikorwa </h3>
+                            <table id="examplePayment1" class="display nowrap" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
+                                        <th>Amazina</th>
+                                        <th>Amafaranga</th>
+                                        <th>Ubwoko </th>
+                                        <th>Bank Slip</th>
+                                        <th>Payment Order </th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Amazina</th>
+                                        <th>Amafaranga</th>
+                                        <th>Ubwoko </th>
+                                        <th>Bank Slip</th>
+                                        <th>Payment Order </th>
+                                        <th>Date</th>
+                                    </tr>
+                                </tfoot>
+                                <tbody>
+
+
+
+
+                                </tbody>
+                            </table>
+                            <br><br><br>
+
+                        <h3>Amande mu gihe cy'ukwezi </h3>
+                        <div class="card-body">
+                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                        </div>
+
+
+
+
+                        </div>
+
+                        <div class="tab-pane" id="messages" role="tabpanel">
+                            <br><h3> Amakuru yerekeye akazi </h3>
+                              <table class="table">
+                                    <tbody>
+                                      <tr>
+                                        <td><b>Taliki yinnjiriye muri Cooperative </b></td>
+                                        <td>December 29, 2018</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Icyiciro Abarizwamo</b></td>
+                                        <td>Rider</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Uko ahagaze</b></td>
+                                        <td>Aracyarimo</td>
+                                      </tr> <hr>
+
+
+                                    </tbody>
+                                </table>
+
+
+                            <br>
+
+                            <div class="card-header bg-info">
+                            <div class="row">
+                                <h3 style="color: #fff;">&nbsp; Amakuru yerekeye umusaruro w'umunyamuryango</h3>
+                            </div>
+                            </div>
+                              <table class="table">
+                                    <tbody>
+                                    {% if motos %}
+                                      {% for moto in motos %}
+                                      <tr>
+                                        <td><b>Ubuso ahingaho</b></td>
+                                        <td> 5 hectares </td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Ubwoko bw'igihingwa </b></td>
+                                        <td> Icyayi ( best / 75 per cent)</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Igiciro ku kiro </b></td>
+                                        <td> 175 Frw / Kg</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Nyiri ubutaka</b></td>
+                                        <td> Umunyamuryango </td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Telephone ye</b></td>
+                                        <td> 0786012383 </td>
+                                      </tr>
+                                      {% endfor %}
+
+                                    {% else %}
+                                      <tr>
+                                        <td><b>Ubuso ahingaho</b></td>
+                                        <td> 5 hectares </td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Ubwoko bw'igihingwa </b></td>
+                                        <td> Tea (75 per cent)</td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Nyiri ubutaka</b></td>
+                                        <td> Umunyamuryango </td>
+                                      </tr>
+                                      <tr>
+                                        <td><b>Telephone ye</b></td>
+                                        <td> 0786012383 </td>
+                                      </tr>
+                                    {% endif %}
+                                    </tbody>
+                                </table>
+
+                                <!--
+                                <button class="btn btn-outline-info" data-toggle="modal" data-target="#modal-6">Info</button> -->
+
+                                <div class="modal fade" id="modal-6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-info border-0">
+                                                <h3 class="modal-title text-white">
+                                                Andika moto kumunyamuryango</h3>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <div class="modal-body p-5">
+
+
+                                                                          <div class="card-body">
+                                <div class="row mt-10">
+                                    <div class="col-md-10">
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label"><b>Amazina ya moto</b></label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Amazina ya moto">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label"><b>Plaque</b></label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Plaque ya Moto">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label"><b>Amazina ya nyiri moto</b></label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Amazina ya nyiri moto">
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label"><b>Telephone ya nyiri moto</b></label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Telephone ya nyiri moto">
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                                            </div>
+
+                                            <div class="modal-footer border-0">
+                                                <button type="button" class="btn btn-link" data-dismiss="modal">Funga</button>
+                                                <button type="button" class="btn btn-info">Emeza</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                        </div>
+                    </div>
+                    <br><br><br>
+                </div>
+            </div>
+            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    {% endblock %}

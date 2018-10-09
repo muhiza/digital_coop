@@ -1,0 +1,1568 @@
+{% extends "members_base.html" %}
+    {% block body %}
+      <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-expanded="false"><i class="icon-user"></i> All Members &nbsp;<span class="badge badge-success">New</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-expanded="true"><i class="icon-user"></i> Male Members &nbsp;<span class="badge badge-pill badge-danger">2800</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Female Members </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages5" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Money Movement</a>
+                        </li>
+
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane" id="home4" role="tabpanel" aria-expanded="false">
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h3>Cooperative's Members</h3>
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                    <button class="btn btn-outline-primary">
+                                    <a href="{{ url_for('aicos_acc.newBill') }}">
+                                    <i class="fa fa-plus"> Register New Member</i></a></button>
+
+
+                                    <button class="btn btn-outline-secondary">
+                                    <a href="{{ url_for('aicos_acc.newBill') }}">
+                                    <i class="fa fa-plus"> Import Members</i></a></button>
+
+
+
+                                    <button class="btn btn-outline-info">
+                                    <a href="{{ url_for('aicos_acc.newBill') }}">
+                                    <i class="fa fa-plus"> Members List</i></a></button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>ID Number</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone Number</th>
+                <th>ID Number</th>
+                <th>Option</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Salaries</td>
+                <td>Wages</td>
+                <td>Edinburgh</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="{{ url_for('aicos_members.memberDetails') }}"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Salaries</td>
+                <td>Wages</td>
+                <td>Tokyo</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Salaries</td>
+                <td>Wages</td>
+                <td>San Francisco</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Salaries</td>
+                <td>Taxes</td>
+                <td>Edinburgh</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Asset test</td>
+                <td>Taxes</td>
+                <td>Tokyo</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Transport</td>
+                <td>Wages</td>
+                <td>New York</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Salaries</td>
+                <td>Wages</td>
+                <td>San Francisco</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Transport</td>
+                <td>Wages</td>
+                <td>Tokyo</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Transport</td>
+                <td>Taxes</td>
+                <td>Edinburgh</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Test</td>
+                <td>Wages</td>
+                <td>Singapore</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+            <tr>
+
+                <td>2011/04/25</td>
+                <td>Water</td>
+                <td>Customer Support</td>
+                <td>New York</td>
+                <td>
+                <div class="btn btn-outline-info btn-sm"><a href="#"> Details </a></div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br><br>
+
+
+
+
+                <h2 align="center">Analytics </h2><br>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Jobs Creation
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Harvest
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+            <!--
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Radar Chart
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="radar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                    -->
+
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Gender Balance
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="pie-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+
+
+
+
+                </div>
+
+                        <div class="tab-pane active" id="profile4" role="tabpanel" aria-expanded="true">    
+                                      <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Bank Accounts</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newBill') }}">
+                                                <i class="fa fa-plus"> New Bank Accounts</i></a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example1" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Bank</th>
+                                                    <th>Account Number</th>
+                                                    <th>Starting Amount</th>
+                                                    <th>Current Amount</th>
+                                                    <th>Internal Description </th>
+                                                    <th>Pablic Description </th>
+                                                    <th>Operations </th>
+                                                    <th>Options </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Bank</th>
+                                                    <th>Account Number</th>
+                                                    <th>Starting Amount</th>
+                                                    <th>Current Amount</th>
+                                                    <th>Internal Description </th>
+                                                    <th>Pablic Description </th>
+                                                    <th>Operations </th>
+                                                    <th>Options </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>63</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>66</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>22</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>61</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/04/25</td>
+                                                    <td>$320,800</td>
+                                                    <td>$112,000</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                        </div>
+
+                        <div class="tab-pane" id="messages4" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>All Fixed Asset</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newVendor') }}"><i class="fa fa-plus">
+                                                New Fixed Asset</i></a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example2" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Asset</th>
+                                                    <th>Amount</th>
+                                                    <th>Date</th>
+                                                    <th>Deprec [%]</th>
+                                                    <th>Description</th>
+                                                    <th>Total Deprec</th>
+                                                    <th>Net</th>
+                                                    <th>Options </th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Asset</th>
+                                                    <th>Amount</th>
+                                                    <th>Date</th>
+                                                    <th>Deprec [%]</th>
+                                                    <th>Description</th>
+                                                    <th>Total Deprec</th>
+                                                    <th>Net</th>
+                                                    <th>Options </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>63</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>66</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>22</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>2011/01/25</td>
+                                                    <td>$112,000</td>
+                                                    <td>$112,000</td>
+                                                    <td>2011/01/25</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                  </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages5" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Cooperative Money Movement</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newProductEx') }}">
+                                                <i class="fa fa-plus"></i> New Money Movement</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example3" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Debitor Account</th>
+                                                    <th>Creditor Account</th>
+                                                    <th>Amount</th>
+                                                    <th>Memo</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Debitor Account</th>
+                                                    <th>Creditor Account</th>
+                                                    <th>Amount</th>
+                                                    <th>Memo</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>63</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>66</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>22</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>33</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>27</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>61</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages6" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Active Expense Accounts</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newClient') }}">
+                                                <i class="fa fa-plus"></i> New Expense Category</a>
+                                                </button>
+
+                                                <button class="btn btn-outline-info">
+                                                <a href="{{ url_for('aicos_acc.newClient') }}">
+                                                <i class="fa fa-plus"></i> New Expense Account</a>
+                                                </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example4" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Account name</th>
+                                                    <th>Code</th>
+                                                    <th>Amount Spent</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Account name</th>
+                                                    <th>Code</th>
+                                                    <th>Amount Spent</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>Tiger Nixon</td>
+                                                    <td>System Architect</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>$112,000</td>
+                                                    <td>System Architect</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="tab-pane" id="messages7" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Expense Types</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="#"><i class="fa fa-plus"></i> Add New</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example5" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Items</th>
+                                                    <th>Details</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Items</th>
+                                                    <th>Details</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>Rooms</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Halls</td>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Decaration</td>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cars</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Motors</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Trees</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bench</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Services</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages8" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Loans Payment</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newLoan') }}">
+                                                <i class="fa fa-plus"></i> New Loan</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example6" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Duration</th>
+                                                    <th>Payment Mode</th>
+                                                    <th>Total</th>
+                                                    <th>Paid Amount </th>
+                                                    <th>Remaining </th>
+                                                    <th>Option </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Description</th>
+                                                    <th>Duration</th>
+                                                    <th>Payment Mode</th>
+                                                    <th>Total</th>
+                                                    <th>Paid Amount </th>
+                                                    <th>Remaining </th>
+                                                    <th>Option </th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+
+                                                    <td>Rooms</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Halls</td>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Decaration</td>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cars</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Motors</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Trees</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bench</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Services</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                    <td>Decoration</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages9" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Capital/Equity</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newCapital') }}">New Capital</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example7" class="display nowrap" cellspacing="0" width="100%">
+                                            <thead>
+                                                <tr>
+                                                    <th>Source</th>
+                                                    <th>Amount</th>
+                                                    <th>Date</th>
+                                                    <th>Transactions</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>Source</th>
+                                                    <th>Amount</th>
+                                                    <th>Date</th>
+                                                    <th>Transactions</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Halls</td>
+                                                    <td>Decoration</td>
+                                                    <td>Salle</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Halls</td>
+                                                    <td>Garrett Winters</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Ashton Cox</td>
+                                                    <td>Junior Technical Author</td>
+                                                    <td>San Francisco</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Decaration</td>
+                                                    <td>Cedric Kelly</td>
+                                                    <td>Senior Javascript Developer</td>
+                                                    <td>Edinburgh</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Airi Satou</td>
+                                                    <td>Accountant</td>
+                                                    <td>Tokyo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cars</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Motors</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Trees</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bench</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Services</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Rooms</td>
+                                                    <td>Brielle Williamson</td>
+                                                    <td>Integration Specialist</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+
+        </div>
+         </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+    <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Month Fee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                        
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="modal-30" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Fee Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                        
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

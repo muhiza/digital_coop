@@ -1,0 +1,887 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AICOS - Automated and Integrated Cooperative Operation System.</title>
+
+
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.easy-pie-chart/1.0.1/jquery.easy-pie-chart.css">
+
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+
+    
+
+
+
+
+
+    <link href="{{ url_for('static', filename='imboni/vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='imboni/vendor/font-awesome/css/fontawesome-all.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='imboni/css/styles.css') }}" rel="stylesheet">
+
+    <style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+    body{       
+        
+    }
+
+    #links{
+        font-style: bold;
+        font-family: Arial;
+        color: #394249;
+    }
+
+    #card-number{
+        font-size: 25px;
+        font-family: Arial;
+        font-style: bold;
+        color: #394249;
+    }
+    #icon-dashboard{
+        color: #394249;
+    }
+    .sidebar{
+        background-color: #394249;
+    }
+    .nav-link-side{
+        background-color: #394249;
+    }
+</style>
+
+</head>
+<body class="sidebar-fixed header-fixed">
+<div class="page-wrapper">
+{% extends 'member_main_base.html' %}
+{% block rest %}
+    <div class="main-container">
+        <div class="sidebar" style="">
+            <nav class="sidebar-nav">
+                <ul class="nav">
+                    <li class="nav-title"><li class="fa fa-user-circle" style="color: silver; margin-top: 10px; font-size: 30px; margin-left: : -15px;"> <span style="font-size: 18px; margin-bottom: 10px;"> {{ current_user.username }}</span></li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-rss"></i><b>News Feed</b>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-bell"></i><b>Notifications</b>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-user"></i><b>Profile</b>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-envelope"></i><b>Report</b>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-credit-card"></i><b>Payments</b>
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item nav-dropdown">
+                        <a href="" class="nav-link nav-dropdown-toggle">
+                            <i class="fa fa-envelope-open"></i><b>Messages</b><i class="fa fa-caret-left"></i>
+                        </a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="fa fa-share"></i><b>New Message</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="fa fa-paper-plane"></i> 
+                                    <b>Sent Message</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="fa fa-book"></i> 
+                                    <b>Received</b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="fa fa-archive"></i><b>Archive</b>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item nav-dropdown">
+                        <a href="#" class="nav-link nav-dropdown-toggle">
+                            <i class="fa fa-users"></i><b>Cooperative</b><i class="fa fa-caret-left"></i>
+                        </a>
+                        <ul class="nav-dropdown-items">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="icon icon-energy"></i>
+                                    <b></b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="icon icon-energy"></i>
+                                    <b></b>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link nav-link-side">
+                                    <i class="icon icon-energy"></i>
+                                    <b></b>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url_for('aicos_members.memberPayments') }}" class="nav-link">
+                            <i class="fa fa-cog"></i><b>Settings</b>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="content">
+        {% block body %}
+
+        {% endblock %}
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.easy-pie-chart/1.0.1/jquery.easy-pie-chart.js"></script>
+
+
+
+<script src="{{ url_for('static', filename='imboni/vendor/jquery/jquery.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='imboni/vendor/popper.js/popper.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='imboni/vendor/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='imboni/vendor/chart.js/chart.min.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='imboni/js/carbon.js') }}" type="text/javascript"></script>
+<script src="{{ url_for('static', filename='imboni/js/demo.js') }}" type="text/javascript"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<!-- Things related to the datatables -->
+<link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet"> 
+
+
+
+<link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<!-- Things related to the datatables exports-->
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.flash.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.print.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.easy-pie-chart/1.0.1/jquery.easy-pie-chart.js"></script>
+
+
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highchartTable/2.0.0/jquery.highchartTable.js"></script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.13/js/jquery.dataTables.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
+
+
+
+<script type="text/javascript">
+
+
+$(document).ready(function() {
+    $('#example1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+
+
+
+  $(document).ready(function() {
+  $('table.displayz').each(function(i) {
+    $(this).data('graph-container', '#users-results-chart-' + i);
+    $(this).after( '<div class="users-results-chart"></div>')
+    
+      });
+      $('.users-results-chart').each(function(i) {
+        $(this).attr('id', 'users-results-chart-' + i);
+      });
+      var table = $('table.displayz').highchartTable();
+    });
+
+    $(document).ready(function() {
+        $('.dataTable').DataTable();
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+    $('#memberLogs').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+    $(function() {
+        $('.chart').easyPieChart({
+            easing: 'easeOutBounce',
+            onStep: function(from, to, percent) {
+                $(this.el).find('.percent').text(Math.round(percent));
+            }
+        });
+        var chart = window.chart = $('.chart').data('easyPieChart');
+        $('.js_update').on('click', function() {
+            chart.update(Math.random()*200-100);
+        });
+    });
+
+
+$(document).ready(function() {
+    $('#example2').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+$(document).ready(function() {
+    $('#example3').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#example4').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#example5').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#example6').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#example7').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#example8').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+$(document).ready(function() {
+    $('#example9').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#example10').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#example11').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#example12').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#example13').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#example14').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+
+
+$(document).ready(function() {
+    $('#examplepay1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#examplepay2').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#examplePayment1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#loan').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+$(document).ready(function() {
+    $('#goals').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#ubumuga1').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+$(document).ready(function() {
+    $('#ubumuga2').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+$(document).ready(function() {
+    $('#ubumuga3').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+$(document).ready(function() {
+    $('#ubumuga4').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+$(document).ready(function() {
+    $('#ubumuga5').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+
+
+
+
+
+
+let draw = true;
+init();
+
+/**
+ * FUNCTIONS
+ */
+
+function init() {
+  // initialize DataTables
+  const table = $("#dt-tablex").DataTable();
+  // get table data
+  const tableData = getTableData(table);
+  // create Highcharts
+  createHighcharts(tableData);
+  // table events
+  setTableEvents(table);
+}
+
+function getTableData(table) {
+  const dataArray = [],
+    countryArray = [],
+    populationArray = [],
+    densityArray = [];
+
+  // loop table rows
+  table.rows({ search: "applied" }).every(function() {
+    const data = this.data();
+    countryArray.push(data[6]);
+    populationArray.push(parseInt(data[1].replace(/\,/g, "")));
+    densityArray.push(parseInt(data[5].replace(/\,/g, "")));
+  });
+
+  // store all data in dataArray
+  dataArray.push(countryArray, populationArray, densityArray);
+
+  return dataArray;
+}
+
+function createHighcharts(data) {
+  Highcharts.setOptions({
+    lang: {
+      thousandsSep: ","
+    }
+  });
+
+  Highcharts.chart("chartzxc", {
+    title: {
+      text: "Members and Shares Charts"
+    },
+    subtitle: {
+      text: "Insight to cooperative's members and their shares"
+    },
+    xAxis: [
+      {
+        categories: data[0],
+        labels: {
+          rotation: -45
+        }
+      }
+    ],
+    yAxis: [
+      {
+        // first yaxis
+        title: {
+          text: "Population (2017)"
+        }
+      },
+      {
+        // secondary yaxis
+        title: {
+          text: "Umugabane (Frw)"
+        },
+        min: 0,
+        opposite: true
+      }
+    ],
+    series: [
+      {
+        name: "Population (2017)",
+        color: "#0071A7",
+        type: "column",
+        data: data[1],
+        tooltip: {
+          valueSuffix: " M"
+        }
+      },
+      {
+        name: "Umugabane (Frw)",
+        color: "#FF404E",
+        type: "spline",
+        data: data[2],
+        yAxis: 1
+      }
+    ],
+    tooltip: {
+      shared: true
+    },
+    legend: {
+      backgroundColor: "#ececec",
+      shadow: true
+    },
+    credits: {
+      enabled: false
+    },
+    noData: {
+      style: {
+        fontSize: "16px"
+      }
+    }
+  });
+}
+
+function setTableEvents(table) {
+  // listen for page clicks
+  table.on("page", () => {
+    draw = true;
+  });
+
+  // listen for updates and adjust the chart accordingly
+  table.on("draw", () => {
+    if (draw) {
+      draw = false;
+    } else {
+      const tableData = getTableData(table);
+      createHighcharts(tableData);
+    }
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function() {
+    $('#memberLogsxx').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ]
+    } );
+} );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "members_base.html" %}
+{% block title %}
+    {% if add_payment %}
+        Add Payment
+    {% else %}
+        Update Payment
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="content-section">
+ <div class="outer">
+    <div class="middle">
+      <div class="inner">
+        <div class="center">
+            <div class="col-md-7">
+            {% if add_payment %}
+                <h1>Add new Payment</h1>
+            {% else %}
+                <h1>Update Payment</h1>
+            {% endif %}
+            <br/>
+            {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

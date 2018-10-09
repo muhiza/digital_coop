@@ -1,0 +1,66 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "home_base.html" %}
+{% block title %}
+    {% if add_department %}
+        Add Role
+    {% else %}
+        Edit Role
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="container"><br>
+    <div class="row">
+            
+                {{ utils.flashed_messages(dismissible=True) }}
+
+            <div class="col-md-8">
+
+            <div class="card">
+            <div class="card-header bg-info">
+            <h2 style="color: #fff;"><b> New Cooperative application. </b></h2>
+            <p style="color: #fff;"> Put required information and save it </p>
+            </div><br>
+                <div class="card-body">
+                {{ wtf.quick_form(form, form_type='basic', horizontal_columns=('lg', 2, 10), button_map={'submit': 'info'}) }}
+            </div>
+            </div>
+            </div>
+
+
+
+
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+            <div class="card-header bg-success">
+            <h3 style="color: #fff;"> New Cooperative application</h3>
+            </div>
+            <div class="card-body">
+            <p>Kugirengo Cooperative yawe yemerwe kwinjira muri Sisiteme hari ibyo igomba kuba yujuje neza.
+            </p><br>
+            <h3> Ibisabwa </h3>
+            <ol>
+                <li>Reba niba umwirondoro wuzuye.</li>
+                <li>Shyiramo <b>Code</b> ya Cooperative</li>
+                <li>Shyiramo <b>Umugabane</b> shingiro wa Cooperative</li>
+                <li>Kanda ahanditse <b>Injiza muri sisiteme</b></li>
+            </ol>
+
+            <h3>Amakuru</h3>
+            <p>Amakuru yose yerekeye <b>Koperative</b> agaragara hano ni amakuru yatanzwe na Koperative mu kigo cy'igihugu gishinzwe amakoperative, <b>RCA</b> </p>
+            
+            <!--
+            <button class="btn btn-primary"><b>
+                <i class="fa fa-search"><a href="{{ url_for('home.sendCode') }}" style="color: #fff;"> Saba Code </a></i></b></button>
+            </div>
+            -->
+     </div>
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

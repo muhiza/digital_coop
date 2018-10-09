@@ -1,0 +1,65 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "stock_base.html" %}
+{% block title %}Stock{% endblock %}
+{% block body %}
+ 	<div class="container-fluid">
+    {{ utils.flashed_messages() }}
+    	<div class="col-md-8">
+    		<div class="tab-content">
+    			<div class="row" style="background-color: silver; margin: 0px;">
+		            <div class="col-md-7" style="margin-top: 15px; margin-left: 10px;">
+		                <h3>Andika Ibyakoreshejwe</h3>
+		            </div>
+		            <div class="col-md-4 text-right" style="margin-top: 15px;">
+		                <!--<button class="btn btn-outline-info">
+		                  <a href="{{ url_for('aicos_members.doimportmbs') }}">
+		                <i class="fa fa-upload"> Injiza byinshi</i></a></button>-->
+		            </div>
+		        </div>
+                <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false" style="padding-bottom: 15px;">
+	                <form action="{{ url_for('aicos_stock_managment.injizaIbyakoreshejwe')}}" method="post">
+	                	<div class="">
+	                    	{{ wtf.form_field(form.resi) }}
+	                    </div>
+	                	<div class="">
+	                    	{{ wtf.form_field(form.beamSup) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.ibihanoCoop) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.APIISAMAKIbihano) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.ibiraraneNPKandUREA) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.umusoro) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.kwishyuraItsinda) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.Sheeting) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.PIS) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.umuceriYagurijweUmwakaKUshize) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.ibindi) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ form.submit(class="btn btn-primary") }}
+	                    </div>
+	                    {{ form.csrf_token }}
+	                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

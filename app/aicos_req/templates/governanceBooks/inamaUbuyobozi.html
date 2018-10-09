@@ -1,0 +1,43 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "req_base.html" %}
+{% block title %}Inteko rusange{% endblock %}
+{% block body %}
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                            <div class="row">
+                            <div class="col-md-6">
+                                <h3>Ibyemezo by'inama y'Ubuyobozi</h3>
+                            </div>
+                            <div class="col-md-6 text-right">
+                            <a href="{{ url_for('aicos_members.decisions_list') }}">
+                                <div class="btn btn-outline-primary"><i class="fa fa-list"></i> List y'inama y'Ubuyobozi 
+                                </div>
+                            </a>
+                            </div>
+                            </div>
+
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-7">
+                                    	{{ wtf.quick_form(form) }}
+                                	</div>
+                                	<div class="col-md-1">
+                                	</div>
+                                	<div class="col-md-4">
+    								<h3>Ibyerekeye Inama y'Ubuyobozi </h3>
+									<p>Work with stakeholders to decide important things, such as project scope or schedule changes. Share and track your team's decisions in a central register.</p>
+        							</div>
+
+                                	</div>
+                            	</div>
+                        	</div>
+                    	</div>
+                </div>
+            </div>
+{% endblock %}

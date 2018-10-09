@@ -1,0 +1,121 @@
+{% extends "trainer_base.html" %}
+{% import 'bootstrap/utils.html' as utils %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+
+
+
+<!--
+<style type="text/css">
+</style>
+<br><br><br>
+<div class="container">
+
+<div class="card">
+<br><br>
+<h1>Where great minds meets great teams</h1>
+<div class="intro-divider"></div>
+<br><br>
+<div class="row">
+{% if all_cooperatives %}
+{% for cooperative in all_cooperatives %}
+<div class="col-md-4" id="cooperatives" style="max-height: 400px; padding: 10px;  padding-bottom: 10px;">
+<div class="panel panel-success">
+  <div class="panel-heading"><h3><i class="fa fa-th"></i>-{{ cooperative.name }}</h3></div>
+  <div class="panel-body">{{ cooperative.description }}
+    {% if cooperative.members %}
+  		<h4><a href="{{ url_for('home.cooperative_details', email=cooperative.email) }}"> {{ cooperative.members.count() }} , Members </a></h4>
+
+  		<h4><a href="{{ url_for('home.cooperative_details', email=cooperative.email) }}">Category {{ cooperative.category }} </a></h4>
+  	{% endif %}	
+  	<div class="btn btn-default"><i class="fa fa-plus"></i>
+  		<a href="{{ url_for('home.application',  id=current_user.id) }}">Join </a></div>
+     <button class="btn btn-default">read more</button></div>
+	<br><br><br><br> 
+  </div>
+ </div>
+{%  endfor %}
+</div>
+{% endif %}
+</div>
+
+-->
+
+{{ utils.flashed_messages(dismissible=True) }}
+  
+            <div class="card-header bg-light">
+            <div class="row">
+            <div class="col-md-8">
+
+            
+                <h1> List y'amahugurwa yatanzwe </h1>
+            
+
+            </div>
+            <div class="col-md-4 text-right">
+              <button class="btn btn-outline-primary btn-lg">
+                <a href="{{ url_for('aicos_trainer.applyTrainingzx') }}">
+                  Saba amahugurwa
+                </a>
+              </button>
+            </div>
+            </div>
+            </div> <br>
+            <div class="row">
+                {% if provided_training %}
+                {% for training in provided_training %}
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-success" style="color: #fff;">
+                            Yatanzwe na <b>{{ training.trainer }} </b>
+                            <div class="card-actions" style="color: #fff;">
+                                <a href="#" class="btn" style="color: #fff;">
+                                    <i class="fa fa-pencil-alt"></i> Close
+                                </a>
+
+                                <a href="#" class="btn">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                         <b> Ingingo : </b> {{ training.name }}<br>
+                         <b> Ubusobanuro : </b> {{ training.description }}<br>
+                         <b> Taliki : </b> {{ training.date }}<br>
+                        </div>
+                        <div class="card-footer bg-light">
+                            <button class="btn btn-outline-primary">
+                              <b><i class="fa fa-book"></i> &nbsp; Saba amahugurwa </b>
+                            </button>
+
+                        </div>
+                        {% if training.members %}
+                        
+                        <div class="card-footer bg-light">
+                        <a href="{{ url_for('home.cooperative_details', email=cooperative.email) }}">
+                        <b>Members :</b> {{ training.members.count() }} <br>
+                        <b>Share price : </b>{{ training.members.count() }}150 Rwf 
+                        <br>
+                        </a>
+                        
+                        <a href="{{ url_for('home.cooperative_details', email=cooperative.email) }}">
+                        <b>Category : </b>{{ training.field }}</a><br><br>
+                        <button class="btn btn-outline-info btn-sm">LEARN MORE</button>
+                        </div>
+                        {% endif %}
+                    </div>
+                     </div>
+               
+
+
+                    {% endfor %}
+                     </div>
+                    {% endif %}
+
+</div>
+<br><br>
+
+
+
+{% endblock %}

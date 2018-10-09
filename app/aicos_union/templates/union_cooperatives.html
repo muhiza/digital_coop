@@ -1,0 +1,78 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "union_base.html" %}
+{% block title %}Members{% endblock %}
+
+<style type="text/css">
+  #card{
+    background-color: #aec251;
+  }
+</style>
+
+{% block body %}
+	<div class="container-fluid">
+        {{ utils.flashed_messages() }} 
+                {% if departments %}
+		      <div class="card">
+		          <div class="card-header bg-light"> 
+		          <h2 class="sub-header">All Registered Cooperatives</h2>
+		          <div class="table-responsive">
+		               <table id="exampleUnion" class="display" cellspacing="0" width="100%">
+		                  <thead>
+		                      <tr>
+		                          <th>Name</th>
+		                          <th>Province</th>
+		                          <th>District</th>
+		                          <th>Sector</th>
+		                          <th>Reg Date</th>
+		                          <th>Certificate</th>
+		                          <th>Members</th>
+		                          <th>Views</th>
+		                          <th>Action</th>
+		                      </tr>
+		                  </thead>
+		                  <tfoot>
+		                      <tr>
+		                          <th>Name</th>
+		                          <th>Province</th>
+		                          <th>District</th>
+		                          <th>Sector</th>
+		                          <th>Reg Date</th>
+		                          <th>Certificate</th>
+		                          <th>Members</th>
+		                          <th>Views</th>
+		                          <th>Action</th>
+		                      </tr>
+		                  </tfoot>
+		                  <tbody>
+		                        {% for department in departments %}
+		                              <tr>
+		                                <td>{{ department.name }}</td>
+		                                <td>{{ department.province }}</td>
+		                                <td>{{ department.district }}</td>
+		                                <td>{{ department.sector }}</td>
+		                                <td>{{ department.regdate }}</td>
+		                                <td>{{ department.certificate }}</td>
+		                                <td>{% if department.members %}
+		                                		{{ department.members.count() }}
+		                                	{% else %}
+		                                		{{ 0 }}
+		                                	{% endif %}
+		                                </td>
+		                                <td> 
+			                                <a href="#">
+			                               		<i class="fa fa-eye"></i> 
+			                                </a>
+		                                </td>
+		                                <td> 
+			                                <a href="#">
+			                                	<i class="fa fa-trash"></i>
+			                                </a>
+		                                </td>
+		                              </tr>
+		                        {% endfor %}
+		                  </tbody>
+		              </table>
+                  {% endif %}
+            </div>
+        </div>
+{% endblock %}

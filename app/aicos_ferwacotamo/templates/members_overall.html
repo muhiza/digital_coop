@@ -1,0 +1,178 @@
+
+{% import "bootstrap/utils.html" as utils %}
+{% extends "federation_base.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}
+      <div class="container-fluid">
+        {{ utils.flashed_messages() }}
+    {% if employees %}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">32</span>
+                                <span class="font-weight-light">
+                                  East Cooperatives Muhiza
+                                </span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">565</span>
+                                <span class="font-weight-light">
+                                  West Cooperatives
+                                </span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">232</span>
+                                <span class="font-weight-light">North Cooperatives</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">44,000</span>
+                                <span class="font-weight-light">South and Kigali</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+      <div class="card">
+          <div class="card-header bg-light"> 
+          <h2 class="sub-header">All Registered Members</h2>
+          <div class="table-responsive">
+<table id="exampleFederation" class="table table-striped" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+
+                <th>Umudugudu</th>
+
+                <th>Umugabane</th>
+                <th>Ibindi</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+
+                <th>Umudugudu</th>
+
+                <th>Umugabane</th>
+                <th>Ibindi</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.izinaRibanza }} </td>
+                      <td> {{ employee.izinaRikurikira }} </td>
+                      <td> {{ employee.Akarere }} </td>
+                      <td> {{ employee.Umurenge }} </td>
+                      <!--
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Umunyamuryango
+                        {% endif %}
+                      </td>
+                      -->
+                      <td>{{ employee.Akagari }}</td>
+                      <td> {{ employee.Umudugudu }} </td>
+                      <td> {{ employee.Umugabane }} </td>
+
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        Ibindi
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table> 
+              <div id="chartFederation"></div>
+          {% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

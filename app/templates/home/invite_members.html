@@ -1,0 +1,153 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "members_base.html" %}
+{% block title %} {{ title }} {% endblock %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/content/jquery/tutorials/bootstrap/tutorial-2/10/css/bootstrap.min.css">
+
+
+
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header border border-top-0 border-right-0 border-left-0" style="background-color: #337AB7;">
+                            <span style="color: #fff;"><b>Comment / Recommendation made by Umurenge</b></span>
+                        </div>
+                        
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <th width="100%"> - </th>
+                              </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+
+
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+      <div class="container">
+
+
+
+
+                      <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header border border-top-0 border-right-0 border-left-0" style="background-color: #337AB7;">
+                            <h4><span style="color: #fff;"><b>Hello, Invite people to join your cooperative</b></span></h4>
+                        </div>
+                        
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                              <tr>
+                                <th width="100%"> 
+
+                                        {% for employee in members %}
+
+      <div class="panel-body">
+      
+
+
+
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header border border-top-0 border-right-0 border-left-0">
+                           <i class="fa fa-user fa-lg"></i> {{ employee.first_name }} , {{ employee.last_name }}
+                        </div>
+                        <div class="card-body">
+                                  <b>Username : </b> {{ employee.username }} <br>
+                                  Email : </b> {{ employee.email }} <br>
+                                  District : </b> {{ employee.district }} <br>
+                                  Identification : {{ employee.id }}</div>
+                        </div>
+
+      {% if employee.is_invited %}
+      <button type="button" class="btn btn-success">
+          <i class="fa fa-check"></i>&nbsp; Invitation sent
+      </button>
+      <div type="button" class="btn btn-primary"><i class="fa fa-plus"></i><a href="{{ url_for('aicos_members.add_member', id=employee.id) }}" style="color: #fff;">&nbsp;Add</a></div>
+      {% else %}
+      <div type="button" class="btn btn-primary"><i class="fa fa-envelope"></i><a href="{{ url_for('aicos_members.invite', id=employee.id) }}" style="color: #fff;">&nbsp;Invite </a></div>
+
+
+
+      <div type="button" class="btn btn-success""><i class="fa fa-plus"></i><a href="{{ url_for('aicos_members.add_member', id=employee.id) }}" style="color: #fff;">&nbsp;Add</a></div>
+      {% endif %}
+       <div class="intro-divider"> </div>
+    <br><br><br>
+                    </div>
+                </div>
+
+
+
+
+
+      {% endfor %}
+
+
+                                 </th>
+                              </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+
+
+
+        <br/><br/><br/>
+
+        {{ utils.flashed_messages() }}
+        <div class="col-md-6">
+        <!--
+        <h3> Hello, Invite people to join your coop </h3>
+            <div class="panel panel-success">
+              <div class="panel-heading">Read your profile</div>
+              {% for employee in members %}
+
+              <div class="panel-body">
+              <i class="fa fa-user fa-lg"></i>
+              <b>Username : </b> {{ employee.username }} <br>
+              Email : </b> {{ employee.email }} <br>
+              District : </b> {{ employee.district }} <br>
+              Identification : {{ employee.id }}</div>
+
+              {% if employee.is_invited %}
+              <button class="btn btn-default"><i class="fa fa-check"></i>Invitation sent</button>
+              <div class="btn btn-default"><i class="fa fa-plus"></i><a href="{{ url_for('aicos_members.add_member', id=employee.id) }}">Add</a></div>
+              {% else %}
+              <div class="btn btn-default"><i class="fa fa-envelope"></i><a href="{{ url_for('aicos_members.invite', id=employee.id) }}">Invite </a></div>
+
+              <div class="btn btn-default"><i class="fa fa-plus"></i><a href="{{ url_for('aicos_members.add_member', id=employee.id) }}">Add</a></div>
+              {% endif %}
+            <br>
+              <div class="intro-divider"> </div>
+
+              {% endfor %}
+
+            </div>
+            <button class="btn btn-default"><i class="fa fa-pencil"></i>Edit</button>
+            </div>
+        </div>
+        -->
+
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

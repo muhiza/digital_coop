@@ -1,0 +1,472 @@
+{% extends 'rca/another_base.html' %}
+{% block body %}
+        <br><br>
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-warning text-center">
+                                            <i class="ti-server"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Total Cooperatives</p>
+                                            {{ all_depts }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                    <a href="{{ url_for('aicos_rca.rca_cooperatives_overall') }}">
+                                        <i class="ti-reload"></i> Learn more
+                                    </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-success text-center">
+                                            <i class="ti-wallet"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Total <br> Members </p>
+                                            {{ all_mbs }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-calendar"></i> Learn more
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-danger text-center">
+                                            <i class="ti-pulse"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Cooperatives' Sectors</p>
+                                            23
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Learn more
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="card">
+                            <div class="content">
+                                <div class="row">
+                                    <div class="col-xs-5">
+                                        <div class="icon-big icon-info text-center">
+                                            <i class="ti-twitter-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-7">
+                                        <div class="numbers">
+                                            <p>Generated Revenues</p>
+                                            +45
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="footer">
+                                    <hr />
+                                    <div class="stats">
+                                        <i class="ti-reload"></i> Learn more
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card ">
+                            <div class="header">
+                                <h4 class="title">2015 Sales</h4>
+                                <p class="category">All products including Taxes</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartActivity" class="ct-chart"></div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Tesla Model S
+                                        <i class="fa fa-circle text-warning"></i> BMW 5 Series
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-check"></i> Data information certified
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Email Statistics</h4>
+                                <p class="category">Last Campaign Performance</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Open
+                                        <i class="fa fa-circle text-danger"></i> Bounce
+                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Campaign sent 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="header">
+                                <h4 class="title">Email Statistics</h4>
+                                <p class="category">Last Campaign Performance</p>
+                            </div>
+                            <div class="content">
+                                <div id="chartPreferencesMembers" class="ct-chart ct-perfect-fourth"></div>
+
+                                <div class="footer">
+                                    <div class="chart-legend">
+                                        <i class="fa fa-circle text-info"></i> Open
+                                        <i class="fa fa-circle text-danger"></i> Bounce
+                                        <i class="fa fa-circle text-warning"></i> Unsubscribe
+                                    </div>
+                                    <hr>
+                                    <div class="stats">
+                                        <i class="ti-timer"></i> Campaign sent 2 days ago
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+</b>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+
+                        <h4 class="title">List Of Federations</h4>
+                                <p class="category">Here is a summary of what has been happenings</p>
+                            </div>
+                            <div class="table-responsive">
+
+             <table id="exampleRcaDashboard" class="table table-bordered" cellspacing="0" width="99%">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Reg Date</th>
+                            <th>Province</th>
+                            <th>District</th>
+                            <th>Sector</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Code</th>
+                            <th>Reg Date</th>
+                            <th>Province</th>
+                            <th>District</th>
+                            <th>Sector</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    {% if federations %}
+
+                          {% for federation in federations %}
+                                <tr>
+                                  <td> {{ federation.name }} </td>
+                                  <td> {{ federation.reg_date }} </td>
+                                  <td> {{ federation.code }} </td>
+                                  <td> {{ federation.district }} </td>
+                                  <td> 
+                                      <a href="#">
+                                      <i class="fa fa-eye"> </i>Details 
+                                      </a>
+                                  </td>
+
+                                  <td> 
+                                    <a href="#">
+                                    <i class="fa fa-book"></i>More 
+                                    </a>
+                                  </td>
+
+                                </tr>
+                          {% endfor %}
+                          {% endif %}
+                    </tbody>
+                </table>
+
+    <br><br>
+  </div>
+  </div>
+  </div>
+
+
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">
+
+                        <h4 class="title">System Logs</h4>
+                                <p class="category">Here is a summary of what has been happenings</p>
+                            </div>
+                            <div class="table-responsive">
+
+             <table id="exampleRcaDashboardFed" class="table table-striped" cellspacing="0" width="99%">
+                    <thead>
+                        <tr>
+                            <th>Actions</th>
+                            <th>Done by (Username)</th>
+                            <th>From (IP)</th>
+                            <th>Date and time</th>
+                            <th>Details</th>
+                            <th>Options</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Actions</th>
+                            <th>Done by (Username)</th>
+                            <th>From</th>
+                            <th>Date and time</th>
+                            <th>Details</th>
+                            <th>Options</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                    {% if notifications %}
+                          {% for notification in notifications %}
+                                <tr>
+                                  <!-- <td> {{ notification.action | truncate(8) }} </td> -->
+                                  <td> {{ notification.action }} </td>
+                                  <td> {{ notification.done_by }}, Muhiza </td>
+                                  <td> {{ notification.done_from }} </td>
+                                  <td> {{ notification.done_date }} </td>
+                                  <td> 
+                                      <a href="#">
+                                      <i class="fa fa-eye"> </i>Details 
+                                      </a>
+                                  </td>
+
+                                  <td> 
+                                    <a href="#">
+                                    <i class="fa fa-book"></i>More 
+                                    </a>
+                                  </td>
+
+                                </tr>
+                          {% endfor %}
+                          {% endif %}
+                    </tbody>
+                </table>
+
+    <br><br>
+  </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

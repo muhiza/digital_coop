@@ -1,0 +1,157 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+{% block title %} Profile {% endblock %}
+{{ super() }}
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
+    body{
+        background: #e6e6e6;
+        background: -webkit-linear-gradient(to right, #e6e6e6); 
+        background: linear-gradient(to right, #e6e6e6);
+        color: #394249;
+        font-family: 'Quicksand', sans-serif;
+    }
+    .link-title{
+    	margin-top: 10px;
+    	margin-bottom: 10px;
+    	font-size: 16px;
+    	border: 3px solid #e6e6e6;
+    	padding-top: 10px;
+    	padding-bottom: 10px;
+    	font-style: bold;
+    	padding-left: 10px;
+    }
+    .link-title:hover{
+    	margin-top: 10px;
+    	margin-bottom: 10px;
+    	font-size: 16px;
+    	border: 3px solid #293658;
+    	padding-top: 10px;
+    	padding-bottom: 10px;
+      font-style: bold;
+    	padding-left: 10px;
+    	background-color: #293658;
+    	color: white;
+    	cursor: pointer;
+    }
+    .li-title{
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    border-top: 1px solid #f2f2f2;
+	 }
+	 .li-title:hover{
+	    padding-top: 10px;
+	    padding-bottom: 10px;
+	    background-color: #f2f2f2;
+	    padding-bottom: 10px;
+	 }
+	 .btn-button{
+	 	padding-top: 13px;
+	 	padding-bottom: 10px;
+	 	padding-right: 10px;
+	 	padding-left: 10px;
+	 	background-color: #1F656D;
+	 	color: white;
+	 }
+	 .btn-save{
+	    border: 2px solid #293658;
+	    background-color: #293658;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    font-style: bold;
+	    color: #F9F9F9;
+	  }
+	  .btn-save:hover{
+	    border: 2px solid #293658;
+	    background-color: white;
+	    padding-top: 5px;
+	    padding-bottom: 5px;
+	    padding-right: 10px;
+	    padding-left: 10px;
+	    font-style: bold;
+	    color: #293658;
+	  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: white;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="{{ url_for('static', filename='smaller.png') }}" style="height: 45px; width: 100px; margin-top: 2px; margin-bottom: 2px;" />
+    </div> 
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdwon-nav dropdown"><a class="dropdwon-nav dropdown-toggle" data-toggle="dropdown" href="#"><small class="glyphicon glyphicon-user"></small> {{ current_user.username }} <small class="caret"></small></a>
+        <ul class="dropdown-menu">
+          <li class="li-title"><a href="{{ url_for('home.user_profile', id=current_user.id, username=current_user.username) }}"><small class="glyphicon glyphicon-user"></small> Profiles</a></li>
+          <li class="li-title"><a href="#"><small class="glyphicon glyphicon-bell"></small> Notifications</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="row" style="margin-top: 100px; color: rgb(0,0,0,0.5;">
+  	<div class="container">
+	    <div class="container">
+      <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3" style="background-color: white; border: 1px solid #f2f2f2; border-radius: 5px;">
+        <div class="link-title" style="">
+          Edit Profile
+        </div>
+        <div class="link-title" style="">
+          User Details
+        </div>
+        <div class="link-title" style="">
+          Logout
+        </div>
+      </div>
+      <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8" style="background-color: white; border: 1px solid #f2f2f2; border-radius: 5px; margin-left: 10px;">
+          <div class="div-header">
+            <h3 style="">EDIT PROFILE</h3><hr style="margin-top: -10px;" />
+          </div>
+          <div class="">
+              
+            <form class="form-horizontal" action="/action_page.php">
+              <div class="form-group">
+                <label class="control-label col-lg-3" for="username" style="">Username</label>
+                <div class="col-lg-9">
+                  <input type="username" value="{{ current_user.username }}" class="form-control" id="username" placeholder="Enter username">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-lg-3" for="email" style="" >Email</label>
+                <div class="col-lg-9">
+                  <input type="email" value="{{ current_user.email }}" class="form-control" id="email" placeholder="Enter Email">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-lg-3" for="pwd" style="">Password</label>
+                <div class="col-lg-9"> 
+                  <input type="password" value="{{ current_user.email }}" class="form-control" id="pwd" placeholder="Enter password" style="text-align: left;">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-lg-3" for="cpwd" style="">Confirm Password</label>
+                <div class="col-lg-9"> 
+                  <input type="password" value="{{ current_user.email }}" class="form-control" id="cpwd" placeholder="Confirm password">
+                </div>
+              </div>
+              <div class="form-group"> 
+        
+              </div>
+              <div class="form-group "> 
+                <div class="col-sm-offset-2 col-sm-10">
+                  <a href="#" class="btn btn-lg btn-save pull-right">Save</a>
+                </div>
+              </div>
+            </form>
+
+          </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

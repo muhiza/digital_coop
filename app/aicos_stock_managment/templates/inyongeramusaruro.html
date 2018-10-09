@@ -1,0 +1,93 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "stock_base.html" %}
+{% block title %}Stock{% endblock %}
+{% block body %}
+ 	<div class="container-fluid">
+    {{ utils.flashed_messages() }}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tab-content">
+                <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            {{ utils.flashed_messages(dismissible=True) }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3><b>Inyongeramusaruro Yatanzwe</b></h3>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <a href="{{ url_for('aicos_stock_managment.injizaInyongeramusaruro') }}" class="btn btn-outline-primary">
+                                    	<i class="fa fa-user-plus"> Injiza Inyongeramusaruro</i>
+                                    </a>
+                                    <!--
+									<a href="#" class="btn btn-outline-secondary">
+                                    	<i class="fa fa-upload"> Injiza list</i>
+                                    </a>
+                                    -->
+								</div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+				<div class="col-md-12">
+					<div class="table-responsive">
+					 	<table id="example" class="display" cellspacing="0" width="100%">
+					        <thead>
+					            <tr>
+					                <th>Resi</th>
+					                <th>Briquette (PT)</th>
+					                <th>DAP & NPK (PT)</th>
+					                <th>KCL (PT)</th>
+									<th>Imbuto (PT)</th>
+									<th>Imifuka (PT)</th>
+									<th>Redevence (PT)</th>
+									<th>Ibindi</th>	
+					            </tr>
+					        </thead>
+					        
+					        <tfoot>
+					            <tr>
+					                <th>Resi</th>
+					                <th>Briquette (PT)</th>
+					                <th>DAP & NPK (PT)</th>
+					                <th>KCL (PT)</th>
+									<th>Imbuto (PT)</th>
+									<th>Imifuka (PT)</th>
+									<th>Redevence (PT)</th>
+									<th>Ibindi</th>	
+					            </tr>
+					        </tfoot>
+					        <tbody>
+					        	{% if inyongera %}
+							        {% for inyongeramusaruro in inyongera %}
+
+								        <tr>
+								        	<td>{{ inyongeramusaruro.umusaruro_resi }}</td>
+							        		<td>{{ inyongeramusaruro.BriqueteUnity *  inyongeramusaruro.BriquetePU}}</td>
+							        		<td>{{ inyongeramusaruro.DapAndNPKUnity *  inyongeramusaruro.DapAndNPKpu}}</td>
+							        		<td>{{ inyongeramusaruro.KCLpu *  inyongeramusaruro.KCLUnity}}</td>
+							        		<td>{{ inyongeramusaruro.ImbutoIngano *  inyongeramusaruro.ImbutoPU}}</td>
+							        		<td>{{ inyongeramusaruro.ImifukaAgaciro *  inyongeramusaruro.ImifukaYishyuwe}}</td>
+							        		<td>{{ inyongeramusaruro.RedevanceUbuso *  inyongeramusaruro.RedevancePU}}</td>
+							        		<td>{{ inyongeramusaruro.BriqueteUnity *  inyongeramusaruro.BriquetePU}}</td>
+							        	</tr>
+								        	
+							       {% endfor %}
+							    {% else %}
+							    	No record now
+
+							    {% endif %}
+					        </tbody>
+					    </table>
+					    <div id="charts"></div>
+					    <br><br>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-md-12">
+			
+		</div>
+	</div>
+{% endblock %}

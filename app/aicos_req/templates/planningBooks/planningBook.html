@@ -1,0 +1,118 @@
+   {% extends "req_base.html" %}
+    {% block body %}
+        <div class="container-fluide">
+        <h3> PLANNING BOOKS </h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-file"></i> Amategeko </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.blank') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cy’amategeko-shingi Igitabo ngengamikorere. 
+                            imiyoborere n’i ncungamutungo.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-user"></i> Igenamigambi </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.decisions_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igenamigamigambi ry’igihe Kirekira (Strategic plan).
+                        </div><br>
+                    </div>
+                </div> 
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-tasks"></i> Igihe kirekire </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.list_reports') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igenamigambi ry’igihe kigufi (Plan d’action).
+                        </div><br><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-envelope"></i> Business Plan </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.communications_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igenamigambi ry’imikoreshereze y’imari (Business Plan).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-info"></i> Budget </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Ingengo y’imari ya buri mwaka (Annual Budget).
+                        </div><br>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-pencil-alt"></i> Signatories </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Urutonde rw’abasinyateri kuri konti (Signatories).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+{% endblock %}

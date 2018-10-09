@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      
+
+      <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet"> 
+
+
+      <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+      <!-- Hight light search -->
+
+      <link href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css" rel="stylesheet"> 
+      <link href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css" rel="stylesheet">
+
+      <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js),datatables.mark.js"></script>
+      <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js"></script>
+      <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+
+
+      <!-- Data visualisation and data table -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+      <script type="text/javascript">
+        let draw = false;
+          init();
+          /**
+           * FUNCTIONS
+           */
+          $(document).ready(function() {
+          const table = $('#example').DataTable( {
+              "order": [[ 3, "desc" ]]
+            } );
+            mark: true
+                      // get table data
+            const tableData = getTableData(table);
+            // create Highcharts
+            createHighcharts(tableData);
+            // table events
+            setTableEvents(table);
+
+          } );
+
+
+          function init() {
+            // initialize DataTables
+            const table = $("#dt-table").DataTable();
+            mark: true
+            // get table data
+            const tableData = getTableData(table);
+            // create Highcharts
+            createHighcharts(tableData);
+            // table events
+            setTableEvents(table);
+            
+          }
+
+          function getTableData(table) {
+            const dataArray = [],
+              countryArray = [],
+              populationArray = [],
+              densityArray = [];
+
+            // loop table rows
+            table.rows({ search: "applied" }).every(function() {
+              const data = this.data();
+              countryArray.push(data[0]);
+              populationArray.push(parseInt(data[6].replace(/\,/g, "")));
+              densityArray.push(parseInt(data[4].replace(/\,/g, "")));
+            });
+
+            // store all data in dataArray
+            dataArray.push(countryArray, populationArray, densityArray);
+
+            return dataArray;
+          }
+
+          function createHighcharts(data) {
+            Highcharts.setOptions({
+              lang: {
+                thousandsSep: ","
+              }
+            });
+
+            Highcharts.chart("chart", {
+              title: {
+                text: "Cooperatives' Growth"
+              },
+              //subtitle: {
+                //text: "Data from worldometers.info"
+              //},
+              xAxis: [
+                {
+                  categories: data[0],
+                  labels: {
+                    rotation: -45
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  // first yaxis
+                  title: {
+                    text: "Members (2017)"
+                  }
+                },
+                {
+                  // secondary yaxis
+                  title: {
+                    text: "Shares (P/member)"
+                  },
+                  min: 0,
+                  opposite: true
+                }
+              ],
+              series: [
+                {
+                  name: "Members (2017)",
+                  color: "#0071A7",
+                  type: "column",
+                  data: data[1],
+                  tooltip: {
+                    valueSuffix: " Members"
+                  }
+                },
+                {
+                  name: "Shares (P/member)",
+                  color: "#FF404E",
+                  type: "spline",
+                  data: data[2],
+                  yAxis: 1
+                }
+              ],
+              tooltip: {
+                shared: true
+              },
+              legend: {
+                backgroundColor: "#ececec",
+                shadow: true
+              },
+              credits: {
+                enabled: false
+              },
+              noData: {
+                style: {
+                  fontSize: "16px"
+                }
+              }
+            });
+          }
+
+          function setTableEvents(table) {
+            // listen for page clicks
+            table.on("page", () => {
+              draw = true;
+            });
+
+            // listen for updates and adjust the chart accordingly
+            table.on("draw", () => {
+              if (draw) {
+                draw = false;
+              } else {
+                const tableData = getTableData(table);
+                createHighcharts(tableData);
+              }
+            });
+          }
+      </script>
+
+      <!-- Data visualisation -->
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "reporter_base.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}
+      <div class="container-fluid">
+
+
+
+                        <div class="card">
+                            <div class="card-header bg-info">
+                               <h3 style="color: #fff;">Aho ugeze wandikisha Cooperative yawe uciye kurubuga.</h3>
+                            </div>
+
+                            <div class="card-body">
+                            <br><br>
+                                <h5>Cooperative yawe yujuje ibisabwa byose kugirango ikore, <br><i>Kanda ahanditse umwirondoro maze urebe amakuru ya Cooperative.</h5>
+                                <div class="progress mt-3" style="height: 50px">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"><b>100%</b></div>
+                                </div><br>
+                                <a href="{{ url_for('aicos_reporter.coop_details', email=current_user.email) }}">
+                                    <button type="button" class="btn btn-outline-info btn-lg"><b>Umwirondoro</b></button>
+                                </a>
+                            </div>
+                            </div>
+                        </div>
+
+      </div>
+    {% endblock %}

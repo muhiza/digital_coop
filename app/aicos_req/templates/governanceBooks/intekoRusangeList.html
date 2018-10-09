@@ -1,0 +1,104 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "req_base.html" %}
+{% block title %}Departments{% endblock %}
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <h3>List y'ibyemezo byafashwe n'inteko Rusange</h3>
+                                </div>
+
+                                <div class="col-md-6 text-right">
+                                    <div class="btn btn-outline-primary"><a href="{{ url_for('aicos_req.intekoRusangeAdd') }}"> Ongeraho
+                                    </a>
+                                    </div>
+                            </div>
+                        </div> <br><br>
+
+
+                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Decision </th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th>Due Date</th>
+                <th>Stakeholders</th>
+                <th>Background</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th> Decision </th>
+                <th>Status</th>
+                <th>Owner</th>
+                <th>Due Date</th>
+                <th>Stakeholders</th>
+                <th>Background</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if intekoRusangeList %}
+              {% for decision in intekoRusangeList %}
+                    <tr>
+                      <td> {{ decision.id }} </td>
+                      <td><span class="label label-default"> {{ decision.decision1 }} </span></td>
+                      <td><span class="label label-primary"> {{ decision.status1 }} </span></td>
+                      <td> {{ decision.owner1 }} </td>
+                      <td><span class="label label-info"> {{ decision.due_date1 }} </span></td>
+                      <td><span class="label label-warning"> {{ decision.stakeholders1 }} </span></td>
+                      <td> {{ decision.background1 }}</td>
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+    <br><br><br>
+
+    <br><br><br>
+    <br><br><b
+        </div>
+
+    {% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

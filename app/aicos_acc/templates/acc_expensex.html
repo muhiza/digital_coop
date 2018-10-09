@@ -1,0 +1,59 @@
+{% extends "acct_base.html" %}
+{% block body %}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header bg-light">
+                                <h3>New Expense</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="single-select">Expense Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>General</option>
+                                                <option>Paying Bill</option>
+                                                <option>Buying assets</option>
+                                                <option>Paying loan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="single-select">Budget Item</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>General</option>
+                                                <option>Paying Bill</option>
+                                                <option>Buying assets</option>
+                                                <option>Paying loan</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Expense amount">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="single-select">Paid Using</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Income Channel</option>
+                                                <option>Bank Seep</option>
+                                                <option>Cash</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Memo</label>
+                                            <textarea id="placeholder-input" class="form-control" placeholder="Enter Memo"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Date</label>
+                                            <input type="date" id="placeholder-input" class="form-control" placeholder="Date">
+                                        </div>
+                                         <div class="btn btn-outline-primary"> Save Expense </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

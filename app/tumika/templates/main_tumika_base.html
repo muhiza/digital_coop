@@ -1,0 +1,144 @@
+    <nav class="navbar page-header">
+        <a href="#" class="btn btn-link sidebar-mobile-toggle d-md-none mr-auto">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <a class="navbar-brand" href="{{ url_for('aicos_members.aicos_members_home') }}"><br>
+            <h2>COMMUNICATION</h2>
+        </a>
+
+        <a href="#" class="btn btn-link sidebar-toggle d-md-down-none">
+            <i class="fa fa-bars"></i>
+        </a>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item d-md-down-none">
+                <a href="#">
+                    <i class="fa fa-bell"></i>
+                    <span class="badge badge-pill badge-danger">00</span>
+                </a>
+            </li>
+
+            <li class="nav-item d-md-down-none">
+                <a href="#">
+                    <i class="fa fa-envelope-open"></i>
+                    <span class="badge badge-pill badge-danger">00</span>
+                </a>
+            </li>
+
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon-lg icon-user icon-lg"></i>
+                    <span class="small ml-1 d-md-down-none">
+                        <b>{{ current_user.username }}! </b>
+                    </span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header">Account</div>
+
+                    <a href="{{ url_for('home.user_profile', id=current_user.id, username=current_user.username) }}" class="dropdown-item">
+                        <i class="fa fa-user"></i> Profile
+                    </a>
+
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> Coop Profile
+                    </a>
+
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> Messages
+                    </a>
+
+                    <div class="dropdown-header">Settings</div>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-bell"></i> Notifications
+                    </a>
+
+                    <a href="{{ url_for('home.user_profile', id=current_user.id, username=current_user.username) }}" class="dropdown-item">
+                        <i class="fa fa-wrench"></i> Settings
+                    </a>
+
+                    <a href="{{ url_for('auth.logout') }}" class="dropdown-item">
+                        <i class="fa fa-lock"></i> Logout
+                    </a>
+                </div>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fab fa-buromobelexperte fa-lg"></i>
+                    <span class="small ml-1 d-md-down-none"><b>Switch</b></span>
+                </a>
+
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-header">Solutions</div>
+
+
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-list"></i> AICOS All
+                    </a>
+
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> E-registration.
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> E-joining
+                    </a>
+
+                    <a href="{{ url_for('tumika.dashboardw') }}" class="dropdown-item">
+                        <i class="fa fa-phone"></i> Communication
+                    </a>
+
+                    <a href="{{ url_for('aicos_members.dashboard') }}" class="dropdown-item">
+                        <i class="fa fa-user"></i> Members Management
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> e-Trainer
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> E-monitoring
+                    </a>
+
+                    <a href="{{ url_for('aicos_ezigama.home') }}" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> e-Zigama
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> e-Reporting
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> Proof
+                    </a>
+
+                    <a href="#" class="dropdown-item">
+                        <i class="fa fa-user"></i> Imboni
+                    </a>
+
+                    <a href="{{ url_for('aicos_acc.aicos_acc_home') }}" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> Finance / Accounting
+                    </a>
+                    <a href="{{ url_for('aicos_pm.aicos_pm_home') }}" class="dropdown-item">
+                        <i class="fa fa-envelope"></i> Property Management
+                    </a><br>
+                    <div class="dropdown-header">Load More</div>
+
+
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+
+    {% block rest %}
+    {% endblock %}

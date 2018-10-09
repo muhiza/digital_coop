@@ -1,0 +1,343 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+{% import "bootstrap/utils.html" as util %}
+{% extends "members_base.html" %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  #form-member{
+    margin-top: -20px;
+  }
+
+</style>
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+          <div class="card-header bg-light">
+          <div class="row">
+            <div class="col-md-6">
+                <h3>Andika umunyamuryango.</h3>
+            </div>
+            <div class="col-md-6 text-right">
+                <button class="btn btn-outline-info">
+                  <a href="{{ url_for('aicos_members.doimportmbs') }}">
+                <i class="fa fa-upload"> Injiza abahari</i></a></button>
+            </div>
+            </div>
+          </div>
+      <div class="card-body">
+      <div class="row">
+          <div class="col-md-10">
+          {% if not upload_file %}
+              <!--{{ wtf.quick_form(form, form_type='basic', button_map={'submit': 'info'}) }}-->
+              <form method="POST" action="">
+              <div class="mydivs" id="divs">
+                <div class="cls1">
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.izina_ribanzax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.izina_rikurikirax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ayandix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.igitsinax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.indangamuntux) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.tariki_yavukiyex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.umukonox) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.nomero_ya_telephonex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.codex) }}
+                      </div>
+                  </div>
+                </div>
+                <div class="cls2">
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.intarax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.akarerex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.umurengex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.akagarix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.umudugudux) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.amashurix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubumugax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.arubatsex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.umubare_wabanax) }}
+                      </div>
+                  </div>
+                </div>
+                <div class="cls3">
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.tariki_yinjiriyex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.umugabanex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.icyiciro_cyubudehex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubwishingizix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.akazi_akora_muri_koperativex) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.akandi_kazi_akorax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubuso_ahingahox) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubwoko_bwigihingwax) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubuso_ahingaho_ibindix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubwoko_bwigihingwa_kindix) }}
+                      </div>
+                  </div>
+                  <div class="form-member" style="margin-top: -30px;">
+                      <div class="">
+                          <label class="" for="izina"></label>
+                          {{ wtf.form_field(form.ubuso_budakoreshwax) }}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pull-left">
+                  <div class="">
+                        <button id="prev" name="prev" class="btn btn-md btn-info">Inyuma</button>
+                    </div>
+                </div>
+              <div class="pull-right">
+                  <div class="">
+                    <button id="next" name="next"  class="btn btn-md btn-info">Ahakurikira</button>
+                  </div>
+              </div>
+              <div class="pull-right">
+                <div class="submit">
+                  {{ form.submit(class="btn btn-md btn-success", id="submit")}}
+                </div>
+              </div>
+              {{ form.csrf_token }}
+              </form>
+          {% endif %}<br>
+          </div>
+      </div>   
+      </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+            <div class="card-header bg-info">
+            <h3 style="color: #fff"><b> Ibyerekeye kwandika umunyamuryango</b></h3>
+            </div>
+            <div class="card-body">
+            <p>Uru ni urupapuro rwo kwinjiza umunyamuryango muri <b> Koperative </b> yamaze kwandikwe muri sisiteme. 
+
+            <br><br>Umunyamuryango ushyizwe muri sisiteme amakuru ye arabikwa muri koperative nawe azajye abona ubutumwe bumureba kubijyanye n'ibikorera muri koperative yinjijwemo. <br><br>
+
+            Niba hari ahandi hari handitswe abanyamuryango muzindi nyandiko, <b> Urugero: </b> Excel, kanda ahanditse 
+            <b>Injiza abahari</b> ukurikize amabwiriza ubundi ushyiremo abanyamuryango bose icyarimwe. <br>
+
+            </div>
+     </div>
+    </div>
+  </div>
+</div>
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    var divs = $('.mydivs>div');
+    var next = $('#next');
+    var prev = $('#prev');
+    var now = 0; // currently shown div
+    divs.hide().first().show(); // hide all divs except first
+    prev.hide();
+    var submit = $('.submit');
+    submit.hide();
+    
+    $("button[name=next]").click(function() {
+        
+        divs.eq(now).hide();
+        now = (now + 1 < divs.length) ? now + 1 : 0;
+        
+        // show next
+        if(now == 2){
+          submit.show();
+          divs.eq(now).show();
+          next.hide();
+        }
+        else{
+          submit.hide();
+          divs.eq(now).show();
+          next.show();
+        }
+        //show prev button
+        if(now > 0){
+          prev.show();
+        }
+        else{
+          prev.hide();
+        }
+    });
+    $("button[name=prev]").click(function() {
+        divs.eq(now).hide();
+        now = (now > 0) ? now - 1 : divs.length - 1;
+        if(now == 0){
+          prev.hide(); //hide on prev button
+          divs.eq(now).show(); //hide on previous
+        }
+        else{
+          prev.show();
+          divs.eq(now).show(); // show previous
+        }
+        //show prev
+        if(now == 2){
+          submit.show();
+          divs.eq(now).show();
+          next.hide();
+        }
+        else{
+          submit.hide();
+          divs.eq(now).show();
+          next.show();
+        }
+        
+    });
+    /**
+    $("input[id=submit]").click(function() {
+      if($('#izina_ribanza').val() == 0){
+        divs.show();
+        $('#izina_ribanza').focus();
+      }
+      else if($('#izina_rikurikira').val() == 0){
+        divs.show();
+        $('#izina_rikurikira').focus();
+      }
+      else if($('#indangamuntu').val() == 0){
+        divs.show();
+        $('#indangamuntu').focus();
+      }
+      else if($('#nomero_ya_telephone').val() == 0){
+        divs.show();
+        $('#nomero_ya_telephone').focus();
+      }
+      else if('#')
+    });*/
+});
+</script>
+{% endblock %}

@@ -1,0 +1,227 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+  @import url('https://fonts.googleapis.com/css?family=Quicksand');
+  body{
+    font-family: Quicksand, sans-serif;
+  }
+  .btn-sm-title{
+    background-color: #1F656D;
+    color: white;
+    margin-top: -10px;
+    margin-bottom: -8px;
+    margin-left: -10px;
+    font-size: 15px;
+  }
+  #link-title{
+    color: white;
+    font-size: 16px;
+  }
+  #link-title:hover{
+    color: silver;
+  }
+  .carousel-caption{
+    top: 100px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color: #394249;">
+    <div class="navbar-header">
+      <img src="{{ url_for('static', filename='images/logos/smaller.png') }}" style="height: 45px; width: 100px; margin-top: 2px; margin-bottom: 2px;" />
+    </div>
+    <div class="container-fluid">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#services" id="link-title">Services</a></li>
+        <li><a href="#" id="link-title">Explorer</a></li>
+        <li><a href="{{ url_for('auth.login') }}"><button class="btn btn-md btn-sm-title">Login</button></a></li>
+        <li><a href="{{ url_for('auth.register') }}"><button class="btn btn-md btn-sm-title">Sign up</button></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row" style="margin-top: 50px;">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="carouselnow">
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" 
+          class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+          <li data-target="#myCarousel" data-slide-to="3"></li>
+          <li data-target="#myCarousel" data-slide-to="4"></li>
+        </ol> 
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="{{ url_for('static', filename='img/backtry.png') }}" alt="First slide" style="width: 100%;">
+            <div class="container">
+              <div class="carousel-caption" style="margin-top: -20px;">
+                <div class="" style="text-align: center;">
+                  <strong><h1 style="font-size: 60px; color: white;">Data Culturized</h1></strong>
+                    <p style="font-size: 25px; color: white;">Transforming big volume of unintelligible and disperse data into visible information. 
+                    </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ url_for('static', filename='img/backtry.png') }}" alt="First slide" style="width: 100%;">
+            <div class="container">
+              <div class="carousel-caption">
+                <div class="" style="text-align: center;">
+                  <strong><h1 style="font-size: 60px; color: white;">Data Extraction</h1></strong>
+                    <p style="font-size: 25px; color: white;">Transforming big volume of unintelligible and disperse data into visible information.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ url_for('static', filename='img/backtry.png') }}" alt="First slide" style="width: 100%;">
+            <div class="container">
+              <div class="carousel-caption">
+                <div class="" style="text-align: center;">
+                  <strong><h1 style="font-size: 60px; color: white;">Data Analysis</h1></strong>
+                    <p style="font-size: 25px; color: white;">Transforming big volume of unintelligible and disperse data into visible information.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ url_for('static', filename='img/backtry.png') }}" alt="First slide" style="width: 100%;">
+            <div class="container">
+              <div class="carousel-caption">
+                <div class="" style="text-align: center;">
+                  <strong><h1 style="font-size: 60px; color: white;">Data Processing</h1></strong>
+                    <p style="font-size: 25px; color: white;">Transforming big volume of unintelligible and disperse data into visible information.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <img src="{{ url_for('static', filename='img/backtry.png') }}" alt="First slide" style="width: 100%;">
+            <div class="container">
+              <div class="carousel-caption">
+                <div class="" style="text-align: center;">
+                  <strong><h1 style="font-size: 60px; color: white;">Data visualization</h1></strong>
+                    <p style="font-size: 25px; color: white;">Transforming big volume of unintelligible and disperse data into visible information.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" 
+        data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" 
+        data-slide="next">&rsaquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6" style="text-align: center;">
+        <strong><h1 style="font-size: 50px;">AICOS</h1></strong>
+        <div class="" id="services">
+          <p style="font-size: 25px;">This is a comprehensive digital platform to help cooperatives, their members, their partners, and Clients or Customers in order to collaborate on their daily activities to achive more.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div><hr />
+  <div class="row"  style="text-align: center;">
+    <div class="col-md-12 col-lg-12">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="col-md-12 col-lg-12"><h1 style="font-size: 50px;">Services</h1></strong></div>
+        <div class="col-lg-6">
+          <strong><h1 style="font-size: 40px;">Data Culturized</h1></strong>
+          <div class="" style="">
+            <p style="font-size: 18px;">Transforming big volume of unintelligible and disperse data into visible information.</p>
+            <p style="font-size: 18px;">Data Extraction</p>
+            <p style="font-size: 18px;">Data Analysis</p>
+            <p style="font-size: 18px;">Data Processing</p>
+            <p style="font-size: 18px;">Data Visualization</p>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <strong><h1 style="font-size: 40px;">Shaping the Web</h1></strong>
+          <div class="" style="text-align: center;">
+            <p style="font-size: 18px;">Bringing your idea to the right of the day, watch the face of SME and Cooperatives interacting with their Users and Members.</p>
+            <p style="font-size: 18px;">Complex development</p>
+            <p style="font-size: 18px;">Process Automation</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><hr />
+  <div class="row" style="text-align: center;">
+    <div class="col-md-12 col-lg-12" style="text-align: center;"><h1 style="font-size: 50px;">Solutions</h1></strong>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>Member's Management</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>Accounting</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>Reporting</h3></strong>
+        </div>
+      </div>
+    </div>
+  </div><hr />
+  <div class="row" style="text-align: center;">
+    <div class="col-md-12 col-lg-12" style="text-align: center;"><h1 style="font-size: 50px;">Clients</h1></strong>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>Ferwacotamo</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>Ferwacothe</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>RFTC</h3></strong>
+        </div>
+      </div>
+    </div>
+  </div><hr />
+  <div class="row" style="text-align: center;">
+    <div class="col-md-12 col-lg-12" style="text-align: center;"><h1 style="font-size: 50px;">Partners</h1></strong>
+    </div>
+    <div class="col-md-12 col-lg-12">
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>JICA</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>ICT Chamber</h3></strong>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-4">
+        <div class="">
+          <strong><h3>RCA</h3></strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

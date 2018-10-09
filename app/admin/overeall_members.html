@@ -1,0 +1,137 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "overall_base.html" %}
+{% block title %}Members{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        <br/><br/><br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <!--
+          {% if applications  %}
+          <br>
+            {% for app in applications %}
+              <h1> {{ app.email }} </h1>
+            {% endfor %}
+              {% if apps.applications %}
+                <h1> {{ apps.applications.count() }} </h1>
+              {% endif %}
+
+          {% endif %}
+          <br><br>
+        -->
+        <h1 style="text-align:center;"> All registered members, Country wide access </h1>
+        {% if employees %}
+          <hr class="intro-divider">
+          <div class="container-fluid">
+          <div class="row">
+          <div class="col-md-4 text-left">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-users"> </i>
+            {% if employees.employees %}
+              All Members {{ employees.count() }} </h1>
+            {% endif %}
+          </a>
+          </div>
+          <div class="col-md-4 text-center">
+          <a href="{{ url_for('admin.list_applications') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-pencil"> </i>
+              855
+          </a>
+          </div> 
+          <div class="col-md-4 text-right">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-book"> </i>
+            521
+          </a><br>
+          </div>
+          </div>
+          </div><br>
+          {% endif %}
+          <div class="container-fluid">
+          <table id="example" class="display" cellspacing="0" width="100%">
+                  <thead>
+                      <tr>
+                          <th>{ ## }</th>
+                          <th>Username</th>
+                          <th>Email</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Phone number</th>
+                          <th>Cooperative</th>
+                          <th>Role</th>
+                          <th>Assign</th>
+                          <th>More</th>
+                      </tr>
+                  </thead>
+                  <tfoot>
+                      <tr>
+                          <th>{ ## }</th>
+                          <th>Username</th>
+                          <th>Email</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Phone number</th>
+                          <th>Cooperative</th>
+                          <th>Role</th>
+                          <th>Assign</th>
+                          <th>More</th>
+                      </tr>
+                  </tfoot>
+                  <tbody>
+                        {% for employees in employees %}
+                              <tr>
+                                <td> {{ employees.id }} </td>
+                                <td> {{ employees.username }} </td>
+                                <td> {{ employees.email }} </td>
+                                <td> {{ employees.first_name }} </td>
+                                <td> {{ employees.last_name }} </td>
+                                <td> {{ employees.email }} </td>
+                                <td>
+                                  {% if employees.department_id %}
+                                    {{ employees.department.name }}
+                                  {% else %}
+                                    -
+                                  {% endif %}
+                                </td>
+                                <td>
+                                  {% if employees.role %}
+                                    {{ employees.role.name }}
+                                  {% else %}
+                                    -
+                                  {% endif %}
+                                </td>
+                                <td>
+                                  <a href="{{ url_for('admin.assign_employee', id=employees.id) }}">
+                                    <i class="fa fa-user-plus"></i> Assign
+                                  </a>
+                                </td>
+                                <td> <a href="{{ url_for('admin.member_details', id=employees.id) }}">
+                                <i class="fa fa-eye"> View 
+                                </a></td>
+                              </tr>
+                          {% endfor %}
+                      </tbody>
+                    </table>
+                  <div style="text-align:center;">
+                  <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+                  <i class="fa fa-plus"> </i>
+                  Add Member
+                  </a><br>
+                  <p> Or </p>
+                  <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+                  <i class="fa fa-upload"> </i>
+                  Upload File
+                  </a>
+                  </div>
+                  </div>
+                <br/><br/><br/>
+                <br/><br/><br/>
+              </div>
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,102 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "req_base.html" %}
+{% block title %}Inama y'ubugenzuzi{% endblock %}
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <h3>Ibitabo bya banks hano! </h3>
+                                </div>
+
+                                <div class="col-md-6 text-right">
+                                    <div class="btn btn-outline-primary"><a href="{{ url_for('aicos_req.ibitaboBank') }}"> Ongeraho
+                                    </a>
+                                    </div>
+                            </div>
+                        </div> <br><br>
+
+
+                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
+
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Done Date </th>
+                <th>Action</th>
+                <th>Income</th>
+                <th>Expense</th>
+                <th>Remain</th>
+                <th>Done By</th>
+                <th>Done To</th>
+            </tr>
+        </thead>
+        <tfoot>
+
+
+            <tr>
+                <th>No</th>
+                <th>Done Date </th>
+                <th>Action</th>
+                <th>Income</th>
+                <th>Expense</th>
+                <th>Remain</th>
+                <th>Done By</th>
+                <th>Done To</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if isanduku %}
+              {% for decision in isanduku %}
+                    <tr>
+                      <td> {{ decision.no }} </td>
+                      <td><span class="label label-default"> {{ decision.done_date }} </span></td>
+                      <td><span class="label label-primary"> {{ decision.action }} </span></td>
+                      <td> {{ decision.income }} </td>
+                      <td><span class="label label-info"> {{ decision.expense }} </span></td>
+                      <td><span class="label label-warning"> {{ decision.remain }} </span></td>
+                      <td> {{ decision.done_by }}</td>
+                      <td> {{ decision.done_to }} </td>
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+
+    <br><br><br>
+
+    <br><br><br>
+    <br><br><b
+        </div>
+
+    {% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

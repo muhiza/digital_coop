@@ -1,0 +1,288 @@
+   {% extends "req_base.html" %}
+    {% block body %}
+<div class="card">
+            <div class="card-header bg-light">
+        <h3><i class="icon-basket-loaded"></i> Cooperative's Market Management </h3>
+        </div><br><br>            
+      <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-expanded="false"><i class="icon-calculator"></i> Products On Market &nbsp;<span class="badge badge-success">New</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-expanded="true"><i class="icon-basket-loaded"></i> Clients Carts &nbsp;<span class="badge badge-pill badge-danger">29</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Clients Orders </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages5" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Expired Products </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages6" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Statistics </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane" id="home4" role="tabpanel" aria-expanded="false">
+                        <table id="exampleUmusaruro" class="display nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                    <th>Isoko </th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                    <th>Isoko</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            {% if umusaruro %}
+                                  {% for decision in umusaruro %}
+                                        <tr>
+                                          <td> {{ decision.Amazina }} </td>
+                                          <td><span class="label label-default"> {{ decision.Taliki }} </span></td>
+                                          <td><span class="label label-primary"> {{ decision.Uwagemuye }} </span></td>
+                                          <td> {{ decision.Ibiro }} </td>
+                                          <td><span class="label label-info"> {{ decision.Igiciro }} </span></td>
+                                          <td><span class="label label-warning"> {{ decision.IkiguziCyose }} </span></td>
+                                          <td> {{ decision.amafarangaYishyuweKuKiro }}</td>
+                                          <td> {{ decision.done_by }}</td>
+                                          <td> {{ decision.done_to }} </td>
+                                          <td>
+                                            <div class="toggle-switch" data-ts-color="success">
+                                            <input id="ts4" type="checkbox" hidden="hidden">
+                                            <label for="ts4" class="ts-helper"></label>
+                                            </div>
+                                            </td>
+                                    </div>
+                                    </tr>
+                                  {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        </div>
+
+                        <div class="tab-pane active" id="profile4" role="tabpanel" aria-expanded="true">
+                        <table id="example" class="display nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            {% if umusaruro %}
+                                  {% for decision in umusaruro %}
+                                        <tr>
+                                          <td> {{ decision.Amazina }} </td>
+                                          <td><span class="label label-default"> {{ decision.Taliki }} </span></td>
+                                          <td><span class="label label-primary"> {{ decision.Uwagemuye }} </span></td>
+                                          <td> {{ decision.Ibiro }} </td>
+                                          <td><span class="label label-info"> {{ decision.Igiciro }} </span></td>
+                                          <td><span class="label label-warning"> {{ decision.IkiguziCyose }} </span></td>
+                                          <td> {{ decision.amafarangaYishyuweKuKiro }}</td>
+                                          <td> {{ decision.done_by }}</td>
+                                          <td> {{ decision.done_to }} </td>
+                                        </div>
+                                    </tr>
+                                  {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        </div>
+
+                        <div class="tab-pane" id="messages4" role="tabpanel">
+                        <table id="exampleClients" class="display nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            {% if umusaruro %}
+                                  {% for decision in umusaruro %}
+                                        <tr>
+                                          <td> {{ decision.Amazina }} </td>
+                                          <td><span class="label label-default"> {{ decision.Taliki }} </span></td>
+                                          <td><span class="label label-primary"> {{ decision.Uwagemuye }} </span></td>
+                                          <td> {{ decision.Ibiro }} </td>
+                                          <td><span class="label label-info"> {{ decision.Igiciro }} </span></td>
+                                          <td><span class="label label-warning"> {{ decision.IkiguziCyose }} </span></td>
+                                          <td> {{ decision.amafarangaYishyuweKuKiro }}</td>
+                                          <td> {{ decision.done_by }}</td>
+                                          <td> {{ decision.done_to }} </td>
+                                        </div>
+                                    </tr>
+                                  {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        </div>
+
+
+                        <div class="tab-pane" id="messages5" role="tabpanel">
+                        <table id="exampleProducts" class="display nowrap" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Amazina</th>
+                                    <th>Taliki </th>
+                                    <th>Uwagemuye</th>
+                                    <th>Ibiro</th>
+                                    <th>Igiciro</th>
+                                    <th>Ikiguzi Cyose</th>
+                                    <th>Frw/Kg</th>
+                                    <th>Uwabyakiriye</th>
+                                    <th>Uwabitanze</th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            {% if umusaruro %}
+                                  {% for decision in umusaruro %}
+                                        <tr>
+                                          <td> {{ decision.Amazina }} </td>
+                                          <td><span class="label label-default"> {{ decision.Taliki }} </span></td>
+                                          <td><span class="label label-primary"> {{ decision.Uwagemuye }} </span></td>
+                                          <td> {{ decision.Ibiro }} </td>
+                                          <td><span class="label label-info"> {{ decision.Igiciro }} </span></td>
+                                          <td><span class="label label-warning"> {{ decision.IkiguziCyose }} </span></td>
+                                          <td> {{ decision.amafarangaYishyuweKuKiro }}</td>
+                                          <td> {{ decision.done_by }}</td>
+                                          <td> {{ decision.done_to }} </td>
+                                        </div>
+                                    </tr>
+                                  {% endfor %}
+                            {% endif %}
+                            </tbody>
+                        </table>
+                        </div>
+
+
+
+                        <div class="tab-pane" id="messages6" role="tabpanel">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            Most Orderd Products.
+                                        </div>
+
+                                        <div class="card-body">
+                                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            Clients Movements.
+                                        </div>
+
+                                        <div class="card-body">
+                                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+{% endblock %}

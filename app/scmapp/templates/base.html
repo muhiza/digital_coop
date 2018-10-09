@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }} | AICOS</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline|Metal+Mania" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+
+</head>
+<body>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#example').DataTable( {
+              "order": [[ 3, "desc" ]]
+          } );
+      } );
+      </script>
+
+
+
+
+
+
+
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand topnav" href="{{ url_for('home.homepage') }}" style="font-family: 'Metal Mania', cursive; font-size:23px; line-height: 23px;">AICOS</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  {% if current_user.is_authenticated %}
+                    {% if current_user.is_admin %}
+                      <li><a href="{{ url_for('home.admin_dashboard') }}">Dashboard</a></li>
+                      <li><a href="{{ url_for('admin.list_departments') }}">Cooperative</a></li>
+                      <li><a href="{{ url_for('admin.list_roles') }}">Roles</a></li>
+                      <li><a href="{{ url_for('admin.list_employees') }}">Members</a></li>
+                      <li><a href="{{ url_for('admin.list_employees') }}">Projects</a></li>
+                      <li><a href="{{ url_for('admin.sendsms') }}">Send SMS</a></li>
+                      <li><a href="{{ url_for('admin.sendemail') }}">Emails</a></li>
+                      <li><a href="{{ url_for('admin.sendemail') }}">Reports</a></li>
+                      <li><a href="{{ url_for('admin.subscriptions') }}">Subs</a></li>
+                    {% else %}
+                      <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
+                    {% endif %}
+                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                    <li><a href="{{ url_for('home.user_profile', id=current_user.id, username=current_user.username) }}"><i class="fa fa-user"></i>  Hi, {{ current_user.username }}!</a></li>
+                  {% else %}
+                    <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                    <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+        </div>
+    </nav>
+
+    <div class="wrapper">
+      {% block body %}
+
+
+
+      {% endblock %}
+    </div>
+    <footer>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline fixed-bottom">
+                      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Careers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Developers</a></li>
+                      <li><a href="{{ url_for('admin.solutions_list') }}">Apps Center</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Privecy</a></li>
+                      <li class="footer-menu-divider">&sdot;</li>
+                      {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+
+                        <li><a href="{{ url_for('home.join_cooperative', email=email) }}">Join Coops</a></li>
+
+                      {% else %}
+                        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                      {% endif %}
+                    </ul>
+                    <ul class="list-inline pull-right">
+                      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                      <li><a href="{{ url_for('admin.solutions_list') }}">Solutions</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Careers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Developers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">App Center</a></li>
+                      <li><a href="{{ url_for('admin.overall') }}">Overall</a></li>
+                      <li><a href="{{ url_for('admin.dashboard_overalls') }}">Dash</a></li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; 2017. All Rights Reserved</p>
+                </div>
+            </div>
+            </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+      <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#example').DataTable( {
+              "order": [[ 3, "desc" ]]
+          } );
+      } );
+      </script>
+
+</body>
+</html>

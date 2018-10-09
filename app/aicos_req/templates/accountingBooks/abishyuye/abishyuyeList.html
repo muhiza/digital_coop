@@ -1,0 +1,1324 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "req_base.html" %}
+    {% block body %}
+      <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card-header bg-info">
+                             <h3 style="color: #fff;">
+                             <b>Ibimenyetso bihamya abanyamuryango bishyuye imigabane.</b></h3>
+                        </div> <br>
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-expanded="false"><i class="icon-user"></i> Abatanze umugabane wose</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-expanded="true"><i class="icon-user"></i> Abatanze Igice </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Abataratange na rimwe </a>
+                        </li>
+
+
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            {{ utils.flashed_messages(dismissible=True) }}
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3><b> 
+                                    Igitabo cy’abanyamuryango ba Koperative n’imigabane.
+                                    </b></h3>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+
+                <th>Ibindi</th>
+                <th>Ongera</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+
+                <th>Ibindi</th>
+                <th>Ongera</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    {% if employee.department.starting_share == 50000 %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.District }} </td>
+                      <td> {{ employee.entryDate }} </td>
+                      <td> {{ employee.share }} </td>
+                      <td> {{ employee.exitDate }} </td>
+                      <td> {{ employee.umuzungura }} </td>
+                      <td> {{ employee.umukono }} </td>
+
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_req.abanyamuryangoDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        rambura
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td>
+                      <span class="badge badge-danger">
+                      <b>
+                      <a href="{{ url_for('aicos_req.edit_umugabane', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-trash"></i> Ongera
+                      </a>
+                      </b>
+                      </span>
+                      </td>
+                    </tr>
+                    {% endif %}
+              {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>  
+    <br><br><br>
+
+
+
+                <h2 align="center">Analytics </h2><br>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Jobs Creation
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Harvest
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+            <!--
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Radar Chart
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="radar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                    -->
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Gender Balance
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="pie-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+
+
+
+
+
+
+
+                </div>
+
+                        <div class="tab-pane active" id="profile4" role="tabpanel" aria-expanded="true">    
+                                      <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abanyamuryango Batanze Igice</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+<table id="example1" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+
+                <th>Ibindi</th>
+                <th>Ongera</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Akarere</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+
+                <th>Ibindi</th>
+                <th>Ongera</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    {% if employee.department.starting_share < employee.share %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.District }} </td>
+                      <td> {{ employee.entryDate }} </td>
+                      <td> {{ employee.share }} / {{ employee.department.starting_share }}  </td>
+                      <td> {{ employee.exitDate }} </td>
+                      <td> {{ employee.umuzungura }} </td>
+                      <td> {{ employee.umukono }} </td>
+
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_req.abanyamuryangoDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        rambura
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td>
+                      <span class="badge badge-danger">
+                      <b>
+                      <a href="{{ url_for('aicos_req.edit_umugabane', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-trash"></i> Ongera
+                      </a>
+                      </b>
+                      </span>
+                      </td>
+                    </tr>
+                    {% endif %}
+              {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>  
+</div>
+                        </div>
+
+                        <div class="tab-pane" id="messages4" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abataratanga Umugabane</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+<table id="example2" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+                <th>Telephone</th>
+                <th>ID</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Izina Ribanza</th>
+                <th>Irikurikira</th>
+                <th>Umurenge</th>
+                <th>Akagari</th>
+                <th>Telephone</th>
+                <th>ID</th>
+                <th>Igihe yinjiriye</th>
+                <th>Umugabane Atanze</th>
+                <th>Igihe Aviriyemo</th>
+                <th>Umuzungura</th>
+                <th>Umukono We</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    {% if employee.department.starting_share == 0 %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          150,000
+                        {% endif %}
+                      </td>
+                      <td>
+                      <span class="badge badge-success">
+                        <b>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}" style="color:white; font-size: 12px;">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                        </b>
+                      </td>
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        rambura
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td>
+                      <span class="badge badge-danger">
+                      <b>
+                      <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-trash"></i> Remove 
+                      </a>
+                      </b>
+                      </span>
+                      </td>
+                    </tr>
+                    {% endif %}
+              {% endfor %}
+            {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages5" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Youth Members</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newProductEx') }}">
+                                                <i class="fa fa-plus"></i> Add New Member</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                         <table id="example3" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages9" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Applicants</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newProductEx') }}">
+                                                <i class="fa fa-plus"></i> Add New Member</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                         <table id="example9" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages6" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Active Expense Accounts</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newClient') }}">
+                                                <i class="fa fa-plus"></i> New Expense Category</a>
+                                                </button>
+
+                                                <button class="btn btn-outline-info">
+                                                <a href="{{ url_for('aicos_acc.newClient') }}">
+                                                <i class="fa fa-plus"></i> New Expense Account</a>
+                                                </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                         <table id="example4" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="tab-pane" id="messages7" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Expense Types</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="#"><i class="fa fa-plus"></i> Add New</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example5" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages8" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Loans Payment</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newLoan') }}">
+                                                <i class="fa fa-plus"></i> New Loan</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example6" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="tab-pane" id="messages9" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Capital/Equity</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newCapital') }}">New Capital</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table id="example7" class="display nowrap" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Owner</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if employees %}
+              {% for employee in employees %}
+                    <tr>
+                      <td> {{ employee.firstName }} </td>
+                      <td> {{ employee.secondName }} </td>
+                      <td> {{ employee.owner }} </td>
+                      <td> {{ employee.phone }} </td>
+
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Member
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('aicos_members.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('aicos_members.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"></i> Remove
+                      </a>
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+                                        </table>
+                                    </div>
+                                  </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+
+        </div>
+         </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+    <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Month Fee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                        
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="modal-30" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Fee Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                      
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

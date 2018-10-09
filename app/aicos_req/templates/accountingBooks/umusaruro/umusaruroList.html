@@ -1,0 +1,110 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "req_base.html" %}
+{% block title %}Inama y'ubugenzuzi{% endblock %}
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <div class="row">
+                                <div class="col-md-6">
+                                <h3>Umusaruro wa Cooperative</h3>
+                                </div>
+
+                                <div class="col-md-6 text-right">
+                                    <div class="btn btn-outline-primary"><a href="{{ url_for('aicos_req.umusaruroAdd') }}">
+                                    <i class="fa fa-plus"> Ongeraho </i>
+                                    </a>
+                                    </div>
+
+                                    <div class="btn btn-outline-success"><a href="{{ url_for('aicos_req.wcmIndex') }}">
+                                    <i class="fa fa-book"> Genzura Isoko </i>
+                                    </a>
+                                    </div>
+                            </div>
+                        </div>
+        </div> <br>
+
+                        <div class="card-header">
+
+
+                         <table id="example" class="display nowrap" cellspacing="0" width="100%">
+
+        <thead>
+            <tr>
+                <th>Amazina</th>
+                <th>Taliki </th>
+                <th>Uwagemuye</th>
+                <th>Ibiro</th>
+                <th>Igiciro</th>
+                <th>Ikiguzi Cyose</th>
+                <th>Frw/Kg</th>
+                <th>Uwabyakiriye</th>
+                <th>Uwabitanze</th>
+                <th>Market</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Amazina</th>
+                <th>Taliki </th>
+                <th>Uwagemuye</th>
+                <th>Ibiro</th>
+                <th>Igiciro</th>
+                <th>Ikiguzi Cyose</th>
+                <th>Frw/Kg</th>
+                <th>Uwabyakiriye</th>
+                <th>Uwabitanze</th>
+                <th>Market</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if umusaruro %}
+              {% for decision in umusaruro %}
+                    <tr>
+                      <td> {{ decision.Amazina }} </td>
+                      <td><span class="label label-default"> {{ decision.Taliki }} </span></td>
+                      <td><span class="label label-primary"> {{ decision.Uwagemuye }} </span></td>
+                      <td> {{ decision.Ibiro }} </td>
+                      <td><span class="label label-info"> 
+                      {% if decision.on_market %}
+                            {{ decision.Igiciro }} </span>
+                            {% else %}
+                            Nop
+                            {% endif %}
+                        </td>
+                      <td><span class="label label-warning"> {{ decision.IkiguziCyose }} </span></td>
+                      <td> {{ decision.amafarangaYishyuweKuKiro }}</td>
+                      <td> {{ decision.done_by }}</td>
+                      <td> {{ decision.done_to }} </td>
+                      <td>
+                      <span class="badge badge-danger">
+                               Success
+                        </span>
+                      </td>
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+
+
+    </table>
+
+    <br><br><br>
+
+    <br><br><br>
+    <br><br><b>
+
+    {% endblock %}
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+{% import "bootstrap/base.html" as utils %}
+{% extends "member_dash_base.html" %}
+{% block head %}
+{{ super() }}
+<style type="text/css">
+    @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+    body{       
+        background: #e6e6e6;
+        background: -webkit-linear-gradient(to right, #e6e6e6); 
+        background: linear-gradient(to right, #e6e6e6);
+        font-family: 'Quicksand', sans-serif;
+    }
+    .fa-user-circle {
+    	width: 60%;
+    	height: 60%;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+	<div class="row">
+		<div class="col-md-6 col-lg-6">
+			<div class="">
+				<div class="col-md-12 col-lg-12" style="background-color: #394249; color: silver; border-top-right-radius: 5px; border-top-left-radius: 5px;">
+					<div class="">
+						<li class="fa fa-user-circle col-lg-1" style="font-size: 30px; margin-left: -20px; margin-top: 5px;"></li><span class="col-lg-6" style="margin-bottom: 30px; font-size: 20px;">{{ current_user.first_name }} {{ current_user.last_name }}</span>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-12" style="background-color: #394249;">
+					 <div class="" style="margin-left: -15px; margin-right: -15px;">
+					 	<img class="responsive" src="{{ url_for('static', filename='img/intro-bgd.jpg') }}" style="width: 100%; height: 300px; margin-top: 0px; padding-bottom: 10px; margin-bottom: 15px;">
+					 </div>
+				</div>
+				<div class="col-md-12 col-lg-12" style="background-color: #394249; color: silver; margin-top: -15px;">
+					<h4>Title: hello hello hello hello</h4>
+				</div><hr style="margin-top: -15px;" />
+				<div class="col-md-12 col-lg-12" style="background-color: silver; margin-top: -15px;">
+					<div><strong><span style="font-style: bold; margin-top: 5px;">1k</span> <li class="fa fa-thumbs-up" style="margin-top: 5px;"></li></strong>
+					</div>
+				</div>
+			</div>
+			<div class="" style="margin-top: 10px;">
+				<div class="col-md-12 col-lg-12" style="background-color: #394249; color: silver; border-top-right-radius: 5px; border-top-left-radius: 5px;">
+					<div class="">
+						<li class="fa fa-user-circle col-lg-1" style="font-size: 30px; margin-left: -20px; margin-top: 5px;"></li><span class="col-lg-6" style="margin-bottom: 30px; font-size: 20px;">{{ current_user.first_name }} {{ current_user.last_name }}</span>
+					</div>
+				</div>
+				<div class="col-md-12 col-lg-12" style="background-color: white;">
+					 <div class="" style="margin-left: -15px; margin-right: -15px;">
+					 	<img class="responsive" src="{{ url_for('static', filename='img/smaller.png') }}" style="width: 100%;  margin-top: 0px; padding-bottom: 10px; margin-bottom: 15px;">
+					 </div>
+				</div>
+				<div class="col-md-12 col-lg-12" style="background-color: white; margin-top: -15px;">
+					<h4>Title: hello hello hello hello</h4>
+				</div><hr style="margin-top: -15px;" />
+				<div class="col-md-12 col-lg-12" style="background-color: silver; margin-top: -15px;">
+					<div><strong><span style="font-style: bold; margin-top: 5px;">1k</span> <li class="fa fa-thumbs-up" style="margin-top: 5px;"></li></strong>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-lg-6">
+			
+		</div>
+	</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

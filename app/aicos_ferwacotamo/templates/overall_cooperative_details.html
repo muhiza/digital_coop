@@ -1,0 +1,1970 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "federation_base.html" %}
+    {% block body %}
+      <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#home4" role="tab" aria-controls="home" aria-expanded="false"><i class="icon-user"></i> All Members &nbsp;<span class="badge badge-success">
+                                {{ employees_count }}
+                            </span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profile4" role="tab" aria-controls="profile" aria-expanded="true"><i class="icon-user"></i> Abagabo &nbsp;
+                            <span class="badge badge-pill badge-info"> {{ employees_male_count }} </span></a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages4" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Abagore 
+                            <span class="badge badge-pill badge-primary"> {{ employees_female_count }} </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages5" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Urubyiruko </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages9" role="tab" aria-controls="messages"><i class="icon-pie-chart"></i> Abasaba kwinjira</a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages10" role="tab" aria-controls="messages"><i class="icon-user"></i> Imyigire </a>
+                        </li>
+
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages11" role="tab" aria-controls="messages"><i class="icon icon-energy"></i> Ubumuga </a>
+                        </li>
+
+
+
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            {{ utils.flashed_messages(dismissible=True) }}
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h3><b>Abanyamuryango ba Coop</b></h3>
+
+                                    </div>
+                                    <div class="col-md-8 text-right">
+                                    <button class="btn btn-outline-primary">
+                                    <a href="{{ url_for('aicos_members.AddNewMember') }}">
+                                    <i class="fa fa-user-plus"> Injiza umunyamuryango</i></a></button>
+
+
+                                    <button class="btn btn-outline-secondary">
+                                    <a href="{{ url_for('aicos_members.doimportmbs') }}">
+                                    <i class="fa fa-upload"> Injiza list</i></a></button>
+
+
+
+                                    <button class="btn btn-outline-info">
+                                    <a href="{{ url_for('aicos_acc.newBill') }}">
+                                    <i class="fa fa-list"> List y'abanyamuryango</i></a></button>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                              <table id="ferwa1Muhiza" class="table table-striped" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+                                      <tbody>
+                                      {% if employees %}
+                                            {% for employee in employees %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+                                            {% endfor %}
+
+                                            {% else %}
+
+                                                  <h3>Hello Friday</h3>
+                                      {% endif %}
+                                      </tbody>
+                                  </table> 
+
+                                  <br><br><br>
+
+
+
+                <h2 align="center">Analytics </h2><br>
+                <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Jobs Creation
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="bar-chart" width="100%" height="50"></canvas>
+                        </div>
+
+
+
+
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Cooperative Harvest
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="line-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+            <!--
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Radar Chart
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="radar-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                    -->
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            Gender Balance
+                        </div>
+
+                        <div class="card-body">
+                            <canvas id="pie-chart" width="100%" height="50"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</div>
+
+
+                        <div class="tab-pane" id="profile4" role="tabpanel">    
+                                      <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abanyamuryango b'igitsina gabo</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newBill') }}">
+                                                <i class="fa fa-plus"> New member</i></a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                              <table id="ferwa2" class="table table-striped" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+
+                                              <th>Umudugudu</th>
+
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+
+                                              <th>Umudugudu</th>
+
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+                                      <tbody>
+                                      {% if employees_male %}
+                                            {% for employee in employees_male %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+                                            {% endfor %}
+
+                                            {% else %}
+
+                                                  <h3>Hello Friday</h3>
+                                      {% endif %}
+                                      </tbody>
+                                  </table> 
+                                  
+                                        </div>
+                        </div>
+
+
+
+
+                        <div class="tab-pane" id="messages4" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abanyamuryango b'igitsina gole</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newVendor') }}"><i class="fa fa-plus">
+                                                New member</i></a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                              <table id="ferwa3" class="table table-striped" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+
+                                              <th>Umudugudu</th>
+
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+
+                                              <th>Umudugudu</th>
+
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+                                      <tbody>
+                                      {% if employees_female %}
+                                            {% for employee in employees_female %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+                                            {% endfor %}
+
+                                            {% else %}
+
+                                                  <h3>Hello Friday</h3>
+                                      {% endif %}
+                                      </tbody>
+                                  </table> 
+                                    
+
+
+                                  </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages5" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abanyamuryango b'urubyiruko</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newProductEx') }}">
+                                                <i class="fa fa-plus"></i> Add New Member</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                         <table id="ferwa4" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_female %}
+              {% for employee in employees_female %}
+                    <tr>
+                      <td> {{ employee.izinaRibanza }} </td>
+                      <td> {{ employee.izinaRikurikira }} </td>
+                      <td> {{ employee.Akarere }} </td>
+                      <td> {{ employee.Umurenge }} </td>
+                      <!--
+                      <td>
+                        {% if employee.role %}
+                        <span class="label label-info">{{ employee.role.name }}</span>
+                        {% else %}
+                          Umunyamuryango
+                        {% endif %}
+                      </td>
+                      -->
+                      <td>{{ employee.Akagari }}</td>
+                      <td> {{ employee.Umudugudu }} </td>
+                      <td> {{ employee.Umugabane }} </td>
+
+                      <td> 
+                      <span class="badge badge-info">
+                      <b>
+                      <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                      <i class="fa fa-eye"></i>
+                        Ibindi
+                      </a>
+                      </b>
+                      </span>
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                    </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages9" role="tabpanel">
+                                  <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                <h3>Abasabye kwinjira muri Cooperative</h3>
+                                                </div>
+                                                <div class="col-md-6 text-right">
+                                                <button class="btn btn-outline-primary">
+                                                <a href="{{ url_for('aicos_acc.newProductEx') }}">
+                                                <i class="fa fa-plus"></i> Add New Member</a></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                         <table id="ferwa5" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if applications %}
+              {% for employee in applications %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+        {% endif %}
+        </tbody>
+    </table>
+                                  </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages10" role="tabpanel">
+                                  <div class="card bg-info"><br>
+                                    <h3 style="color: #fff">&nbsp; Amashuri y'abanyamuryango</h3>
+                                        <div class="card-header bg-light">
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#homeEducation" role="tab" aria-controls="homeEducation">Abatarize
+                            &nbsp;<span class="badge badge-pill badge-success">
+                                {{ employees_abatarize_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profileEducation" role="tab" aria-controls="profileEducation">Abanza
+                            &nbsp;<span class="badge badge-pill badge-info">
+                                {{ employees_abanza_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messagesEducation" role="tab" aria-controls="messagesEducation">Ayisumbuye
+                            &nbsp;<span class="badge badge-primary">
+                                {{ employees_ayisumbuye_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages1Education" role="tab" aria-controls="messages">Kaminuza
+                            &nbsp;<span class="badge badge-secondary">
+                                {{ employees_kaminuza_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages2Education" role="tab" aria-controls="messages">Imyuga
+                            &nbsp;<span class="badge badge-danger">
+                                {{ employees_imyuga_count }}
+                            </span></a>
+                        </li>
+
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="homeEducation" role="tabpanel">
+                        <h4><b> Abanyamuryango batageze mw'ishuri </b></h4>
+                         <table id="ferwa6" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_abatarize %}
+              {% for employee in employees_abatarize %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="tab-pane" id="profileEducation" role="tabpanel">
+                        <h4><b> Abanyamuryango barangije amashuri abanza </b></h4>
+            <table id="ferwa7" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_abanza %}
+              {% for employee in employees_abanza %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+    <div class="tab-pane" id="messagesEducation" role="tabpanel">
+              <h4><b> Abanyamuryango barangije amashuri y'isumbuye </b></h4>
+                <table id="ferwa8" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_ayisubumbuye %}
+              {% for employee in employees_ayisumbuye %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+  </div>
+
+
+
+
+
+
+
+                        <div class="tab-pane" id="messages1Education" role="tabpanel">
+
+                        <h4><b> Abanyamuryango barangije kaminuza </b></h4>
+                                                   <table id="ferwa9" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_kaminuza %}
+              {% for employee in employees_kaminuza %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+
+                    <div class="tab-pane" id="messages2Education" role="tabpanel">
+                        <h4><b> Abanyamuryango bize imyuga </b></h4>
+                                                   <table id="ferwa10" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_imyuga %}
+              {% for employee in employees_imyuga %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                          <div class="tab-pane" id="messages11" role="tabpanel">
+                                  <div class="card bg-info"><br>
+                                      <h3 style="color: #fff">&nbsp; Abanyamuryango babana n'ubumuga</h3>
+                                        <div class="card-header bg-light">
+                    <ul class="nav nav-tabs" role="tablist text-right">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#homeUbumuga" role="tab" aria-controls="home">Amaguru
+                            &nbsp;<span class="badge badge-success">
+                                {{ employees_amaguru_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#profileUbumuga" role="tab" aria-controls="profile">Amaboko
+                              &nbsp;<span class="badge badge-info">
+                                {{ employees_amaboko_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messagesUbumuga" role="tab" aria-controls="messages">Kutabona
+                            &nbsp;<span class="badge badge-primary">
+                                {{ employees_kutabona_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages1Ubumuga" role="tab" aria-controls="messages">Kutumva
+                            &nbsp;<span class="badge badge-secondary">
+                                {{ employees_kutumva_count }}
+                            </span></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#messages2Ubumuga" role="tab" aria-controls="messages">Mu mutwe
+                            &nbsp;<span class="badge badge-danger">
+                                {{ employees_mumutwe_count }}
+                            </span></a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="homeUbumuga" role="tabpanel">
+                        <h4><b> Abanyamuryango bafite ubumuga bw'Amaguru </b></h4>
+                         <table id="ferwa11" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_amaguru %}
+              {% for employee in employees_amaguru %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+                        <div class="tab-pane" id="profileUbumuga" role="tabpanel">
+                        <h4><b> Abanyamuryango bafite ubumuga bw'Amaboko </b></h4>
+            <table id="ferwa12" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_amaboko %}
+              {% for employee in employees_amaboko %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+                        <div class="tab-pane" id="messagesUbumuga" role="tabpanel">
+                        <h4><b> Abanyamuryango bafite ubumuga bwo kutabona </b></h4>
+                                                   <table id="ferwa13" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_kutabona %}
+              {% for employee in kutabona %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+
+                        <div class="tab-pane" id="messages1Ubumuga" role="tabpanel">
+
+                        <h4><b>Abanyamuryango bafite ubumuga bwo kutumva </b></h4>
+                                                   <table id="ferwa14" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_kutumva %}
+              {% for employee in employees_kutumva %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+
+
+
+
+                    <div class="tab-pane" id="messages2Ubumuga" role="tabpanel">
+                        <h4><b> Abanyamuryango bafite ubumuga bwo mu mutwe </b></h4>
+                                                   <table id="ferwa15" class="display nowrap" cellspacing="0" width="100%">
+                                      <thead>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </thead>
+                                      <tfoot>
+                                          <tr>
+                                              <th>Izina Ribanza</th>
+                                              <th>Irikurikira</th>
+                                              <th>Akarere</th>
+                                              <th>Umurenge</th>
+                                              <th>Akagari</th>
+                                              <th>Umudugudu</th>
+                                              <th>Umugabane</th>
+                                              <th>Ibindi</th>
+                                          </tr>
+                                      </tfoot>
+        <tbody>
+        {% if employees_mumutwe %}
+              {% for employee in employees_mumutwe %}
+                                                  <tr>
+                                                    <td> {{ employee.izinaRibanza }} </td>
+                                                    <td> {{ employee.izinaRikurikira }} </td>
+                                                    <td> {{ employee.Akarere }} </td>
+                                                    <td> {{ employee.Umurenge }} </td>
+                                                    <!--
+                                                    <td>
+                                                      {% if employee.role %}
+                                                      <span class="label label-info">{{ employee.role.name }}</span>
+                                                      {% else %}
+                                                        Umunyamuryango
+                                                      {% endif %}
+                                                    </td>
+                                                    -->
+                                                    <td>{{ employee.Akagari }}</td>
+                                                    <td> {{ employee.Umudugudu }} </td>
+                                                    <td> {{ employee.Umugabane }} </td>
+
+                                                    <td> 
+                                                    <span class="badge badge-info">
+                                                    <b>
+                                                    <a href="{{ url_for('aicos_members.memberDetails', id=employee.id) }}" style="color:white; font-size: 12px;">
+                                                    <i class="fa fa-eye"></i>
+                                                      Ibindi
+                                                    </a>
+                                                    </b>
+                                                    </span>
+                                                    <!--
+                                                    Trying out to use modal here
+                                                    <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                                                    -->
+                                                    </td>
+                                                  </tr>
+              {% endfor %}
+
+              {% else %}
+
+                    <h3>Hello Friday</h3>
+        {% endif %}
+        </tbody>
+    </table>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    </div>
+                </div>
+
+
+        </div>
+         </div>
+          </div>
+          </div>
+          </div>
+
+
+
+
+    <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Month Fee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                        
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="modal fade" id="modal-30" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">New Fee Type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                            <div class="card-body">
+                                <div class="row mt-4">
+                                    <div class="col-md-12">
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Fee Type</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>Renting Fees</option>
+                                                <option>Cleaning Fees</option>
+                                                <option>Security Fees</option>
+                                                <option>Others</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Description</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Description">
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Amount</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Amount">
+                                        </div>
+
+
+
+                                        <div class="form-group">
+                                            <label for="date" class="form-control-label">Due Date</label>
+                                            <input id="placeholder-input" type="date" class="form-control" placeholder="Due Date">
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="single-select">Person to Pay</label>
+                                            <select id="single-select" class="form-control">
+                                                <option>All</option>
+                                                <option>Custom Person</option>
+                                                <option>  Choose Person</option>
+                                            </select>
+                                        </div>
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Except</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <label for="placeholder-input" class="form-control-label">Use unassigned</label>
+                                            <input id="placeholder-input" class="form-control" placeholder="Enter Exception">
+                                        </div>
+
+
+                                        
+                                        
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save Month Fee</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

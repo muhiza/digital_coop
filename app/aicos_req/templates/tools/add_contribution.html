@@ -1,0 +1,22 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "coop_base.html" %}
+{% block title %}Add Contribution{% endblock %}
+{% block body %}
+
+		  <div class="panel panel-default">
+		    <div class="panel-heading"><h3>Track a Contribution</h3></div>
+		    <div class="panel-body">
+		    <div class="col-md-6">
+		    <br/>
+		    {{ wtf.quick_form(form) }}
+		    </div>
+
+		    <div class="col-md-6 text-center">
+		    <h3>About Contribution </h3>
+
+<p>Track every saving and contribution from members and communication any change in real time.</p>
+		    </div>
+		    </div>
+        </div>
+{% endblock %}

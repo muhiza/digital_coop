@@ -1,0 +1,226 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "req_base.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}
+      <div class="container-fluid">
+        {{ utils.flashed_messages() }}
+ 
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">000</span>
+                                <span class="font-weight-light">Financial Reports</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">000</span>
+                                <span class="font-weight-light">Total Daily reports</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">000</span>
+                                <span class="font-weight-light">Sent Messages</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">000</span>
+                                <span class="font-weight-light">Total Paid money</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-danger border-0">
+                        <div class="card-body d-flex justify-content-between text-white flex-column">
+                            <div class="font-weight-bold">
+                                <span>Traffic</span>
+                                <span class="float-right">120,124</span>
+                            </div>
+
+                            <div class="small mb-3">
+                                <span>Today</span>
+                                <span class="float-right">+2,452 (55%)</span>
+                            </div>
+
+                            <canvas class="widget-line-chart" width="100%" height="30"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-primary border-0">
+                        <div class="card-body d-flex justify-content-between text-white flex-column">
+                            <div class="font-weight-bold">
+                                <span>Traffic</span>
+                                <span class="float-right">120,124</span>
+                            </div>
+
+                            <div class="small mb-3">
+                                <span>Yestarday</span>
+                                <span class="float-right">+2,452 (55%)</span>
+                            </div>
+
+                            <canvas class="widget-line-chart" width="100%" height="30"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-success border-0">
+                        <div class="card-body d-flex justify-content-between text-white flex-column">
+                            <div class="font-weight-bold">
+                                <span>Traffic</span>
+                                <span class="float-right">120,124</span>
+                            </div>
+
+                            <div class="small mb-3">
+                                <span>This week</span>
+                                <span class="float-right">+2,452 (55%)</span>
+                            </div>
+
+                            <canvas class="widget-line-chart" width="100%" height="30"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-dark border-0">
+                        <div class="card-body d-flex justify-content-between text-white flex-column">
+                            <div class="font-weight-bold">
+                                <span>Traffic</span>
+                                <span class="float-right">120,124</span>
+                            </div>
+
+                            <div class="small mb-3">
+                                <span>This month</span>
+                                <span class="float-right">+2,452 (55%)</span>
+                            </div>
+
+                            <canvas class="widget-line-chart" width="100%" height="30"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+          <h2 class="sub-header">System Logs</h2>
+          <div class="table-responsive">
+ <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From (IP)</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+    </table>
+    <div id="charts"></div>
+    <br><br>
+  </div>
+        </div>
+      </div>
+    </div>
+
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

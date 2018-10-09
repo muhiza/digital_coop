@@ -1,0 +1,238 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "rca_base.html" %}
+{% block title %}Members{% endblock %}
+
+<style type="text/css">
+  #card{
+    background-color: #aec251;
+  }
+</style>
+
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+    <div class="container-fluid">
+    {% if departments %}
+      <div class="row">
+        {% block dashboard %}
+          <h1 class="page-header"><span style="color: #aec251;"><i class="fa fa-dashboard"></i></span> AICOS - Dashboard</h1>
+          <p> High level overview of what have been happening.</p>
+          <div class="row placeholders">
+          <div class="btn btn-default">
+            <div class="col-xs-6 col-sm-3 placeholder">
+            <h2> 1028 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-users" style="color:#5bc0de; font-size:40px;"></i> </h2>
+              <h4>All Members</h4>
+              <span class="text-muted">All cooperatives members</span>
+            </div>
+            </div>
+
+
+          <div class="btn btn-default">
+            <div class="col-xs-6 col-sm-3 placeholder">
+            <h2> 150 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-user" style="color:#5bc0de; font-size:40px;"></i></h2>
+              <h4>Youth</h4>
+              <span class="text-muted">All youth in cooperative</span>
+            </div>
+            </div>
+
+
+          <div class="btn btn-default">
+            <div class="col-xs-6 col-sm-3 placeholder">
+            <h2>325 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-photo" style="color:#5bc0de; font-size:40px;"></i></h2>
+              <h4>Women</h4>
+              <span class="text-muted">All women in cooperative</span>
+            </div>
+            </div>
+
+          <div class="btn btn-default">
+            <div class="col-xs-6 col-sm-3 placeholder">
+            <h2>321  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-file-word-o" style="color:#5bc0de; font-size:40px;"></i></h2>
+              <h4>Reports</h4>
+              <span class="text-muted">All generated reports</span>
+            </div>
+            </div>
+          </div><br><br>
+
+          <!--
+          This is the chart of dynamic information.
+          <div id="charts"></div>
+          -->
+          <div id="container_home" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+          <br><br>
+          <h2 class="sub-header">Recent Activities</h2><br>
+
+<br><br>
+
+
+
+
+ <div class="table-responsive">
+ <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From (IP)</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>To</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Actions</th>
+                <th>Done by</th>
+                <th>From</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>To</th>
+                <th> Effect </th>
+                <th>Details</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if notifications %}
+              {% for notification in notifications %}
+                    <tr>
+                      <td> {{ notification.action }} </td>
+                      <td> {{ notification.done_by }} </td>
+                      <td> {{ notification.done_from }} </td>
+                      <td> {{ notification.done_date }} </td>
+                      <td> {{ notification.done_time }} </td>
+                      <td> {{ notification.effect }} </td>
+
+                      <td> 0
+
+                       </td>
+
+                      <td> 
+                          <a href="#">
+                          <i class="fa fa-eye"> </i>Details 
+                          </a>
+                      </td>
+
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+              {% else %}
+                        <h1> There are no notifications to display </h1>
+                    </tr>
+              {% endfor %}
+
+        {% endif %}
+        </tbody>
+    </table>
+    <br><br><br><br>
+
+
+
+
+
+          
+    <div class="col-md-6" style="background-color: #ffffff;">
+    <h2>Porjects</h2>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Project</th>
+        <th>Complited</th>
+        <th>Date</th>
+        <th>Action </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>The sun climbing plan</td>
+        <td><span class="label label-danger">Incomplited</span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+      <tr>
+        <td>The sun climbing plan</td>
+        <td><span class="label label-success">Complited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+      <tr>
+        <td>Open strategy</td>
+        <td><span class="label label-danger">Incomplited </span></td>
+        <td>Jan 1, 2017</td>
+        <td><i fa class="fa fa-trash"></i> <i fa class="fa fa-pencil"></i></td>
+      </tr>
+    </tbody>
+  </table>
+    <p class="btn btn-default">View all </p><br><br>
+  </div>
+
+  <div class="col-md-1">
+  </div>
+
+
+ 
+
+
+    <div class="col-md-5" style="background-color: #ffffff;">
+    <h2>Projects Status</h2>          
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Project</th>
+        <th>Status</th>
+        <th>Progress</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>619</td>
+        <td>The sun climbing plan</td>
+        <td>Developing</td>
+
+        <td><span class="label label-info">30% </span></td>
+      </tr>
+      <tr>
+        <td>616</td>
+        <td>The sun climbing plan</td>
+        <td>Designing</td>
+        <td><span class="label label-success">50% </span></td>
+      </tr>
+      <tr>
+        <td>69%</td>
+        <td>Office automatization</td>
+        <td>Staging</td>
+
+        <td><span class="label label-success">80% </span></td>
+      </tr>
+    </tbody>
+  </table>
+    <p class="btn btn-default">View all </p><br><br>
+  </div>
+
+
+      {% endblock %}
+{% endif %}
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

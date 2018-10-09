@@ -1,0 +1,56 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "bootstrap/fixes.html" as fixes %}
+{% import "bootstrap/utils.html" as utils %}
+{% extends "stock_base.html" %}
+{% block title %}Stock{% endblock %}
+{% block body %}
+ 	<div class="container-fluid">
+    {{ utils.flashed_messages() }}
+    	<div class="col-md-8">
+    		<div class="tab-content">
+    			<div class="row" style="background-color: #f2f2f2; margin: 0px;">
+		            <div class="col-md-12" style="margin-top: 25px; margin-left: 10px; margin-bottom: 15px;">
+		                <h3 style="text-align: center;">Andika Umusaruro wa <strong style="font-style: bold;">{% if member_name %} {{   '"' + member_name.izina_ribanza + " " + member_name.izina_rikurikira + '"' }} {% endif %}</strong></h3>
+		            </div>
+		        </div>
+                <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false" style="padding-bottom: 15px;">
+	                <form action="{{ url_for('aicos_stock_managment.injizaUmusaruro', id=memberid.id)}}" method="post">
+	                	<!--<div class="">
+	                		<label class="sr-only">Member id</label>
+	                    	<input type="hidden" class="form-control" disabled="disable" value="{{member_name.id}}">
+	                	</div>
+	                	<div class="input-form" style="margin-bottom: 10px;">
+	                    	<label class="sr-only">Member id</label>
+	                    	<input type="text" class="form-control" disabled="disable" value="{{ member_name.izina_ribanza + " " + member_name.izina_rikurikira }}">
+	                    </div>-->
+	                	<div class="">
+	                    	{{ wtf.form_field(form.resi) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.zone) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.umusaruro) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.umuceriWoKurya) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.igiciroCyaKimwe) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.umusanzu) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ wtf.form_field(form.amafrwYoGutonoza) }}
+	                    </div>
+	                    <div class="">
+	                    	{{ form.submit(class="btn btn-primary") }}
+	                    </div>
+	                    {{ form.csrf_token }}
+	                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

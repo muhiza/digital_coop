@@ -1,0 +1,171 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "home_base.html" %}
+{% block body %}
+      <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-primary">
+                           <h2><a href="{{ url_for('aicos_req.accountingBooks') }}" style="color: #fff;"> Accounting Book </a></h2>
+                        </div>
+
+                        <div class="card-body bg-primary">
+                            <h5>Uburyo bwo gucunga abanyamuryango ba cooperative n'imigabane yabo ndetse nuko igenda yiyongera mu gihe runaka. Ubu buryo bukaba bunafasha gucunga imitungo ya cooperative ndetse n'ibyinjira n'ibisohoka muri Cooperative. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-info">
+                            <h2> e-Registration </h2>
+                        </div>
+
+                        <div class="card-body bg-info">
+                            <h5>Ubu ni uburyo bwo gufasha Cooperative zitandukanye kugenda zisuzuma niba zujuje ibisabwa kugirango zikore, aho bituzuye zikahabona kandi zigahabwa ubufasha kugirango zuzuze ibisabwa byose kugirango zikore. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-danger">
+                           <h2> e-Joining </h2>
+                        </div>
+
+                        <div class="card-body bg-danger">
+                            <h5>Ubu ni uburyo bwo gufasha abantu batandukanye kubona amakuru yerekeye ama Cooperative yose n'ibyo akora ndetse n'agaciro k'umugabane muri Cooperative, bakabona ibisabwa bakanafashwa gusaba kwinjira muri Cooperative. </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-success">
+                            <h2> Communication </h2>
+                        </div>
+
+                        <div class="card-body bg-success">
+                            <h5>Ubu ni uburyo bwiza bufasha Cooperative gusangiza abanyamuryango amakuru atandukanye yerekeye, inama, ibyemezo, amatangazo, uko umutungo ukoreshwa ndetse n'ibyinjira n'ibisohoka muri cooperative hifashishijwe Telephone mu gihe gito. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-warning">
+                            <h2> Members Management </h2>
+                        </div>
+
+                        <div class="card-body bg-warning">
+                            <h5>Uburyo bwo gukusanya, kubika no gusesengura amakuru atandukaye yerekeye abanyamuryango ba Cooperative, uburyo bugufasha kumenya amashuri y'abanyamuryango, ikigero cy'imyaka barimo, abanyamuryango babana n'ubumuga n'ibindi. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-dark">
+                            <h2> e-Trainer </h2>
+                        </div>
+
+                        <div class="card-body bg-dark">
+                            <h5>Ubu ni uburyo bufasha ama Cooperative gusaba amahugurwa ku ngingo runaka igihe icyo aricyo cyose, ubu buryo kandi bufasha abategura n'abatanga amahugurwa ku ma Cooperative kuyategura ndetse no kuyatanga hifashishijwe system. </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+            <div class="card-header bg-light">
+                <h1>Member Reporting.</h1>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-primary">
+                           <h2><a href="{{ url_for('aicos_req.accountingBooks') }}" style="color: #fff;"> e-Zigama. </a></h2>
+                        </div>
+
+                        <div class="card-body bg-primary">
+                            <h5>Ubu ni uburyo bufasha umunyamuryango wa Cooperative gushyiraho intego runaka ku giti cye ndetse System ikamufasha gucunga no kumushishikariza kuzigama amafaranga kugeza agaze kuri iyo ntego.  </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-info">
+                            <h2> e-Reporting. </h2>
+                        </div>
+
+                        <div class="card-body bg-info">
+                            <h5>Uburyo bufasha ama Cooperative gutegura Raporo zimbitse ku mirimo yose ikorerwa muri Cooperative ndetse no gusangiza Raporo zateguwe ibigo ndetse n'abantu barebwe n'ibiri muri izo Raporo.  </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-danger">
+                           <h2> e-Mboni </h2>
+                        </div>
+
+                        <div class="card-body bg-danger">
+                            <h5>Uburyo bufasha abanyamuryango ba Cooperative gutanga amakuru y'ibintu runaka byaba ibigenda neza cg ibitagenda neza mu buryo bw'ibanga, ndetse igafasha n'ababishinzwe kubikurikirana vuba. </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-success">
+                            <h2> Communication </h2>
+                        </div>
+
+                        <div class="card-body bg-success">
+                            <h5>Ubu ni uburyo bwiza bufasha Cooperative gusangiza abanyamuryango amakuru atandukanye yerekeye, inama, ibyemezo, amatangazo, uko umutungo ukoreshwa ndetse n'ibyinjira n'ibisohoka muri cooperative hifashishijwe Telephone mu gihe gito. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-warning">
+                            <h2> Members Management </h2>
+                        </div>
+
+                        <div class="card-body bg-warning">
+                            <h5>Uburyo bwo gukusanya, kubika no gusesengura amakuru atandukaye yerekeye abanyamuryango ba Cooperative, uburyo bugufasha kumenya amashuri y'abanyamuryango, ikigero cy'imyaka barimo, abanyamuryango babana n'ubumuga n'ibindi. </h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card text-white border-0">
+                        <div class="card-header bg-dark">
+                            <h2> e-Trainer </h2>
+                        </div>
+
+                        <div class="card-body bg-dark">
+                            <h5>Ubu ni uburyo bufasha ama Cooperative gusaba amahugurwa ku ngingo runaka igihe icyo aricyo cyose, ubu buryo kandi bufasha abategura n'abatanga amahugurwa ku ma Cooperative kuyategura ndetse no kuyatanga hifashishijwe system. </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+    </div>
+
+
+{% endblock %}

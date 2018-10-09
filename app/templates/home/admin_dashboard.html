@@ -1,0 +1,238 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "base.html" %}
+{% block title %}Members{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+        <!--
+                {% if applications  %}
+                <br>
+                  {% for app in applications %}
+                    <h1> {{ app.email }} </h1>
+                  {% endfor %} 
+                    {% if apps.applications %}
+                      <h1> {{ apps.applications.count() }} </h1>
+                    {% endif %}
+
+                {% endif %}
+        -->
+          <div class="row">
+          {% block dashboard %}
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" style="background-color: #AFEEEE;">
+        <h1>COOP : 
+        {{ employee.name }}  </h1>
+        {% if employees %}
+          <!-- <hr class="intro-divider"> -->
+          <div class="container-fluid">
+          <div class="row">
+          <br><br>
+          <div class="col-md-4 text-left">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-users"> </i>
+            {% if employee.employees %}
+             All Members {{ employee.members.count() }} </h1>
+            {% endif %}
+          </a>
+          </div>
+          <div class="col-md-4 text-center">
+          <a href="{{ url_for('admin.list_applications') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-pencil"> </i>
+          {% if applications  %}
+            {% if apps.applications %}
+              Applications {{ apps.applications.count() }} </h1>
+            {% endif %}
+          {% endif %}
+          </a>
+          </div> 
+          <div class="col-md-4 text-right">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-book"> </i>
+          {% if applications  %}
+            {% if apps.applications %}
+              Total members {{ apps.applications.count() + employee.members.count() }} </h1>
+            {% endif %}
+          {% endif %}
+          </a>
+          </div>
+          </div>
+          </div>
+          <br><br>
+        {% endif %}
+    
+<div class="container-fluid">
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>{ ## }</th>
+                <th>Names</th>
+                <th>Plate</th>
+                <th>Owner</th>
+                <th>Cooperative</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>{ ## }</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Cooperative</th>
+                <th>Role</th>
+                <th>Assign</th>
+                <th>More</th>
+                <th>Remove</th>
+            </tr>
+        </tfoot>
+        <tbody>
+              {% for employee in employees %}
+                {% if employee.is_coop_admin %}
+                    <tr style="background-color: #aec251; color: white;">
+                      <td> <i class="fa fa-key"></i> Admin </td>
+                      <td> {{ employee.username }} </td>
+                      <td> {{ employee.email }} </td>
+                      <td> {{ employee.first_name }} </td>
+                      <td>
+                        {% if employee.department_id %}
+                          {{ employee.department.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if employee.role %}
+                          {{ employee.role.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('admin.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> <a href="{{ url_for('admin.member_details', id=employee.id) }}">
+                      <i class="fa fa-eye"> View 
+                      </a></td>
+                      <td> <a href="{{ url_for('admin.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"> Remove
+                      </a></td>
+                    </tr>
+                {% else %}
+                    <tr>
+                      <td> {{ employee.id }} </td>
+                      <td> {{ employee.name }} </td>
+                      <td> {{ employee.plate }} </td>
+                      <td> {{ employee.Owner }} </td>
+                      <td>
+                        {% if employee.department_id %}
+                          {{ employee.department.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if employee.role %}
+                          {{ employee.role.name }}
+                        {% else %}
+                          -
+                        {% endif %}
+                      </td>
+                      <td>
+                        <a href="{{ url_for('admin.assign_employee', id=employee.id) }}">
+                          <i class="fa fa-user-plus"></i> Assign
+                        </a>
+                      </td>
+                      <td> 
+                      <a href="{{ url_for('admin.member_details', id=employee.id) }}">
+                      <i class="fa fa-eye"></i>View 
+                      </a>
+
+                      <!--
+                      Trying out to use modal here
+                      <a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open</a>
+                      -->
+                      </td>
+                      <td> <a href="{{ url_for('admin.delete_member', id=employee.id) }}">
+                      <i class="fa fa-trash"> Remove
+                      </a></td>
+                    </tr>
+                {% endif %}
+              {% endfor %}
+        </tbody>
+    </table>
+            <div style="text-align:center;">
+            <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"> </i>
+            Add Member
+            </a><br><br>
+
+            <a href="{{ url_for('admin.invite_members') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-envelope"> </i>
+            Invite People
+            </a><br>
+
+
+            <p> Or </p>
+            <a href="{{ url_for('admin.doimportmbs') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-upload"> </i>
+            Upload File
+            </a>
+            </div>
+            </div>
+
+
+        <br/><br/><br/>
+
+<!--
+Trying out how to use modal.
+=============================
+
+<a href="#my_modal" data-toggle="modal" data-book-id="employee.id">Open Modal</a>
+<div class="modal" id="my_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title">Modal header</h4>
+      </div>
+      <div class="modal-body">
+      {% if employeex %}
+        <p>{{ employeex.name }}</p>
+      {% else %}
+        <p> Hello </p>
+      {% endif %}
+        <input type="text" name="bookId" value=""/>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">
+  $('#my_modal').on('show.bs.modal', function(e) {
+    var bookId = $(e.relatedTarget).data('book-id');
+    $(e.currentTarget).find('input[name="bookId"]').val(bookId);
+});
+</script>
+-->
+
+
+
+      </div>
+      </div>
+      {% endblock %}
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

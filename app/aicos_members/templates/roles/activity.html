@@ -1,0 +1,66 @@
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "members_base.html" %}
+{% block title %}
+    {% if add_department %}
+        Add Role
+    {% else %}
+        Edit Role
+    {% endif %}
+{% endblock %}
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-light">
+                <div class="row">
+                <div class="col-md-6">
+
+            {% if add_role %}
+                <div class="card-header bg-light">
+                <h3>Add Activity</h3>
+                </div>
+            {% else %}
+                <div class="card-header bg-light">
+                <h3>Add Activity</h3>
+                </div>
+            {% endif %}
+            </div>
+            </div>
+            </div>
+                <div class="card-body">
+                {{ wtf.quick_form(form, form_type='basic', button_map={'submit': 'info'}) }}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="col-md-4">
+      <div class="card">
+            <div class="card-header bg-light">
+            <h3>About Activity </h3>
+            </div>
+            <div class="card-body">
+            <br>
+            <ol>
+                <li>You select the activity from left side
+                    (such as ubuhinzi, servisi etc.) and
+                    select the detailed activity from right
+                    side (such as ikawa, ibishyimbo,
+                    gukora isuku etc.)</li>
+                <li>If you have different activities, you
+                    can select one by one.</li>
+            </ol>
+            </div>
+     </div>
+    </div>
+
+
+  </div>
+</div>
+{% endblock %}

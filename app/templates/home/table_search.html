@@ -1,0 +1,80 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "home_base.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}<br><br>
+      <div class="container-fluid"><br><br>
+    {{ utils.flashed_messages() }}
+    {% if departments %}
+            <div class="row"><br><br><br>
+                <h2 class="sub-header">Registered Cooperatives</h2>
+            </div>
+
+             <table id="exampleQuick" class="display" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Izina</th>
+                            <th>Intara</th>
+                            <th>Akarere</th>
+                            <th>Umurenge</th>
+                            <th>Italiki yandikiweho</th>
+                            <th>Certificate</th>
+                            <th>Abanyamuryango </th>
+                            <th>Injiza muri sisiteme</th>
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Izina</th>
+                            <th>Intara</th>
+                            <th>Akarere</th>
+                            <th>Umurenge</th>
+                            <th>Italiki yandikiweho</th>
+                            <th>Certificate</th>
+                            <th>Abanyamuryango </th>
+                            <th>Injiza muri sisiteme</th>
+                        </tr>
+                    </tfoot>
+                    <tbody>
+                          {% for department in departments %}
+                                <tr>
+                                  <td> {{ department.name }} </td>
+                                  <td> {{ department.province }} </td>
+                                  <td> {{ department.district }} </td>
+                                  <td> {{ department.sector }} </td>
+                                  <td> {{ department.regdate }} </td>
+                                  <td> {{ department.certificate }} </td>
+
+                                  <td> {% if department.members %}
+                                        {{ department.members.count() }}
+                                        {% else %}
+                                        0
+                                        {% endif %}
+
+                                   </td>
+
+                                  <td> 
+                                    <button class="btn btn-outline-info btn-sm">
+                                    <a href="{{ url_for('home.coopInfo', email=department.email) }}">
+                                    INJIZA MURI SISITEME
+                                    </a></button>
+                                  </td>
+                                </tr>
+                          {% endfor %}
+                    </tbody>
+                </table><br><br>
+                {% endif %}
+        </div>
+      </div>
+    </div>
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

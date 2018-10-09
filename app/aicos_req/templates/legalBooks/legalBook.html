@@ -1,0 +1,217 @@
+   {% extends "req_base.html" %}
+    {% block body %}
+        <div class="container-fluide">
+        <h3> LEGAL BOOKS and DOCS </h3>
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-file"></i> Amategeko </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.blank') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cy’amategeko-shingiro.
+                        </div><br>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-user"></i> Icyemezo </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.decisions_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Icyemezo cy’ubuzimagatozi.
+                        </div><br>
+                    </div>
+                </div> 
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-tasks"></i> Amategeko </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.list_reports') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cy’amategeko y’umwihariko.
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-envelope"></i> Abanyamuryango </h5>
+                            <div class="card-actions">
+                                <a href="{{ url_for('aicos_members.communications_list') }}" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Igitabo cy’abanyamuryango ba Koperative n’imigabane (Procedure manual).
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-info"></i> Delivary </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Inyandiko mperekeza (Delivery document).
+                        </div><br>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-pencil-alt"></i> Signatories </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Urutonde rw’abasinyateri kuri konti (Signatories).
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="row mt-4">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-share"></i> Gusohora </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            Urupapuro rusohora muri stock (Stock exit note).
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5><i class="fa fa-book"></i> Kwinjiza </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Urupapuro rwinjiza muri stock (Stock entry note).
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-light">
+                            <h5> <i class="fa fa-info"></i> Imisaruro. </h5>
+                            <div class="card-actions">
+                                <a href="#" class="btn">
+                                    <div class="btn btn-outline-primary btn-sm"> Tunganya </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            Ibitabo by’imisaruro (Book of crop  collection).
+                        </div><br>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+{% endblock %}

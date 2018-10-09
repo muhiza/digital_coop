@@ -1,0 +1,131 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "coop_base.html" %}
+{% block title %}Cooperative Profile{% endblock %}
+
+<style type="text/css">
+  #card{
+    background-color: #aec251;
+  }
+  .panel-body .btn:not(.btn-block) { width:240px; height:150px; margin-bottom:20px; }
+</style>
+
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        {{ utils.flashed_messages() }}
+
+
+      <div class="col-md-2 toppad  pull-right col-md-offset-3">
+           <div class="btn btn-default"><A href="#">Edit Profile</A></div>
+       <br>
+      </div>
+        {% if departments %}
+        <div class="row">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h1 class="panel-title">Cooperative profile</h1>
+            </div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-3 col-lg-3 " align="center">
+                <h3>Logo</h3> 
+                <img src="https://a.disquscdn.com/1509575098/images/noavatar92.png" class="img-circle img-responsive" height="140px"></div>
+                
+                <!--<div class="col-xs-10 col-sm-10 hidden-md hidden-lg"> <br>
+                  <dl>
+                    <dt>DEPARTMENT:</dt>
+                    <dd>Administrator</dd>
+                    <dt>HIRE DATE</dt>
+                    <dd>11/12/2013</dd>
+                    <dt>DATE OF BIRTH</dt>
+                       <dd>11/12/2013</dd>
+                    <dt>GENDER</dt>
+                    <dd>Male</dd>
+                  </dl>
+                </div>-->
+                <div class=" col-md-9 col-lg-9 "> 
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td><b>Code :</b></td>
+                        <td>{{ departments.code }}</td>
+                      </tr>
+                      <tr>
+                        <td><b>Email :</b></td>
+                        <td>{{ departments.email }}</td>
+                      </tr>
+                      <tr>
+                        <td><b>Name :</b></td>
+                        <td>{{ departments.name }}</td>
+                      </tr>
+                         <tr>
+                          <tr>
+                        <td><b>Reg Date :</b></td>
+                        <td>{{ departments.regdate }}</td>
+                      </tr>
+                        <tr>
+                        <td><b>Certificate :</b></td>
+                        <td>{{ departments.certificate }}</td>
+                      </tr>
+                      <tr>
+                        <td><b>Province :</b></td>
+                        <td><a href="mailto:info@support.com">{{ departments.province }}</a></td>
+                      </tr>
+                        <td><b>District :</b></td>
+                        <td>{{ departments.district }}<br><br>555-4567-890(Mobile)
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><b>Sector :</b></td>
+                        <td>{{ departments.sector }}</td>
+                      </tr>
+                      <tr>
+                        <td><b>Activity :</b></td>
+                        <td>Programming</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <!--
+                  <a href="#" class="btn btn-primary">My Sales Performance</a>
+                  <a href="#" class="btn btn-primary">Team Sales Performance</a>
+                  -->
+                </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      </div>
+    </div>
+      </div>
+      </div>
+      {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

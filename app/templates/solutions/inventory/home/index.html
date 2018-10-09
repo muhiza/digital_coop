@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<title>Let's talk products</title>
+
+	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+	<!--     Fonts and icons     -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+
+	<!-- CSS Files -->
+    <link href="{{ url_for('static', filename='assets/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='assets/assets/css/material-kit.css') }}" rel="stylesheet">
+</head>
+
+<body class="landing-page">
+    <nav class="navbar navbar-transparent navbar-absolute">
+    	<div class="container">
+        	<!-- Brand and toggle get grouped for better mobile display -->
+        	<div class="navbar-header">
+        		<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            		<span class="sr-only">Toggle navigation</span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+		            <span class="icon-bar"></span>
+        		</button>
+        		<a class="navbar-brand" href="#">
+        			<i class="material-icons">send</i> AICOS</a>
+        	</div>
+
+        	<div class="collapse navbar-collapse" id="navigation-example">
+        		<ul class="nav navbar-nav navbar-right">
+    				<li>
+    					<a href="#" target="_blank">
+    						<i class="material-icons">menu</i> Solutions 
+    					</a>
+    				</li>
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-twitter"></i>
+						</a>
+		            </li>
+		            <li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-facebook-square"></i>
+						</a>
+		            </li>
+					<li>
+		                <a href="#" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+							<i class="fa fa-instagram"></i>
+						</a>
+		            </li>
+        		</ul>
+        	</div>
+    	</div>
+    </nav>
+
+    <div class="wrapper">
+        <div class="header header-filter" style="background-image: url('https://images.unsplash.com/photo-1423655156442-ccc11daa4e99?crop=entropy&dpr=2&fit=crop&fm=jpg&h=750&ixjsv=2.1.0&ixlib=rb-0.3.5&q=50&w=1450');">
+            <div class="container">
+                <div class="row">
+					<div class="col-md-6">
+						<h1 class="title">AICOS.</h1>
+	                    <h4>AICOS is a simple but powerful automated tools for managing almost every activity in small / medium companies,  cooperatives, NGOs and others, used to connect with and manage their members and their day to day operations.</h4>
+	                    <br />
+	                    <a href="#" class="btn btn-danger btn-raised btn-lg">
+							<i class="fa fa-play"></i> How it Works
+						</a>
+					</div>
+                </div>
+            </div>
+        </div>
+
+		<div class="main main-raised">
+			<div class="container">
+		    	<div class="section text-center section-landing">
+	                <div class="row">
+	                    <div class="col-md-8 col-md-offset-2">
+	                        <h2 class="title">Let's talk products</h2>
+	                        <h5 class="description">AICOS is a simple but powerful automated tools for managing almost every activity in small / medium companies,  cooperatives, NGOs and others, used to connect with and manage their members and their day to day operations. </h5>
+	                    </div>
+	                </div>
+
+					<div class="features">
+						<div class="row">
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-primary">
+										<i class="material-icons">add</i>
+									</div>
+									<h4 class="info-title">E-registration.</h4>
+									<p>In the existing system the registration take one month and above to be registered to RCA, now using your connected device, telephone, tablet or computer you can register a cooperative in 24 hours only.</p>
+									<br><button class="btn btn-white">LEARN MORE</button>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-success">
+										<i class="material-icons">add_to_queue</i>
+									</div>
+									<h4 class="info-title">E-joining</h4>
+									<p>By browsing through the system member / people can find cooperatives which they can join and by meeting the rules and conditions required to join that cooperative they can register and join cooperatives they want and get approved or rejected in 24 hours.</p>
+									<button class="btn btn-white">LEARN MORE</button>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-danger">
+										<i class="material-icons">supervisor_account</i>
+									</div>
+									<h4 class="info-title">Members Management</h4>
+									<p>Capture and store all data related to every single member in your cooperative and store them electronically for retrieval, processing, manipulation and management simplicity.</p>
+									<br><button class="btn btn-white">LEARN MORE</button><br><br>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-primary">
+										<i class="material-icons">assignment</i>
+									</div>
+									<h4 class="info-title">Capacity Building (e-Trainer)</h4>
+									<p>Collect content, prepare and share / distribute reliable and computerised training to your cooperatives’ members anytime, anywhere as needed to improve empowerment and productivity in cooperative.
+									</p><a href="{{ url_for('aicos_cb.showDetails') }}" target="_blank"><button class="btn btn-white">LEARN MORE</button></a>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-success">
+										<i class="material-icons">screen_lock_landscape</i>
+									</div>
+									<h4 class="info-title">E-monitoring</h4>
+									<p>Automatic data extraction,  analysis, processing, visualisation and sharing in order to track the social economic impact for cooperatives’ members.</p><br>
+									<button class="btn btn-white">LEARN MORE</button><br><br>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-danger">
+										<i class="material-icons">account_balance_wallet</i>
+									</div>
+									<h4 class="info-title">e-Zigama</h4>
+									<p>Members’ Personal Saving Management System, Save and track all the uses of your savings and contributions in the cooperative’s growth.</p><br>
+									<a href="{{ url_for('admin.ezigama') }}" target="_blank"><button class="btn btn-white">LEARN MORE</button></a><br><br>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-primary">
+										<i class="material-icons">feedback</i>
+									</div>
+									<h4 class="info-title">e-Reporting</h4>
+									<p>Tools to improve reporting process based on different parameters for different sub-sectors, sub-activities, farming area, harvest, job creations details, value chain etc...</p>
+									<button class="btn btn-white">LEARN MORE</button>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-success">
+										<i class="material-icons">reorder</i>
+									</div>
+									<h4 class="info-title">Proof</h4>
+									<p>A service (Module) which help cooperatives, small and medium companies to Create & manage cooperative or company shares, loans, cash and inventory.</p><br>
+									<button class="btn btn-white">LEARN MORE</button>
+								</div>
+		                    </div>
+		                    <div class="col-md-4">
+								<div class="info">
+									<div class="icon icon-danger">
+										<i class="material-icons">zoom_in</i>
+									</div>
+									<h4 class="info-title">Imboni</h4>
+									<p>This is the service which will makes CRM, Proposal, Contracts and Invoices Management Easy in a cooperative. Powerful.</p><br>
+
+									
+									<a href="{{ url_for('aicos_imboni.home') }}" target="_blank"><button class="btn btn-white">LEARN MORE</button></a>
+								</div>
+		                    </div>
+
+
+		                </div>
+					</div>
+	            </div>
+
+
+	            <!--
+	        	<div class="section text-center">
+	                <h2 class="title">Here is our team</h2>
+
+					<div class="team">
+						<div class="row">
+							<div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="../assets/img/avatar.jpg" alt="Thumbnail Image" class="img-raised img-circle">
+			                        <h4 class="title">Gigi Hadid <br />
+										<small class="text-muted">Model</small>
+									</h4>
+			                        <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-instagram"></i></a>
+									<a href="#pablo" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-facebook-square"></i></a>
+			                    </div>
+			                </div>
+			                <div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="../assets/img/christian.jpg" alt="Thumbnail Image" class="img-raised img-circle">
+			                        <h4 class="title">Christian Louboutin<br />
+										<small class="text-muted">Designer</small>
+									</h4>
+			                        <p class="description">You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-twitter"></i></a>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-linkedin"></i></a>
+			                    </div>
+			                </div>
+			                <div class="col-md-4">
+			                    <div class="team-player">
+			                        <img src="../assets/img/kendall.jpg" alt="Thumbnail Image" class="img-raised img-circle">
+			                        <h4 class="title">Kendall Jenner<br />
+										<small class="text-muted">Model</small>
+									</h4>
+			                        <p>You can write here details about one of your team members. You can give more details about what they do. Feel free to add some <a href="#">links</a> for people to be able to follow them outside the site.</p>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-google-plus"></i></a>
+									<a href="#pablo" class="btn btn-simple btn-just-icon"><i class="fa fa-youtube-play"></i></a>
+									<a href="#pablo" class="btn btn-simple btn-just-icon btn-default"><i class="fa fa-twitter"></i></a>
+			                    </div>
+			                </div>
+						</div>
+					</div>
+	            </div>
+				-->
+
+
+
+
+
+	        	<div class="section landing-section">
+	                <div class="row">
+	                    <div class="col-md-8 col-md-offset-2">
+	                        <h2 class="text-center title">Work with us</h2>
+	                        <form class="contact-form">
+	                            <div class="row">
+	                                <div class="col-md-6">
+										<div class="form-group label-floating">
+											<label class="control-label">Your Name</label>
+											<input type="email" class="form-control">
+										</div>
+	                                </div>
+	                                <div class="col-md-6">
+										<div class="form-group label-floating">
+											<label class="control-label">Your Email</label>
+											<input type="email" class="form-control">
+										</div>
+	                                </div>
+	                            </div>
+
+								<div class="form-group label-floating">
+									<label class="control-label">Your Messge</label>
+									<textarea class="form-control" rows="4"></textarea>
+								</div>
+
+	                            <div class="row">
+	                                <div class="col-md-4 col-md-offset-4 text-center">
+	                                    <button class="btn btn-primary btn-raised">
+											Send Message
+										</button>
+	                                </div>
+	                            </div>
+	                        </form>
+	                    </div>
+	                </div>
+
+	            </div>
+	        </div>
+
+		</div>
+
+	    <footer class="footer">
+	        <div class="container">
+	            <nav class="pull-left">
+	                <ul>
+	                    <li>
+	                        <a href="#">
+	                            AICOS
+	                        </a>
+	                    </li>
+						<li>
+	                        <a href="#">
+	                           About Us
+	                        </a>
+	                    </li>
+	                    <li>
+	                        <a href="#">
+	                           Blog
+	                        </a>
+	                    </li>
+	                </ul>
+	            </nav>
+	            <!--
+	            <div class="copyright pull-right">
+	                &copy; 2016, made with <i class="fa fa-heart heart"></i> by Creative Tim
+	            </div>
+	            -->
+	        </div>
+	    </footer>
+
+	</div>
+</body>
+
+	<!--   Core JS Files   -->
+	<script src="{{ url_for('static', filename='assets/assets/js/jquery.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='assets/assets/js/bootstrap.min.js') }}" type="text/javascript"></script>
+	<script src="{{ url_for('static', filename='assets/assets/js/material.min.js') }}" type="text/javascript"></script>
+
+	<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+	<script src="{{ url_for('static', filename='assets/assets/js/nouislider.min.js') }}" type="text/javascript"></script>
+
+	<!--  Plugin for the Datepicker, full documentation here: http://www.eyecon.ro/bootstrap-datepicker/ -->
+	<script src="{{ url_for('static', filename='assets/assets/js/bootstrap-datepicker.js') }}" type="text/javascript"></script>
+
+	<!-- Control Center for Material Kit: activating the ripples, parallax effects, scripts from the example pages etc -->
+	<script src="{{ url_for('static', filename='assets/assets/js/material-kit.js') }}" type="text/javascript"></script>
+
+</html>

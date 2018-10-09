@@ -1,0 +1,123 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "overall_base.html" %}
+{% block title %}Members{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+        <br/><br/><br/>
+        {{ utils.flashed_messages() }}
+        <br/>
+        <!--
+                {% if applications  %}
+                <br>
+                  {% for app in applications %}
+                    <h1> {{ app.email }} </h1>
+                  {% endfor %}
+                    {% if apps.applications %}
+                      <h1> {{ apps.applications.count() }} </h1>
+                    {% endif %}
+
+                {% endif %}
+                <br><br>
+        -->
+        <h1 style="text-align:center;"> All registered cooperatives, Country wide access </h1>
+        {% if departments %}
+          <hr class="intro-divider">
+          <div class="container-fluid">
+          <div class="row">
+          <div class="col-md-4 text-left">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-users"> </i>
+             All cooperatives 22
+          </a>
+          </div>
+          <div class="col-md-4 text-center">
+          <a href="{{ url_for('admin.list_applications') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-pencil"> </i>
+            All members  855
+          </a>
+          </div> 
+          <div class="col-md-4 text-right">
+          <a href="{{ url_for('admin.add_employee') }}" class="btn btn-default btn-lg">
+          <i class="fa fa-book"> </i>
+            521
+          </a><br>
+          </div>
+          </div>
+          </div><br>
+        {% endif %}
+    
+<div class="container-fluid">
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Sector</th>
+                <th>Reg Date</th>
+                <th>Certificate</th>
+                <th> Members </th>
+                <th>View</th>
+                <th>More</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Sector</th>
+                <th>Reg Date</th>
+                <th>Certificate</th>
+                <th> Members </th>
+                <th>View</th>
+                <th>More </th>
+            </tr>
+        </tfoot>
+        <tbody>
+              {% for department in departments %}
+                    <tr>
+                      <td> {{ department.name }} </td>
+                      <td> {{ department.province }} </td>
+                      <td> {{ department.district }} </td>
+                      <td> {{ department.sector }} </td>
+                      <td> {{ department.regdate }} </td>
+                      <td> {{ department.certificate }} </td>
+
+                      <td> {% if department.members %}
+                            {{ department.members.count() }}
+                            {% else %}
+                            0
+                            {% endif %}
+
+                       </td>
+
+                      <td> 
+                          <a href="{{ url_for('admin.coop_details', email=department.email) }}">
+                          <i class="fa fa-eye"> </i>View 
+                          </a>
+                      </td>
+
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        </tbody>
+    </table>
+            </div>
+
+        <br/><br/><br/>
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,167 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "rca_base_coops.html" %}
+{% block title %}Members{% endblock %}
+    {% block body %}
+      <div class="container-fluid">
+        {{ utils.flashed_messages() }}
+    {% if departments %}
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">{{ all_depts_kigali }}</span>
+                                <span class="font-weight-light">
+                                  Kigali City Coops
+                                </span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 35%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">{{ all_depts_east }}</span>
+                                <span class="font-weight-light">
+                                  East Cooperatives
+                                </span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">{{ all_depts_west }}</span>
+                                <span class="font-weight-light">West Cooperatives</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card">
+                        <div class="card-body p-5">
+                            <div class="text-center">
+                                <span class="h4 d-block font-weight-normal mb-2">{{ all_depts_north }}</span>
+                                <span class="font-weight-light">North Cooperative</span>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="progress">
+                                    <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="chartRcaCooperatives"></div>
+
+          <h2 class="sub-header">Registered Cooperatives</h2>
+          <div class="table-responsive">
+ <table id="exampleCooperatives" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Sector</th>
+                <th>Reg Date</th>
+                <th>Certificate</th>
+                <th> Members </th>
+                <th>View</th>
+                <th>More</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Province</th>
+                <th>District</th>
+                <th>Sector</th>
+                <th>Reg Date</th>
+                <th>Certificate</th>
+                <th> Members </th>
+                <th>View</th>
+                <th>More</th>
+            </tr>
+        </tfoot>
+        <tbody>
+              {% for department in departments %}
+                    <tr>
+                      <td> {{ department.name }} </td>
+                      <td> {{ department.province }} </td>
+                      <td> {{ department.district }} </td>
+                      <td> {{ department.sector }} </td>
+                      <td> {{ department.regdate }} </td>
+                      <td> {{ department.certificate }} </td>
+
+                      <td> {% if department.members %}
+                            {{ department.members.count() }}
+                            {% else %}
+                            0
+                            {% endif %}
+
+                       </td>
+
+                      <td> 
+                          <a href="{{ url_for('aicos_ferwacotamo.coop_details', email=department.email) }}">
+                          <i class="fa fa-eye"> </i>Details 
+                          </a>
+                      </td>
+
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        </tbody>
+    </table><br><br>
+    <div id="chartz"></div>
+{% endif %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

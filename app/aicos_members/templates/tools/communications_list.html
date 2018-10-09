@@ -1,0 +1,75 @@
+{% import "bootstrap/utils.html" as utils %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends "members_base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block body %}
+
+
+            <div class="card">
+                <div class="card-header bg-light">
+                <div class="row">
+                <div class="col-md-12">
+
+
+        {{ utils.flashed_messages() }}
+        <h2>Ubutumwa bumaze kwandikwa</h2>
+        <div class="card-body">
+
+        <div class="btn btn-outline-info text-left"><a href="{{ url_for('aicos_members.add_communication') }}"> Andika ubutumwa
+         </a></div><br><br><br>
+ <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th> Message </th>
+                <th>Message Sent From</th>
+                <th>Sent To</th>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th> Message </th>
+                <th>Message Sent From</th>
+                <th>Sent To</th>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if communications %}
+              {% for communication in communications %}
+                    <tr>
+                      <td> {{ communication.id }} </td>
+                      <td><span class="label label-default"> {{ communication.message }} </span></td>
+                      <td><span class="label label-primary"> {{ communication.ms_from }} </span></td>
+                      <td> {{ communication.to }} </td>
+                      <td><span class="label label-info"> {{ communication.date }} </span></td>
+                      <td><span class="label label-warning"> {{ communication.comment [2:20]}} </span></td>
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <br><br><br>
+
+    <br><br><br>
+    <br><br><b>
+    {% endblock %}
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+

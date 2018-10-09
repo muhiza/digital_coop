@@ -1,0 +1,90 @@
+{% import "bootstrap/utils.html" as utils %}
+{% block title %}Departments{% endblock %}
+{% extends "coop_base.html" %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+      {{ utils.flashed_messages() }}
+        <h2>How tos articles</h2>
+
+        <div class="row">
+        <div class="btn btn-default text-left"><a href="{{ url_for('admin.create_how_to') }}"> Create how-to
+         </a></div><br><br><br>
+
+ <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th> Name </th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Steps</th>
+                <th>file</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th> Name </th>
+                <th>Label</th>
+                <th>Description</th>
+                <th>Steps</th>
+                <th>file</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if howtos %}
+              {% for howto in howtos %}
+                    <tr>
+                      <td> {{ howto.id }} </td>
+                      <td><span class="label label-default"> {{ howto.name }} </span></td>
+                      <td><span class="label label-primary"> {{ howto.labels }} </span></td>
+                      <td> {{ howto.description }} </td>
+                      <td><span class="label label-info"> {{ howto.steps }} </span></td>
+                      <td><span class="label label-warning"> {{ howto.file }} </span></td>
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <br><br><br>
+    <br><br><br>
+    {% endblock %}
+    </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

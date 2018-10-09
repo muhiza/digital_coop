@@ -1,0 +1,168 @@
+{% import "bootstrap/utils.html" as utils %}
+{% block title %} {{ title }} {% endblock %}
+{% extends "coop_base.html" %}
+<div class="content-section">
+
+        {% block body %}
+        {{ utils.flashed_messages() }}
+        <br/>
+        {% if employee %}
+
+<div class="row">
+<div class="col-md-12">
+
+<div class="panel panel-default">
+  <div class="panel-heading">  <h4 >Member Profile</h4></div>
+   <div class="panel-body">
+    <div class="box box-info">
+        
+            <div class="box-body">
+                     <div class="col-sm-6">
+                     <div  align="center"> <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive img-sm"> 
+                    <input id="profile-image-upload" class="hidden" type="file">
+                    <div style="color:#999;" >click here to change profile image</div>
+                <!--Upload Image Js And Css-->
+                     
+                     </div>
+              
+              <br>
+    
+              <!-- /input-group -->
+            </div>
+            <div class="col-sm-6">
+            <h4 style="color:#00b1b1;">{{ employee.firstName }} {{ employee.secondName }} </h4></span>
+              <span><p>Member</p></span>            
+            </div>
+            <div class="clearfix"></div>
+            <hr style="margin:5px 0 5px 0;">
+                <div class="col-sm-5 col-xs-6 tital " >First Name:</div><div class="col-sm-7 col-xs-6 ">{{ employee.firstName }}</div>
+                     <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Last Name:</div><div class="col-sm-7"> {{ employee.secondName }}</div>
+                  <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Other Name:</div><div class="col-sm-7"> {{ employee.others }}</div>
+                  <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >District:</div><div class="col-sm-7">{{ employee.resDistrict }}</div>
+
+                  <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Cell:</div><div class="col-sm-7">{{ employee.resCell }}</div>
+
+                  <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >National ID:</div><div class="col-sm-7">{{ employee.nid }}</div>
+
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Driving License:</div><div class="col-sm-7">{{ employee.dl }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Cooperative:</div><div class="col-sm-7">ABAHUZA</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Plate No:</div><div class="col-sm-7">{{ employee.plateNo }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Engen No:</div><div class="col-sm-7">{{ employee.engenNo }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Chassis No:</div><div class="col-sm-7">{{ employee.chassisNo }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Member Telephone:</div><div class="col-sm-7">{{ employee.phone }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Owner:</div><div class="col-sm-7">{{ employee.owner }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Owner Telephone:</div><div class="col-sm-7">{{ employee.ownerTel }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Transport Autor</div><div class="col-sm-7">{{ employee.transportAutor }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Parking:</div><div class="col-sm-7">{{ employee.parking }}</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+                <div class="col-sm-5 col-xs-6 tital " >Role:</div><div class="col-sm-7">Member</div>
+                 <div class="clearfix"></div>
+                <div class="bot-border"></div>
+
+
+
+
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+            
+    </div> 
+    </div>
+</div>  
+    <script>
+              $(function() {
+    $('#profile-image1').on('click', function() {
+        $('#profile-image-upload').click();
+    });
+});       
+              </script> 
+       
+   </div>
+          </div>
+          </div>
+          <div style="text-align: center">
+        {% else %}
+          <div style="text-align: center">
+        <h3> You don't have or belong to any cooperative. </h3>
+          <a href="{{ url_for('admin.add_department') }}" class="btn btn-default btn-lg">
+            <i class="fa fa-plus"></i>
+            Create Cooperative
+          </a>
+        </div>
+        {% endif %}
+        <br/><br/><br/>
+        <br/><br/><br/>
+      </div>
+    {% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

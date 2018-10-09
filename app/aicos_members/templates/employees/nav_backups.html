@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ title }} | Smart Cooperative</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One+Outline|Metal+Mania" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+    <link href="{{ url_for('static', filename='css/style_overall.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <style type="text/css">
+       /*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+/*
+ * Global add-ons
+ */
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+  }
+}
+
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+  color: #ffffff;
+}
+.nav-sidebar > li > a {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: #ffffff;
+}
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #ffffff;
+}
+
+
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.main .page-header {
+  margin-top: 0;
+}
+
+
+/*
+ * Placeholder dashboard ideas
+ */
+
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+    border-radius: 5px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+img {
+    border-radius: 5px 5px 0 0;
+}
+
+.container {
+    padding: 2px 16px;
+}
+
+
+#side {
+  color:  #ffffff;
+}
+
+#side {
+  background-color: #01589F;
+}
+
+
+.nav-sidebar > a, {
+  color:  #ffffff;
+}
+</style>
+
+</head>
+<body>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('#example').DataTable( {
+              "order": [[ 3, "desc" ]]
+          } );
+      } );
+      </script>
+
+    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand topnav" href="{{ url_for('admin.dashboard_overalls') }}" style="font-family: 'Metal Mania', cursive; font-size:23px; line-height: 23px;">AICOS</a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  {% if current_user.is_authenticated %}
+                    {% if current_user.is_admin %}
+
+
+                    {% else %}
+                      <li><a href="{{ url_for('home.dashboard') }}">Dashboard</a></li>
+                    {% endif %}
+
+                    <li><a href="{{ url_for('admin.dashboard_overalls') }}"><i class="fa fa-envelope"></i></a></li>
+                    <li><a href="{{ url_for('admin.dashboard_overalls') }}"><i class="fa fa-bell"></i></a></li>
+                    <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-user"></i>{{ current_user.username }}
+                    <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="{{ url_for('auth.logout') }}"><i class="fa fa-log-out"></i>Logout</a></li>
+                      <li><a href="#">Settings</a></li>
+                      <li><a href="#">Privecy</a></li>
+                      <li><a href="{{ url_for('admin.overall') }}">Overall</a></li>
+                    </ul>
+                  </li>
+
+                  {% else %}
+                    <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                    <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                    <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                  {% endif %}
+              </ul>
+          </div>
+        </div>
+    </nav>
+
+      <div class="col-sm-3 col-md-2 sidebar" style="background-color:   #01589F; font-color: #FFFFFF;" id="nav">
+          <ul class="nav nav-sidebar" id="side" style="color: #FFFFFF;">
+            <li><a href="{{ url_for('admin.dashboard_overalls') }}" style="color: #FFFFFF;"><i class="fa fa-eye"></i> Overview</a></li>
+            <li><a href="{{ url_for('admin.cooperatives_overall') }}"><i class="fa fa-users"></i> Cooperatives</a></li>
+            <li><a href="{{ url_for('admin.members_overall') }}"><i class="fa fa-users"></i> Members</a></li>
+
+            <li><a href="#"><i class="fa fa-check"></i> Reports</a></li>
+            <li><a href="#"><i class="fa fa-random"></i> Analytics</a></li>
+            <li><a href="#"><i class="fa fa-share"></i> Export</a></li>
+          </ul>
+
+
+          <ul class="nav nav-sidebar">
+            <li><a href="#"><i class="fa fa-flag"></i> Roles</a></li>
+            <li><a href="#"><i class="fa fa-align-justify"></i> Members</a></li>
+            <li><a href="#"><i class="fa fa-list"></i> Projects</a></li>
+            <li><a href="#"><i class="fa fa-phone"></i> Send SMS</a></li>
+            <li><a href="#"><i class="fa fa-envelope"></i> Emails</a></li>
+          </ul>
+
+
+
+
+          <ul class="nav nav-sidebar">
+            <li><a href="#"><i class="fa fa-eye"></i> Overview</a></li>
+            <li><a href="#"><i class="fa fa-users"></i> Cooperatives</a></li>
+            <li><a href="#"><i class="fa fa-users"></i> Members</a></li>
+
+            <li><a href="#"><i class="fa fa-envelope"></i> Reports</a></li>
+            <li><a href="#"><i class="fa fa-random"></i> Analytics</a></li>
+            <li><a href="#"><i class="fa fa-share"></i> Export</a></li>
+          </ul>
+
+
+
+          <ul class="nav nav-sidebar">
+            <li><a href=""><i class="fa fa-certificate"></i> Activities</a></li>
+            <li><a href=""><i class="fa fa-tasks"></i> Projects</a></li>
+            <li><a href=""><i class="fa fa-solt-by-attributes-alt"></i> Issues</a></li>
+            <li><a href=""><i class="fa fa-equalizer"></i> Survays</a></li>
+            <li><a href=""><i class="fa fa-level-up"></i> Progresses</a></li>
+          </ul>
+
+
+
+
+          <ul class="nav nav-sidebar">
+            <li><a href=""><i class="fa fa-certificate"></i> Activities</a></li>
+            <li><a href=""><i class="fa fa-tasks"></i> Projects</a></li>
+            <li><a href=""><i class="fa fa-solt-by-attributes-alt"></i> Issues</a></li>
+            <li><a href=""><i class="fa fa-equalizer"></i> Survays</a></li>
+            <li><a href=""><i class="fa fa-level-up"></i> Progresses</a></li>
+          </ul>
+
+
+
+
+          <ul class="nav nav-sidebar">
+            <li><a href="">Nav item again</a></li>
+            <li><a href="">One more nav</a></li>
+            <li><a href="">Another nav item</a></li>
+          </ul>
+        </div>
+
+    <div class="wrapper">
+      {% block body %}
+
+        {% block dashboard %}
+
+        {% endblock %}
+
+      {% endblock %}
+    </div>
+    <footer>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline fixed-bottom">
+                      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Careers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Developers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">App Center</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Privecy</a></li>
+                      <li class="footer-menu-divider">&sdot;</li>
+                      {% if current_user.is_authenticated %}
+                        <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                      {% else %}
+                        <li><a href="{{ url_for('auth.register') }}">Register</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+                      {% endif %}
+                    </ul>
+                    <ul class="list-inline pull-right">
+                      <li><a href="{{ url_for('home.homepage') }}">Home</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Careers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">Developers</a></li>
+                      <li><a href="{{ url_for('home.homepage') }}">App Center</a></li>
+
+                      <li><a href="{{ url_for('admin.overall') }}">Overall</a></li>
+                      <li><a href="{{ url_for('admin.dashboard_overalls') }}">Dash</a></li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; 2017. All Rights Reserved</p>
+                </div>
+            </div>
+            </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+      
+      
+
+      <link href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet"> 
+
+
+      <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet"> 
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+
+      <!-- Hight light search -->
+
+      <link href="https://cdn.jsdelivr.net/datatables.mark.js/2.0.0/datatables.mark.min.css" rel="stylesheet"> 
+      <link href="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.min.css" rel="stylesheet"> 
+
+      <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js),datatables.mark.js"></script>
+      <script src="https://cdn.jsdelivr.net/g/mark.js(jquery.mark.min.js"></script>
+      <script src="https://cdn.datatables.net/plug-ins/1.10.13/features/mark.js/datatables.mark.js"></script>
+
+
+      <!-- Data visualisation and data table -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+      <script src="https://code.highcharts.com/highcharts.js"></script>
+      <script src="https://code.highcharts.com/modules/no-data-to-display.js"></script>
+      
+      <script type="text/javascript">
+        let draw = false;
+          init();
+          /**
+           * FUNCTIONS
+           */
+          $(document).ready(function() {
+          const tables = $('#example').DataTable( {
+              "order": [[ 3, "desc" ]]
+            } );
+            mark: true
+                      // get table data
+            const tableDatas = getTableData(tables);
+            // create Highcharts
+            createHighcharts(tableDatas);
+            // table events
+            setTableEvents(tables);
+
+          } );
+
+
+          function init() {
+            // initialize DataTables
+            const tables = $("#dt-table").DataTable();
+            mark: true
+            // get table data
+            const tableDatas = getTableData(tables);
+            // create Highcharts
+            createHighcharts(tableDatas);
+            // table events
+            setTableEvents(tables);
+            
+          }
+
+          function getTableData(tables) {
+            const dataArray = [],
+              countryArray = [],
+              populationArray = [],
+              densityArray = [];
+
+            // loop table rows
+            table.rows({ search: "applied" }).every(function() {
+              const data = this.data();
+              countryArray.push(data[0]);
+              populationArray.push(parseInt(data[6].replace(/\,/g, "")));
+              densityArray.push(parseInt(data[4].replace(/\,/g, "")));
+            });
+
+            // store all data in dataArray
+            dataArray.push(countryArray, populationArray, densityArray);
+
+            return dataArray;
+          }
+
+          function createHighcharts(data) {
+            Highcharts.setOptions({
+              lang: {
+                thousandsSep: ","
+              }
+            });
+
+            Highcharts.chart("chart", {
+              title: {
+                text: "Cooperatives' Growth"
+              },
+              //subtitle: {
+                //text: "Data from worldometers.info"
+              //},
+              xAxis: [
+                {
+                  categories: data[0],
+                  labels: {
+                    rotation: -45
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  // first yaxis
+                  title: {
+                    text: "Members (2017)"
+                  }
+                },
+                {
+                  // secondary yaxis
+                  title: {
+                    text: "Shares (P/member)"
+                  },
+                  min: 0,
+                  opposite: true
+                }
+              ],
+              series: [
+                {
+                  name: "Members (2017)",
+                  color: "#0071A7",
+                  type: "column",
+                  data: data[1],
+                  tooltip: {
+                    valueSuffix: " Members"
+                  }
+                },
+                {
+                  name: "Shares (P/member)",
+                  color: "#FF404E",
+                  type: "spline",
+                  data: data[2],
+                  yAxis: 1
+                }
+              ],
+              tooltip: {
+                shared: true
+              },
+              legend: {
+                backgroundColor: "#ececec",
+                shadow: true
+              },
+              credits: {
+                enabled: false
+              },
+              noData: {
+                style: {
+                  fontSize: "16px"
+                }
+              }
+            });
+          }
+
+          function setTableEvents(tables) {
+            // listen for page clicks
+            tables.on("page", () => {
+              draw = true;
+            });
+
+            // listen for updates and adjust the chart accordingly
+            table.on("draw", () => {
+              if (draw) {
+                draw = false;
+              } else {
+                const tableDatas = getTableData(tables);
+                createHighcharts(tableDatas);
+              }
+            });
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          function getTableData(table) {
+            const dataArrays = [],
+              countryArrays = [],
+              populationArrays = [],
+              densityArrays = [];
+
+            // loop table rows
+            table.rows({ search: "applied" }).every(function() {
+              const data = this.data();
+              countryArrays.push(data[1]);
+              populationArrays.push(parseInt(data[2].replace(/\,/g, "")));
+              densityArrays.push(parseInt(data[3].replace(/\,/g, "")));
+            });
+
+            // store all data in dataArray
+            dataArrays.push(countryArrays, populationArrays, densityArrays);
+
+            return dataArrays;
+          }
+
+          function createHighcharts(data) {
+            Highcharts.setOptions({
+              lang: {
+                thousandsSep: ","
+              }
+            });
+
+            Highcharts.chart("charts", {
+              title: {
+                text: "Activities Logs"
+              },
+              //subtitle: {
+                //text: "Data from worldometers.info"
+              //},
+              xAxis: [
+                {
+                  categories: data[0],
+                  labels: {
+                    rotation: -45
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  // first yaxis
+                  title: {
+                    text: "Members (2017)"
+                  }
+                },
+                {
+                  // secondary yaxis
+                  title: {
+                    text: "Shares (P/member)"
+                  },
+                  min: 0,
+                  opposite: true
+                }
+              ],
+              series: [
+                {
+                  name: "Members (2017)",
+                  color: "#0071A7",
+                  type: "column",
+                  data: data[1],
+                  tooltip: {
+                    valueSuffix: " Members"
+                  }
+                },
+                {
+                  name: "Shares (P/member)",
+                  color: "#FF404E",
+                  type: "spline",
+                  data: data[2],
+                  yAxis: 1
+                }
+              ],
+              tooltip: {
+                shared: true
+              },
+              legend: {
+                backgroundColor: "#ececec",
+                shadow: true
+              },
+              credits: {
+                enabled: false
+              },
+              noData: {
+                style: {
+                  fontSize: "16px"
+                }
+              }
+            });
+          }
+
+          function setTableEvents(table) {
+            // listen for page clicks
+            table.on("page", () => {
+              draw = true;
+            });
+
+            // listen for updates and adjust the chart accordingly
+            table.on("draw", () => {
+              if (draw) {
+                draw = false;
+              } else {
+                const tableData = getTableData(table);
+                createHighcharts(tableData);
+              }
+            });
+          }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          function getTableData(table) {
+            const dataArrays = [],
+              countryArrays = [],
+              populationArrays = [],
+              densityArrays = [];
+
+            // loop table rows
+            table.rows({ search: "applied" }).every(function() {
+              const data = this.data();
+              countryArrays.push(data[1]);
+              populationArrays.push(parseInt(data[2].replace(/\,/g, "")));
+              densityArrays.push(parseInt(data[3].replace(/\,/g, "")));
+            });
+
+            // store all data in dataArray
+            dataArrays.push(countryArrays, populationArrays, densityArrays);
+
+            return dataArrays;
+          }
+
+          function createHighcharts(data) {
+            Highcharts.setOptions({
+              lang: {
+                thousandsSep: ","
+              }
+            });
+
+            Highcharts.chart("chartz", {
+              title: {
+                text: "Activities Logs"
+              },
+              //subtitle: {
+                //text: "Data from worldometers.info"
+              //},
+              xAxis: [
+                {
+                  categories: data[0],
+                  labels: {
+                    rotation: -45
+                  }
+                }
+              ],
+              yAxis: [
+                {
+                  // first yaxis
+                  title: {
+                    text: "Members (2017)"
+                  }
+                },
+                {
+                  // secondary yaxis
+                  title: {
+                    text: "Shares (P/member)"
+                  },
+                  min: 0,
+                  opposite: true
+                }
+              ],
+              series: [
+                {
+                  name: "Members (2017)",
+                  color: "#0071A7",
+                  type: "column",
+                  data: data[1],
+                  tooltip: {
+                    valueSuffix: " Members"
+                  }
+                },
+                {
+                  name: "Shares (P/member)",
+                  color: "#FF404E",
+                  type: "spline",
+                  data: data[2],
+                  yAxis: 1
+                }
+              ],
+              tooltip: {
+                shared: true
+              },
+              legend: {
+                backgroundColor: "#ececec",
+                shadow: true
+              },
+              credits: {
+                enabled: false
+              },
+              noData: {
+                style: {
+                  fontSize: "16px"
+                }
+              }
+            });
+          }
+
+          function setTableEvents(table) {
+            // listen for page clicks
+            table.on("page", () => {
+              draw = true;
+            });
+
+            // listen for updates and adjust the chart accordingly
+            table.on("draw", () => {
+              if (draw) {
+                draw = false;
+              } else {
+                const tableData = getTableData(table);
+                createHighcharts(tableData);
+              }
+            });
+          }
+
+      </script>
+
+      <!-- Data visualisation -->
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

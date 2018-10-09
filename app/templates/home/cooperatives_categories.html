@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %} {{ title }} {% endblock %}
+{% block body %}
+<style type="text/css">
+
+</style>
+<br><br><br>
+<div class="container">
+<div class="card">
+
+<br><br>
+<h1>Browse cooperatives by their categories</h1>
+<div class="intro-divider"></div>
+<br>
+<div class="row">
+<div class="col-md-12">
+<div class="panel panel-success">
+  <div class="panel-heading"><h3><i class="fa fa-user"></i>-Education</h3></div>
+
+</div>
+</div>
+</div>
+
+
+
+
+<div class="row">
+{% if coop_categories %}
+{% for sector in coop_categories %}
+<div class="col-md-4">
+<div class="panel panel-success">
+  <div class="panel-heading"><h3><i class="fa fa-user"></i>-{{ employee.first_name }}, {{ employee.last_name }}</h3></div>
+  <div class="panel-body"><b style="font-size: 17px; color: #aec251;">My Story :</b>{{ cooperative.description }}
+  {{ sector.name }}
+
+
+    <div class="panel-body"><br>
+    <div class="panel-body">
+</div>
+  <br><br><br><br> 
+  </div>
+ </div>
+</div>
+</div>
+{% endfor %} 
+{% endif %}
+</div>
+
+
+
+
+<br><br>
+
+
+
+{% endblock %}

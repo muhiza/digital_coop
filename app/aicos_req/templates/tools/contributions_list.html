@@ -1,0 +1,123 @@
+{% import "bootstrap/utils.html" as utils %}
+{% extends "coop_base.html" %}
+{% block title %}Contributions{% endblock %}
+<div class="content-section">
+  <div class="outer">
+    <div class="middle">
+      <div class="inner">
+      {% block body %}
+      <style type="text/css">
+  @import 'https://code.highcharts.com/css/highcharts.css';
+
+#containerxx {
+  height: 400px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Link the series colors to axis colors */
+.highcharts-color-0 {
+  fill: #7cb5ec;
+  stroke: #7cb5ec;
+}
+.highcharts-axis.highcharts-color-0 .highcharts-axis-line {
+  stroke: #7cb5ec;
+}
+.highcharts-axis.highcharts-color-0 text {
+  fill: #7cb5ec;
+}
+.highcharts-color-1 {
+  fill: #90ed7d;
+  stroke: #90ed7d;
+}
+.highcharts-axis.highcharts-color-1 .highcharts-axis-line {
+  stroke: #90ed7d;
+}
+.highcharts-axis.highcharts-color-1 text {
+  fill: #90ed7d;
+}
+
+
+.highcharts-yaxis .highcharts-axis-line {
+  stroke-width: 2px;
+}
+</style>
+
+        {{ utils.flashed_messages() }}
+        <h2>Contributions log</h2>
+
+        <div id="containerxx"></div>
+        <div class="row">
+        <div class="col-md-6">
+        <div class="btn btn-default text-left"><a href="{{ url_for('admin.add_contribution') }}">
+        <span class="glyphicon glyphicon-plus"></span> New contribution
+         </a>
+         </div>
+         </div>
+         <div class="col-md-6 text-right">
+         <div class="btn btn-info"><a href="{{ url_for('admin.pdf_template') }}" target="_blank">
+         <span class="glyphicon glyphicon-print"></span> Print
+         </a>
+         </div></div>
+         </div>
+
+
+         <br><br>
+
+ <table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th> Contributon </th>
+                <th>Contribution For</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>ID</th>
+                <th> Contributon </th>
+                <th>Contribution For</th>
+                <th>Amount</th>
+                <th>Date</th>
+                <th>Comment</th>
+                <th>Options</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        {% if contributions %}
+              {% for contribution in contributions %}
+                    <tr>
+                      <td> {{ contribution.id }} </td>
+                      <td><span class="label label-default"> {{ contribution.owner }} </span></td>
+                      <td><span class="label label-primary"> {{ contribution.contributionFor }} </span></td>
+                      <td> {{ contribution.amount }} </td>
+                      <td><span class="label label-info"> {{ contribution.date }} </span></td>
+                      <td><span class="label label-warning"> {{ contribution.comment [2:20]}} </span></td>
+                      <td> 
+                        <a href="#">
+                        <i class="fa fa-book"></i>More 
+                        </a>
+                      </td>
+
+                    </tr>
+              {% endfor %}
+        {% endif %}
+        </tbody>
+    </table>
+    <br><br><br>
+
+    <br><br><br>
+    <br><br><b
+        </div>
+
+    {% endblock %}
+    </div>
+  </div>
+</div>
+</div>
+
+
