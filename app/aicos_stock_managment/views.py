@@ -51,29 +51,43 @@ def stock():
     ibyakoze = Ibyakoreshejwe.query.filter_by(department_id=current_user.email).all()
     member_all = Employee.query.filter_by(department_id=current_user.email).all()
 
-    return render_template('stock_manage.html', member_with_no_umusaruro=member_with_no_umusaruro, umusaruro_resi=umusaruro_resi, member_all=member_all, employees=employees, inyongera=inyongera)
+    return render_template('stock_manage.html', umusaruro_resi=umusaruro_resi, member_all=member_all, employees=employees, inyongera=inyongera)
 
 
 @aicos_stock_managment.route('/umusaruro', methods=['GET', 'POST'])
 def umusaruro():
+    check_admin()
+    check_coop_admin()
+    employee = Department.query.filter_by(email=current_user.email).first()
+    employees = employee.members
+    all_member_idd = Umusaruro.member_id
+    
     umusaruro_resi = Umusaruro.query.filter_by(department_id=current_user.email).all()
-    return render_template('umusaruro.html', umusaruro_resi=umusaruro_resi)
+    member_all = Employee.query.filter_by(department_id=current_user.email).all()
 
+    return render_template('umusaruro.html', umusaruro_resi=umusaruro_resi, member_all=member_all, employees=employees)
+    
 
 @aicos_stock_managment.route('/inyongeramusaruro')
+@login_required
 def inyongeramusaruro():
     check_admin()
     check_coop_admin()
+    employee = Department.query.filter_by(email=current_user.email).first()
+    employees = employee.members
     inyongera = Inyongeramusaruro.query.filter_by(department_id=current_user.email).all()
-    return render_template('inyongeramusaruro.html', inyongera=inyongera)
+    return render_template('inyongeramusaruro.html', inyongera=inyongera, employees=employees)
 
 
 @aicos_stock_managment.route('/ibyakoreshejwe')
+@login_required
 def ibyakoreshejwe():
     check_admin()
     check_coop_admin()
+    employee = Department.query.filter_by(email=current_user.email).first()
+    employees = employee.members
     ibyakoreshejwe = Ibyakoreshejwe.query.filter_by(department_id=current_user.email).all()
-    return render_template('ibyakoreshejwe.html', ibyakoreshejwe=ibyakoreshejwe)
+    return render_template('ibyakoreshejwe.html', ibyakoreshejwe=ibyakoreshejwe, employees=employees)
 
 @aicos_stock_managment.route('/injiza/umusaruro/<int:id>', methods=['GET', 'POST'])
 @login_required
@@ -96,7 +110,8 @@ def injizaUmusaruro(id):
                             amafarangaYoGutonoza = form.amafrwYoGutonoza.data,
                             umusanzu = form.umusanzu.data,
                             member_id= member_name.id,
-                            department_id = current_user.email
+                            department_id = current_user.email,
+                            umwakaWisarura = form.umwakaWisarura.data
                             )
 
         try:

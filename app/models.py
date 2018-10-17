@@ -633,7 +633,7 @@ class Member(db.Model):
 	role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
 	department_union = db.Column(db.String(200), db.ForeignKey('unions.email'))
-	users = db.relationship('Umusaruro', backref='members', lazy='dynamic')
+	users = db.relationship('Umusaruro', backref='members', lazy=True)
 
 	""" We will always use this __init__ function to upload excel file  
 	def __init__(self, sno):
@@ -1287,6 +1287,7 @@ class Umusaruro(db.Model):
 	amafarangaYoGutonoza = db.Column(db.Integer)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
+	umwakaWisarura = db.Column(db.String(200))
 
 	def __repr__(self):
 		return '<Umusaruro: {}>'.format(self.amazina)

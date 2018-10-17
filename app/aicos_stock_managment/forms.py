@@ -12,7 +12,8 @@ from flask_wtf.file import FileField, FileAllowed, FileRequired
 
 
 class UmusaruroForm(FlaskForm):
-	#amazina = StringField("amazina", validators=[DataRequired(), Length(4, 64)])
+	umwakaWisarura = SelectField("Umwaka W'isarura", choices=[('2018A','2018A')], validators=[DataRequired()])
+	amazina = StringField("amazina", validators=[DataRequired(), Length(4, 64)])
 	resi = IntegerField("Resi", validators=[DataRequired()], render_kw={"placeholder":"Injiza numero ya resi"})
 	zone = StringField("Zone", validators=[DataRequired()], render_kw={"placeholder":"Injiza Zone"})
 	umusaruro = IntegerField("Umusaruro", validators=[DataRequired()], render_kw={"placeholder":"Injiza Umusaruro"})
