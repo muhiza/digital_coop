@@ -693,13 +693,13 @@
                                         {% if umusaruro_resi %}
                                           {% for umusaruro in umusaruro_resi %}
                                             {% if umusaruro.member_id == member.id %}
-                                              {{ umusaruro.umusanzu }}
+                                              {{ umusaruro.amafarangaYose }}
                                             {% endif %}
                                           {% endfor%}
                                         {% endif%}
                                       </td>
                                       <td>
-                                        <a href="#">
+                                        <a href="{{ url_for('aicos_stock_managment.injizaUmusaruro', id=member.id) }}">
                                           <span class="badge badge-success" style="font-size: 14px;"><li class="fa fa-plus"></li> Injiza</span>
                                         </a>
                                       </td>

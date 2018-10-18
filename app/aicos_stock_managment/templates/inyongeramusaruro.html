@@ -647,10 +647,10 @@
                               <thead>
                                 <tr>
                                     <th>Amazina</th>
-                                    <th>Zone</th>
-                                    <th>Umusaruro</th>
-                                    <th>Umusanzu</th>
-                                    <th>Amafanga yose</th>
+                                    <th>Briquette & UREA</th>
+                                    <th>DAP & NPK</th>
+                                    <th>KCL</th>
+                                    <th>Redevence</th>
                                     <th>Injiza</th>
                                     <th>Ibindi</th>
                                 </tr>
@@ -659,10 +659,10 @@
                             <tfoot>
                                 <tr>
                                     <th>Amazina</th>
-                                    <th>Zone</th>
-                                    <th>Umusaruro</th>
-                                    <th>Umusanzu</th>
-                                    <th>Amafaranga yose</th>
+                                    <th>Briquette & UREA</th>
+                                    <th>DAP & NPK</th>
+                                    <th>KCL</th>
+                                    <th>Redevence</th>
                                     <th>Injiza</th>
                                     <th>Ibindi</th>
                                 </tr>
@@ -671,13 +671,45 @@
                               {% if employees %}
                                   {% for member in employees %}
                                       <tr>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
+                                        <td>{{ member.izina_ribanza + " " + member.izina_rikurikira }}</td>
                                         <td>
-                                          <a href="#">
+                                          {% if inyongera %}
+                                              {% for inyongeramusaruro in inyongera %}
+                                                  {% if inyongeramusaruro.member_id == member.id %}
+                                                      {{ inyongeramusaruro.BriqueteUnity * inyongeramusaruro.BriquetePU }}
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% endif %}
+                                        </td>
+                                        <td>
+                                          {% if inyongera %}
+                                              {% for inyongeramusaruro in inyongera %}
+                                                  {% if inyongeramusaruro.member_id == member.id %}
+                                                      {{ inyongeramusaruro.DapAndNPKUnity * inyongeramusaruro.DapAndNPKpu }}
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% endif %}
+                                        </td>
+                                        <td>
+                                          {% if inyongera %}
+                                              {% for inyongeramusaruro in inyongera %}
+                                                  {% if inyongeramusaruro.member_id == member.id %}
+                                                      {{ inyongeramusaruro.KCLUnity * inyongeramusaruro.KCLpu }}
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% endif %}
+                                        </td>
+                                        <td>
+                                          {% if inyongera %}
+                                              {% for inyongeramusaruro in inyongera %}
+                                                  {% if inyongeramusaruro.member_id == member.id %}
+                                                      {{ inyongeramusaruro.RedevanceUbuso * inyongeramusaruro.RedevancePU }}
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% endif %}
+                                        </td>
+                                        <td>
+                                          <a href="{{ url_for('aicos_stock_managment.injizaInyongeramusaruro', id=member.id) }}">
                                             <span class="badge badge-success" style="font-size: 14px;"><li class="fa fa-eye"></li> Injiza</span>
                                           </a>
                                         </td>

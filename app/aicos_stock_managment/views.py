@@ -95,29 +95,38 @@ def injizaUmusaruro(id):
     check_admin()
     memberid = Member.query.get_or_404(id)
     member_name = Member.query.filter_by(id=memberid.id).first()
+
+
     if memberid is None:
-        return redirect(url_for('aicos_stock_managment.stock'))
+        return redirect(url_for('aicos_stock_managment.umusaruro'))
     form = UmusaruroForm()
+
+
     if form.validate_on_submit():
         amazina = member_name.izina_ribanza + " " + member_name.izina_rikurikira
+
+
+
         umusaruro = Umusaruro(
                             amazina= amazina,
-                            resi = form.resi.data,
+                            resi = int(form.resi.data),
                             zone = form.zone.data,
-                            umusaruro=form.umusaruro.data,
+                            umusaruro = int(form.umusaruro.data),
                             umuceriWoKurya = form.umuceriWoKurya.data,
                             igiciroCyaKimwe = int(form.igiciroCyaKimwe.data),
-                            amafarangaYoGutonoza = form.amafrwYoGutonoza.data,
-                            umusanzu = form.umusanzu.data,
+                            amafarangaYoGutonoza = int(form.amafrwYoGutonoza.data) * int(form.umuceriWoKurya.data),
+                            umusanzu = int(form.umusanzu.data) * int(form.umusaruro.data),
                             member_id= member_name.id,
                             department_id = current_user.email,
-                            umwakaWisarura = form.umwakaWisarura.data
+                            umwakaWisarura = form.umwakaWisarura.data,
+                            umuceriWoKugurisha = int(form.umusaruro.data) - int(form.umuceriWoKurya.data),
+                            amafarangaYose = (int(form.umusaruro.data) - int(form.umuceriWoKurya.data)) * int(form.igiciroCyaKimwe.data)
                             )
 
         try:
             db.session.add(umusaruro)
             db.session.commit()
-            flash("Umaze kwandika ikindi gikorwa neza!")
+            flash("Umaze kwandika umusaruro wa" + member_name.izina_ribanza + " " + member_name.izina_rikurikira)
             return redirect(url_for('aicos_stock_managment.umusaruro'))
         except Exception:
             flash("Ntago amakuru watanze yashoboye kwakirwa neza!")
@@ -125,26 +134,38 @@ def injizaUmusaruro(id):
     return render_template('record_umusaruro.html', form=form, memberid=memberid, member_name=member_name)
 
 
-@aicos_stock_managment.route('/injiza/inyongeramusaruro', methods=['GET', 'POST'])
-def injizaInyongeramusaruro():
+@aicos_stock_managment.route('/injiza/inyongeramusaruro/<int:id>', methods=['GET', 'POST'])
+def injizaInyongeramusaruro(id):
     check_admin()
+    memberid = Member.query.get_or_404(id)
+    member_name = Member.query.filter_by(id=memberid.id).first()
+    inyongera = Inyongeramusaruro.query.filter_by(department_id=current_user.email).all()
+
+
+    if memberid is None:
+        return redirect(url_for('aicos_stock_managment.umusaruro'))
     form = InyongeramusaruroForm()
     if form.validate_on_submit():
 
+        amazina = member_name.izina_ribanza + " " + member_name.izina_rikurikira
+
         inyongeramusaruro = Inyongeramusaruro(
-                                    umusaruro_resi=form.resi.data,
-                                    BriqueteUnity= form.briquetteKg.data,
-                                    BriquetePU= form.briquettePU.data,
-                                    DapAndNPKUnity= form.DAPandNPKkg.data,
-                                    DapAndNPKpu= form.DAPandNPKpu.data,
-                                    KCLUnity= form.KCLkg.data,
-                                    KCLpu= form.KCLpu.data,
-                                    ImbutoIngano= form.ImbutoKg.data,
-                                    ImbutoPU= form.ImbutoPU.data,
-                                    RedevanceUbuso= form.redevenceUbuso.data,
-                                    RedevancePU= form.redevencePU.data,
+                                    amazina = amazina,
+                                    umusaruro_resi= int(form.resi.data),
+                                    BriqueteUnity= float(form.briquetteKg.data),
+                                    BriquetePU= int(form.briquettePU.data),
+                                    DapAndNPKUnity= float(form.DAPandNPKkg.data),
+                                    DapAndNPKpu= int(form.DAPandNPKpu.data),
+                                    KCLUnity= float(form.KCLkg.data),
+                                    KCLpu= int(form.KCLpu.data),
+                                    ImbutoIngano= float(form.ImbutoKg.data),
+                                    ImbutoPU= int(form.ImbutoPU.data),
+                                    RedevanceUbuso= float(form.redevenceUbuso.data),
+                                    RedevancePU= int(form.redevencePU.data),
                                     ImifukaAgaciro= form.ImifukaKg.data,
-                                    ImifukaYishyuwe= form.ImifukaPU.data,
+                                    ImifukaYishyuwe= int(form.ImifukaPU.data),
+                                    member_id = member_name.id,
+                                    umwakaWisarura = form.umwakaWisarura.data,
                                     department_id=current_user.email
                                     )
 
@@ -154,10 +175,10 @@ def injizaInyongeramusaruro():
             flash("Umaze kwinjiza neza inyongeramusaruro!")
             return redirect(url_for('aicos_stock_managment.inyongeramusaruro'))
         except Exception:
-            flash("Ntabwo Ibyo wakoze byinjiye neza!")
-            return redirect(url_for('aicos_stock_managment.injizaInyongeramusaruro'))
+            flash("Resi Winjije nta musaruro wayo wabonetse!")
+            return redirect(url_for('aicos_stock_managment.injizaInyongeramusaruro', form=form, id=memberid.id, memberid=memberid.id, member_name=member_name))
 
-    return render_template('/record_inyongeramusaruro.html', form=form)
+    return render_template('/record_inyongeramusaruro.html', form=form, memberid=memberid, member_name=member_name)
 
 
 @aicos_stock_managment.route('/injiza/ibyakoreshejwe', methods=['GET', 'POST'])

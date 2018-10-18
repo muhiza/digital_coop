@@ -8,9 +8,9 @@
     {{ utils.flashed_messages() }}
     	<div class="col-md-8">
     		<div class="tab-content">
-    			<div class="row" style="background-color: silver; margin: 0px;">
-		            <div class="col-md-7" style="margin-top: 15px; margin-left: 10px;">
-		                <h3>Andika Umusaruro</h3>
+    			<div class="row" style="background-color: silver; margin: 0px; text-align: center;">
+		            <div class="col-md-12" style="margin-top: 15px; margin-left: 10px;">
+		                <h3>Andika Inyongeramusaruro ya "{{ member_name.izina_ribanza + " " + member_name.izina_rikurikira }}"</h3>
 		            </div>
 		            <div class="col-md-4 text-right" style="margin-top: 15px;">
 		                <!--<button class="btn btn-outline-info">
@@ -19,7 +19,10 @@
 		            </div>
 		        </div>
                 <div class="tab-pane active" id="home4" role="tabpanel" aria-expanded="false" style="padding-bottom: 15px;">
-	                <form action="{{ url_for('aicos_stock_managment.injizaInyongeramusaruro')}}" method="post">
+	                <form action="{{ url_for('aicos_stock_managment.injizaInyongeramusaruro', id=memberid.id)}}" method="post">
+	                	<div class="">
+	                    	{{ wtf.form_field(form.umwakaWisarura) }}
+	                    </div>
 	                	<div class="">
 	                    	{{ wtf.form_field(form.resi) }}
 	                    </div>

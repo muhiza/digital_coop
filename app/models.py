@@ -1283,11 +1283,11 @@ class Umusaruro(db.Model):
 	umuceriWoKugurisha = db.Column(db.Integer)
 	igiciroCyaKimwe = db.Column(db.Integer)
 	umusanzu = db.Column(db.Integer)
-	amafaraYose = db.Column(db.Integer)
+	amafarangaYose = db.Column(db.Integer)
 	amafarangaYoGutonoza = db.Column(db.Integer)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
-	umwakaWisarura = db.Column(db.String(200))
+	umwakaWisarura = db.Column(db.String(50))
 
 	def __repr__(self):
 		return '<Umusaruro: {}>'.format(self.amazina)
@@ -1298,6 +1298,7 @@ class Inyongeramusaruro(db.Model):
 	
 	__tablename__ = "inyongeramusaruro"
 	id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	amazina = db.Column(db.String(200))
 	BriqueteUnity = db.Column(db.Float)
 	BriquetePU = db.Column(db.Integer)
 	DapAndNPKUnity = db.Column(db.Float)
@@ -1310,9 +1311,10 @@ class Inyongeramusaruro(db.Model):
 	RedevancePU = db.Column(db.Integer)
 	ImifukaAgaciro = db.Column(db.Integer)
 	ImifukaYishyuwe = db.Column(db.Integer)
-	umusaruro_resi = db.Column(db.Integer, db.ForeignKey('umusaruro.id'))
+	umusaruro_resi = db.Column(db.Integer)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
+	umwakaWisarura = db.Column(db.String(50))
 
 	def __repr__(self):
 		return '<Inyongeramusaruro: {}>'.format(self.id)
