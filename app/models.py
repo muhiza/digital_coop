@@ -1268,6 +1268,7 @@ class userInfo(db.Model):
 
 """ model added for stock management in system """
 
+
 class Umusaruro(db.Model):
 	""" create umusaruro table """
 
@@ -1311,7 +1312,7 @@ class Inyongeramusaruro(db.Model):
 	RedevancePU = db.Column(db.Integer)
 	ImifukaAgaciro = db.Column(db.Integer)
 	ImifukaYishyuwe = db.Column(db.Integer)
-	umusaruro_resi = db.Column(db.Integer)
+	umusaruro_resi = db.Column(db.Integer, unique=True)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
 	umwakaWisarura = db.Column(db.String(50))
@@ -1334,7 +1335,7 @@ class Ibyakoreshejwe(db.Model):
 	PandS = db.Column(db.Integer)
 	ibyoYagurijwe = db.Column(db.Integer)
 	ibindiYasbwe = db.Column(db.Integer)
-	umusaruro_resi = db.Column(db.Integer, db.ForeignKey('umusaruro.id'))
+	umusaruro_resi = db.Column(db.Integer)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
 
@@ -1348,7 +1349,7 @@ class CoopMemberBankAccounts(db.Model):
 	memberName = db.Column(db.String(100))
 	bankName = db.Column(db.String(50), unique=True)
 	bankAccountNumber = db.Column(db.String(50), unique=True)
-	umusaruro_resi = db.Column(db.Integer, db.ForeignKey('umusaruro.id'))
+	umusaruro_resi = db.Column(db.Integer)
 	member_id = db.Column(db.Integer, db.ForeignKey('members.id'))
 	department_id = db.Column(db.String(200), db.ForeignKey('departments.email'))
 

@@ -174,7 +174,7 @@ def injizaInyongeramusaruro(id):
             db.session.commit()
             flash("Umaze kwinjiza neza inyongeramusaruro!")
             return redirect(url_for('aicos_stock_managment.inyongeramusaruro'))
-        except Exception:
+        except:
             flash("Resi Winjije nta musaruro wayo wabonetse!")
             return redirect(url_for('aicos_stock_managment.injizaInyongeramusaruro', form=form, id=memberid.id, memberid=memberid.id, member_name=member_name))
 

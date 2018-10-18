@@ -646,10 +646,10 @@
                               <thead>
                                 <tr>
                                     <th>Amazina</th>
-                                    <th>Zone</th>
-                                    <th>Umusaruro</th>
-                                    <th>Umusanzu</th>
-                                    <th>Amafanga yose</th>
+                                    <th>Beam & Sup</th>
+                                    <th>Ibihano</th>
+                                    <th>Kwishyura itsinda</th>
+                                    <th> APIISAMAK ibihano </th>
                                     <th>Injiza</th>
                                     <th>Ibindi</th>
                                 </tr>
@@ -658,10 +658,10 @@
                             <tfoot>
                                 <tr>
                                     <th>Amazina</th>
-                                    <th>Zone</th>
-                                    <th>Umusaruro</th>
-                                    <th>Umusanzu</th>
-                                    <th>Amafaranga yose</th>
+                                    <th>Beam & Sup</th>
+                                    <th>Ibihano</th>
+                                    <th>Kwishyura itsinda</th>
+                                    <th>APIISAMAK ibihano</th>
                                     <th>Injiza</th>
                                     <th>Ibindi</th>
                                 </tr>
@@ -670,14 +670,46 @@
                               {% if employees %}
                                   {% for member in employees %}
                                       <tr>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
-                                        <td>{{ member.id }}</td>
+                                        <td>{{ member.izina_ribanza + " " + member.izina_rikurikira }}</td>
+                                        <td>
+                                            {% if ibyakoreshejwe %}
+                                                {% for ibyakoze in ibyakoreshejwe %}
+                                                    {% if ibyakoze.member_id == member.id %}
+                                                        {{ ibyakoze.deamAndSup }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if ibyakoreshejwe %}
+                                                {% for ibyakoze in ibyakoreshejwe %}
+                                                    {% if ibyakoze.member_id == member.id %}
+                                                        {{ ibyakoze.ibihanoCoop }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if ibyakoreshejwe %}
+                                                {% for ibyakoze in ibyakoreshejwe %}
+                                                    {% if ibyakoze.member_id == member.id %}
+                                                        {{ ibyakoze.APKSAMAKIbihano }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if ibyakoreshejwe %}
+                                                {% for ibyakoze in ibyakoreshejwe %}
+                                                    {% if ibyakoze.member_id == member.id %}
+                                                        {{ ibyakoze.kwishyuraItsinda }}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% endif %}
+                                        </td>
                                         <td>
                                           <a href="#">
-                                            <span class="badge badge-success" style="font-size: 14px;"><li class="fa fa-eye"></li> Injiza</span>
+                                            <span class="badge badge-success" style="font-size: 14px;"><li class="fa fa-plus"></li> Injiza</span>
                                           </a>
                                         </td>
                                         <td>
